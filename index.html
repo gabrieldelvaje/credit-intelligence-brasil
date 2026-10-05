@@ -3,187 +3,73 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Credit Intelligence Brasil — Data Lab</title>
-  <style>
-    :root{
-      --bg:#f3f3f1;--ink:#231f20;--muted:#6f6f6b;--line:#d9d9d4;--card:#fff;
-      --blue:#0736fe;--green:#17854b;--soft:#ecece8;
-      font-family:Helvetica,Arial,sans-serif;color-scheme:light;
-    }
-    *{box-sizing:border-box}
-    body{margin:0;background:var(--bg);color:var(--ink)}
-    main{max-width:1180px;margin:auto;padding:34px 20px 72px}
-    .eyebrow{font-size:12px;letter-spacing:.11em;text-transform:uppercase;font-weight:700;color:var(--blue)}
-    h1{font-size:clamp(38px,7vw,82px);line-height:.9;letter-spacing:-.055em;margin:10px 0 18px;max-width:900px}
-    .intro{font-size:18px;line-height:1.5;max-width:780px;color:#555;margin:0 0 34px}
-    .status-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:22px}
-    .pill{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--card);padding:9px 12px;border-radius:999px;font-size:13px}
-    .dot{width:9px;height:9px;border-radius:50%;background:#999}
-    .dot.ok{background:var(--green)}
-    .dot.wait{background:#c28d16}
-    .grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:0 0 28px}
-    .metric{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px;min-height:122px}
-    .metric-label{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
-    .metric-value{font-size:clamp(24px,3vw,38px);font-weight:700;letter-spacing:-.035em;margin-top:12px}
-    .metric-sub{font-size:12px;color:var(--muted);margin-top:7px}
-    .panel{background:var(--card);border:1px solid var(--line);border-radius:22px;overflow:hidden}
-    .panel-head{padding:20px 20px 14px;display:flex;justify-content:space-between;gap:18px;align-items:flex-end;flex-wrap:wrap}
-    .panel h2{font-size:28px;letter-spacing:-.035em;margin:0}
-    .panel p{color:var(--muted);margin:6px 0 0;font-size:14px;line-height:1.5;max-width:720px}
-    .actions{display:flex;gap:8px;flex-wrap:wrap}
-    .btn{appearance:none;border:1px solid var(--ink);background:transparent;color:inherit;border-radius:999px;padding:10px 14px;font:inherit;font-size:13px;text-decoration:none;cursor:pointer}
-    .btn.primary{background:var(--ink);color:#fff}
-    .table-wrap{overflow:auto;border-top:1px solid var(--line);max-height:620px}
-    table{width:100%;border-collapse:collapse;min-width:620px}
-    thead th{position:sticky;top:0;background:#fafaf8;z-index:1}
-    th,td{padding:14px 20px;border-bottom:1px solid #ecece8;text-align:left}
-    th{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-    td{font-size:14px}
-    td.value{font-variant-numeric:tabular-nums;font-weight:700}
-    tr:last-child td{border-bottom:0}
-    .source{color:var(--muted)}
-    .empty{padding:30px;color:var(--muted)}
-    .error{display:none;background:#fff4df;border:1px solid #e5bd6c;border-radius:16px;padding:14px 16px;margin-bottom:18px;line-height:1.45}
-    .foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:16px;color:var(--muted);font-size:12px}
-    code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--soft);padding:2px 5px;border-radius:5px}
-    @media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}}
-    @media(max-width:560px){main{padding:26px 14px 50px}.grid{grid-template-columns:1fr}.metric{min-height:auto}.panel-head{padding:16px}.intro{font-size:16px}th,td{padding:12px 14px}}
-  </style>
+  <meta name="theme-color" content="#F3F3F1">
+  <meta name="description" content="Credit Intelligence Brasil: crédito, inadimplência, juros e contexto macroeconômico em dados.">
+  <title>Credit Intelligence Brasil</title>
+  <link rel="stylesheet" href="styles.css?v=1">
+  <link rel="stylesheet" href="follow-up-suggestions.css?v=1">
+  <link rel="stylesheet" href="chat-animations.css?v=1">
+  <link rel="stylesheet" href="chat-minimal-suggestions.css?v=1">
+  <link rel="stylesheet" href="answer-neutral-surfaces.css?v=1">
+  <link rel="stylesheet" href="dark-flat-overlays.css?v=1">
+  <link rel="stylesheet" href="credit-blue.css?v=1">
 </head>
 <body>
-<main>
-  <div class="eyebrow">Data pipeline test · GitHub Pages</div>
-  <h1>Credit Intelligence Brasil</h1>
-  <p class="intro">Primeiro teste real da infraestrutura. A página não consulta o Banco Central diretamente: ela lê a cópia persistida no próprio repositório pelo GitHub Actions.</p>
+  <header class="topbar">
+    <button class="brand-icon" id="new-chat" title="Novo chat" aria-label="Novo chat">R$</button>
+    <div class="brand-copy">
+      <strong>Credit Intelligence Brasil</strong>
+      <span id="brand-by">Desenvolvido por Gabriel Delvaje</span>
+    </div>
+    <button id="locale-toggle" type="button" aria-label="Alterar idioma">EN</button>
+    <button class="theme-button" id="theme-toggle" aria-label="Alternar tema">◐</button>
+  </header>
 
-  <div id="error" class="error"></div>
+  <main class="page-shell">
+    <section class="hero" id="home-hero">
+      <h1 id="hero-title">O que você quer saber sobre crédito e inadimplência?</h1>
+      <p id="hero-subtitle">Consulte inadimplência, endividamento, crédito, juros e contexto macroeconômico do Brasil.</p>
+      <div class="suggestions" id="suggestions">
+        <button class="sci-capability-suggestion" data-q-pt="O que você pode fazer?" data-q-en="What can you do?">O que você pode fazer?</button>
+        <button data-q-pt="A inadimplência das pessoas físicas está aumentando?" data-q-en="Is household delinquency increasing?">A inadimplência das pessoas físicas está aumentando?</button>
+        <button data-q-pt="Qual modalidade de crédito tem a maior inadimplência hoje?" data-q-en="Which credit category has the highest delinquency rate today?">Qual modalidade de crédito tem a maior inadimplência hoje?</button>
+        <button data-q-pt="Qual é a previsão da inadimplência PF para os próximos 6 meses?" data-q-en="What is the 6-month forecast for household delinquency?">Qual é a previsão da inadimplência PF para os próximos 6 meses?</button>
+      </div>
+    </section>
 
-  <div class="status-row">
-    <span class="pill"><span id="status-dot" class="dot wait"></span><strong id="status-text">Carregando base…</strong></span>
-    <span class="pill">Fonte: Banco Central do Brasil · SGS 21084</span>
-  </div>
-
-  <section class="grid" aria-label="Resumo dos dados">
-    <article class="metric">
-      <div class="metric-label">Último valor</div>
-      <div id="latest-value" class="metric-value">—</div>
-      <div id="latest-date" class="metric-sub">—</div>
-    </article>
-    <article class="metric">
-      <div class="metric-label">Histórico armazenado</div>
-      <div id="period" class="metric-value">—</div>
-      <div class="metric-sub">Mantido no próprio repositório</div>
-    </article>
-    <article class="metric">
-      <div class="metric-label">Registros</div>
-      <div id="row-count" class="metric-value">—</div>
-      <div class="metric-sub">Periodicidade mensal</div>
-    </article>
-    <article class="metric">
-      <div class="metric-label">Última gravação</div>
-      <div id="last-change" class="metric-value" style="font-size:22px">—</div>
-      <div class="metric-sub">UTC · somente quando a base muda</div>
-    </article>
-  </section>
-
-  <section class="panel">
-    <div class="panel-head">
+    <section class="status-card" id="loading-card" aria-live="polite">
+      <span class="loader"></span>
       <div>
-        <h2>Inadimplência PF — total</h2>
-        <p>Percentual da carteira de crédito do Sistema Financeiro Nacional com pelo menos uma parcela em atraso superior a 90 dias.</p>
+        <strong id="loading-title">Carregando base de crédito</strong>
+        <small id="loading-small">Banco Central + indicadores do IBGE via SGS.</small>
       </div>
-      <div class="actions">
-        <button id="toggle-history" class="btn" type="button" disabled>Mostrar histórico completo</button>
-        <a class="btn" href="data/raw/sgs_21084.json">Abrir JSON bruto</a>
-        <a class="btn primary" href="data/inadimplencia_pf_total.csv" download>Baixar CSV</a>
-      </div>
-    </div>
+    </section>
 
-    <div class="table-wrap">
-      <table>
-        <thead><tr><th>Referência</th><th>Inadimplência</th><th>Série</th><th>Fonte</th></tr></thead>
-        <tbody id="tbody"><tr><td colspan="4" class="empty">Aguardando os arquivos do pipeline…</td></tr></tbody>
-      </table>
-    </div>
-  </section>
+    <section id="conversation" class="conversation" aria-live="polite"></section>
+  </main>
 
-  <div class="foot">
-    <span>Pipeline: <code>API BCB → validação → CSV/JSON → GitHub → Pages</code></span>
-    <span>Fallback: se a API falhar, a última base válida é preservada.</span>
-  </div>
-</main>
+  <form class="question-bar" id="question-form">
+    <label class="sr-only" for="question">Sua pergunta</label>
+    <input id="question" autocomplete="off" placeholder="Pergunte sobre inadimplência, crédito, juros ou previsão...">
+    <button type="submit" aria-label="Enviar pergunta">
+      <svg class="submit-snake-loader submit-idle-arrow" viewBox="0 0 24 24" aria-hidden="true">
+        <path class="submit-snake-shaft" d="M12 19 L12 9"></path>
+        <path class="submit-snake-head" d="M12.64 5.64 Q12 5 11.36 5.64 L8.64 8.36 Q8 9 8.95 9 L15.05 9 Q16 9 15.36 8.36 Z"></path>
+      </svg>
+    </button>
+  </form>
 
-<script>
-(() => {
-  const state = { rows: [], full: false };
-  const tbody = document.getElementById("tbody");
-  const toggle = document.getElementById("toggle-history");
-  const fmtPct = new Intl.NumberFormat("pt-BR",{minimumFractionDigits:2,maximumFractionDigits:2});
-  const fmtMonth = new Intl.DateTimeFormat("pt-BR",{month:"short",year:"numeric",timeZone:"UTC"});
-  const fmtDateTime = new Intl.DateTimeFormat("pt-BR",{dateStyle:"short",timeStyle:"short",timeZone:"UTC"});
+  <a class="data-link" href="data/catalog.json">19 indicadores · dados</a>
 
-  function monthLabel(iso){
-    const [y,m,d] = iso.split("-").map(Number);
-    return fmtMonth.format(new Date(Date.UTC(y,m-1,d))).replace(".","");
-  }
+  <template id="message-template">
+    <article class="message">
+      <div class="message-icon"></div>
+      <div class="message-content"></div>
+    </article>
+  </template>
 
-  function parseCsv(text){
-    const lines = text.trim().split(/\r?\n/);
-    const headers = lines.shift().split(",");
-    return lines.filter(Boolean).map(line => {
-      const values = line.split(",");
-      return Object.fromEntries(headers.map((h,i)=>[h,values[i]]));
-    });
-  }
-
-  function render(){
-    const rows = state.full ? state.rows : state.rows.slice(0,24);
-    tbody.innerHTML = rows.map(r =>
-      `<tr><td>${monthLabel(r.date)}</td><td class="value">${fmtPct.format(Number(r.value))}%</td><td>SGS ${r.source_code}</td><td class="source">Banco Central do Brasil</td></tr>`
-    ).join("");
-    toggle.textContent = state.full ? "Mostrar só 24 meses" : "Mostrar histórico completo";
-  }
-
-  async function init(){
-    try{
-      const bust = Date.now();
-      const [mr,cr] = await Promise.all([
-        fetch("data/metadata.json?v="+bust,{cache:"no-store"}),
-        fetch("data/inadimplencia_pf_total.csv?v="+bust,{cache:"no-store"})
-      ]);
-      if(!mr.ok || !cr.ok) throw new Error("Os arquivos da primeira carga ainda não foram publicados.");
-
-      const meta = await mr.json();
-      state.rows = parseCsv(await cr.text()).sort((a,b)=>b.date.localeCompare(a.date));
-      if(!state.rows.length) throw new Error("O CSV foi encontrado, mas está vazio.");
-
-      const latest = state.rows[0];
-      document.getElementById("latest-value").textContent = fmtPct.format(Number(latest.value))+"%";
-      document.getElementById("latest-date").textContent = monthLabel(latest.date);
-      document.getElementById("period").textContent = monthLabel(meta.first_reference)+" → "+monthLabel(meta.latest_reference);
-      document.getElementById("row-count").textContent = Number(meta.rows).toLocaleString("pt-BR");
-      document.getElementById("last-change").textContent = meta.last_dataset_change_utc
-        ? fmtDateTime.format(new Date(meta.last_dataset_change_utc))
-        : "Sem alteração";
-      document.getElementById("status-text").textContent = "Base local carregada";
-      document.getElementById("status-dot").className = "dot ok";
-      toggle.disabled = false;
-      render();
-    }catch(err){
-      const box = document.getElementById("error");
-      box.style.display = "block";
-      box.textContent = "Ainda não consegui carregar a base persistida. " + err.message;
-      document.getElementById("status-text").textContent = "Aguardando primeira carga";
-    }
-  }
-
-  toggle.addEventListener("click",()=>{
-    state.full = !state.full;
-    render();
-  });
-
-  init();
-})();
-</script>
+  <script src="app.js?v=1"></script>
+  <script src="chat-ui-v5.js?v=1"></script>
+  <script src="question-builder-credit.js?v=1"></script>
 </body>
 </html>
