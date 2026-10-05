@@ -60,9 +60,18 @@ function ranking(){
   return`<h2 class="result-title">${t('Modalidades com maior inadimplência','Highest delinquency categories')}</h2><p class="answer">${t('Na leitura mais recente de cada série,','Using the latest observation available for each series,')} <strong>${esc(label(winner.m))}</strong> ${t('aparece no topo, com','ranks first at')} <strong>${esc(formatValue(winner.r.value,winner.m))}</strong>.</p>${cards(rows.map(x=>({label:label(x.m),value:formatValue(x.r.value,x.m),small:monthFmt(x.r.date)})))}<div class="table-wrap"><table class="data-table"><thead><tr><th>#</th><th>${t('Modalidade','Category')}</th><th>${t('Valor','Value')}</th><th>${t('Referência','Reference')}</th></tr></thead><tbody>${rows.map((x,i)=>`<tr><td>${i+1}</td><td>${esc(label(x.m))}</td><td class="number">${esc(formatValue(x.r.value,x.m))}</td><td>${esc(monthFmt(x.r.date))}</td></tr>`).join('')}</tbody></table></div>`
 }
 function trendAnswer(key,q){
-  const m=meta(key),rows=sliceRange(seriesRows(key),q);if(!m||!rows.length)return`<div class="error">${t('Não encontrei dados para esse recorte.','I could not find data for that selection.')}</div>`;
-  const first=rows[0],last=rows.at(-1),change=last.value-first.value,yearAgo=rows.length>12?rows.at(-13):first,yoy=last.value-yearAgo.value,direction=change>0?t('subiu','increased'):change<0?t('caiu','decreased'):t('ficou estável','was stable');
-  return`<h2 class="result-title">${esc(label(m))}</h2><p class="answer">${t('O último valor disponível é','The latest available value is')} <strong>${esc(formatValue(last.value,m))}</strong> (${esc(monthFmt(last.date))}). ${t('No período selecionado, o indicador','Over the selected period, the indicator')} <strong>${direction}</strong> ${esc(formatValue(Math.abs(change),m))}.</p>${cards([{label:t('Último valor','Latest value'),value:formatValue(last.value,m),small:monthFmt(last.date)},{label:t('Variação 12 meses','12-month change'),value:`${yoy>=0?'+':''}${numFmt(yoy,2)} p.p.`},{label:t('Início do recorte','Start of range'),value:formatValue(first.value,m),small:monthFmt(first.date)}])}${chart([{label:label(m),points:rows}],label(m))}${table(rows,m)}`
+  const m=meta(key);
+  let rows=seriesRows(key);
+  const [fromYear,toYear]=yearsIn(q),n=norm(q);
+  if(fromYear||toYear)rows=sliceRange(rows,q);
+  else if(!/histor|serie completa|série completa|full series|toda a serie|toda a série/.test(n))rows=rows.slice(-36);
+  if(!m||!rows.length)return `<div class="error">${t('Não encontrei dados para esse recorte.','I could not find data for that selection.')}</div>`;
+  const first=rows[0],last=rows.at(-1),change=last.value-first.value,yearAgo=rows.length>12?rows.at(-13):first,yoyDelta=last.value-yearAgo.value;
+  const isRate=(m.unit||'').includes('%');
+  const deltaText=isRate?`${numFmt(Math.abs(change),2)} p.p.`:formatValue(Math.abs(change),m);
+  const yoyText=isRate?`${yoyDelta>=0?'+':''}${numFmt(yoyDelta,2)} p.p.`:`${((last.value/yearAgo.value)-1)>=0?'+':''}${numFmt(((last.value/yearAgo.value)-1)*100,1)}%`;
+  const direction=change>0?t('subiu','increased'):change<0?t('caiu','decreased'):t('ficou estável','was stable');
+  return `<h2 class="result-title">${esc(label(m))}</h2><p class="answer">${t('O último valor disponível é','The latest available value is')} <strong>${esc(formatValue(last.value,m))}</strong> (${esc(monthFmt(last.date))}). ${t('No período exibido, o indicador','Over the displayed period, the indicator')} <strong>${direction}</strong> ${esc(deltaText)}.</p>${cards([{label:t('Último valor','Latest value'),value:formatValue(last.value,m),small:monthFmt(last.date)},{label:t('Variação 12 meses','12-month change'),value:yoyText},{label:t('Início do recorte','Start of range'),value:formatValue(first.value,m),small:monthFmt(first.date)}])}${chart([{label:label(m),points:rows}],label(m))}${table(rows,m)}`
 }
 function compareAnswer(keys,q){
   const ms=keys.slice(0,2).map(meta),sets=keys.slice(0,2).map((k,i)=>({label:label(ms[i]),points:sliceRange(seriesRows(k),q)})).filter(s=>s.points.length);if(sets.length<2)return trendAnswer(keys[0],q);
