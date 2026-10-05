@@ -10,7 +10,7 @@ import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
 
-SERIES_CODE = "21084"\n# Initial validation: this file change intentionally triggers the first workflow run.
+SERIES_CODE = "21084"
 SERIES_NAME = "Inadimplência da carteira de crédito - Pessoas físicas - Total"
 UNIT = "Percentual"
 SOURCE = "Banco Central do Brasil - SGS"
