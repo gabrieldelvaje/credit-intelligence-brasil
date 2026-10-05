@@ -26,7 +26,7 @@ METADATA_PATH = DATA_DIR / "metadata.json"
 
 def fetch_json(url: str, attempts: int = 4, timeout: int = 30):
     headers = {
-        "User-Agent": "Credit-Intelligence-Brasil/0.1 (+https://github.com/gabrieldelvaje/credit-itelligence-brasil)",
+        "User-Agent": "Credit-Intelligence-Brasil/0.1 (+https://github.com/gabrieldelvaje/credit-intelligence-brasil)",
         "Accept": "application/json",
     }
     last_error = None
