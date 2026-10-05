@@ -1,0 +1,37 @@
+/* Sugestões como cápsulas com extremidades totalmente arredondadas. */
+.suggestions,
+.follow-up-suggestions {
+  column-gap: 12px;
+  row-gap: 12px;
+}
+.suggestions button,
+.follow-up-suggestions button {
+  display: block;
+  width: 100%;
+  min-height: 52px;
+  padding: 12px 20px;
+  border: 1px solid var(--line);
+  border-radius: 9999px;
+  background: var(--surface);
+  box-shadow: none;
+  color: var(--text);
+  text-align: left;
+  line-height: 1.45;
+  cursor: pointer;
+  transition: border-color 160ms ease, background-color 160ms ease;
+}
+.suggestions button:hover,
+.follow-up-suggestions button:hover {
+  border-color: var(--brand);
+  background: var(--surface2);
+  color: var(--text);
+  text-decoration: none;
+}
+.suggestions button:focus-visible,
+.follow-up-suggestions button:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 3px;
+  border-radius: 9999px;
+}
+/* Manter apenas o botão de tema alinhado à direita. */
+.topbar #theme-toggle { margin-left: auto; }
