@@ -1,0 +1,103 @@
+/* Restrict the neutral palette to generated bot results. Both themes use
+   layered neutral surfaces; accent green belongs to interactive highlights. */
+:root {
+  --answer-card-bg: #edf0f3;
+  --answer-table-bg: #f0f2f5;
+  --answer-chart-bg: #e9edf1;
+  --answer-table-head-bg: #e7ebf0;
+  --answer-border: #cfd7df;
+  --answer-separator: #d9dfe6;
+  --answer-muted: #68717a;
+  --answer-suggestion-bg: #edf0f3;
+  --answer-suggestion-border: #d6dde4;
+  --answer-suggestion-text: #68727c;
+  --answer-suggestion-hover-bg: #e5e9ee;
+  --answer-suggestion-hover-border: #bfc8cb;
+}
+[data-theme="dark"] {
+  --answer-card-bg: #25292b;
+  --answer-table-bg: #1b2021;
+  --answer-chart-bg: #25292b;
+  --answer-table-head-bg: #292f31;
+  --answer-border: #42494c;
+  --answer-separator: #363e40;
+  --answer-muted: #a9b1b5;
+  --answer-suggestion-bg: #202527;
+  --answer-suggestion-border: #343c3f;
+  --answer-suggestion-text: #adb5b9;
+  --answer-suggestion-hover-bg: #2a3032;
+  --answer-suggestion-hover-border: #68777c;
+}
+
+.conversation .message.assistant .chart {
+  background: var(--answer-chart-bg);
+}
+
+.conversation .message.assistant .kpi {
+  background: var(--answer-card-bg);
+  border-color: var(--answer-border);
+  box-shadow: none;
+}
+.conversation .message.assistant .kpi span { color: var(--answer-muted); }
+.conversation .message.assistant .table-wrap {
+  background: var(--answer-table-bg);
+  border-color: var(--answer-border);
+  box-shadow: none;
+}
+.conversation .message.assistant .data-table {
+  background: var(--answer-table-bg);
+  color: var(--text);
+}
+.conversation .message.assistant .data-table th {
+  background: var(--answer-table-head-bg);
+  color: var(--answer-muted);
+  border-bottom-color: var(--answer-border);
+}
+.conversation .message.assistant .data-table td {
+  background: var(--answer-table-bg);
+  border-bottom-color: var(--answer-separator);
+}
+/* Apply only to the two optional follow-up questions, not the actionable
+   correction offered after an invalid comparison. */
+.conversation .message.assistant .follow-up-suggestions:not(.positive-comparison-retry) {
+  gap: 10px 14px;
+  margin-top: 32px;
+  padding-top: 16px;
+  border-top: 1px solid var(--answer-separator);
+}
+.conversation .message.assistant .follow-up-suggestions:not(.positive-comparison-retry) .follow-up-label {
+  margin: 0 0 2px;
+  color: var(--answer-muted);
+  font-size: 12px;
+  font-weight: 500;
+}
+.conversation .message.assistant .follow-up-suggestions:not(.positive-comparison-retry) button {
+  min-height: 44px;
+  padding: 10px 14px;
+  border-radius: 9999px;
+  background: var(--answer-suggestion-bg);
+  border-color: var(--answer-suggestion-border);
+  color: var(--answer-suggestion-text);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.35;
+  box-shadow: none;
+  transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease;
+}
+.conversation .message.assistant .follow-up-suggestions:not(.positive-comparison-retry) button:hover,
+.conversation .message.assistant .follow-up-suggestions:not(.positive-comparison-retry) button:focus-visible {
+  background: var(--answer-suggestion-hover-bg);
+  border-color: var(--answer-suggestion-hover-border);
+  color: var(--text);
+}
+.conversation .message.assistant .follow-up-suggestions:not(.positive-comparison-retry) button:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
+@media (max-width: 650px) {
+  .conversation .message.assistant .follow-up-suggestions:not(.positive-comparison-retry) {
+    margin-top: 26px;
+    padding-top: 14px;
+    gap: 8px;
+  }
+}
