@@ -1,12 +1,222 @@
 {
-  "series_code": "21084",
-  "series_name": "Inadimplência da carteira de crédito - Pessoas físicas - Total",
-  "unit": "Percentual",
-  "source": "Banco Central do Brasil - SGS",
-  "api_url": "https://api.bcb.gov.br/dados/serie/bcdata.sgs.21084/dados?formato=json",
-  "first_reference": "2011-03-01",
-  "latest_reference": "2026-08-01",
-  "rows": 186,
-  "last_dataset_change_utc": "2026-10-05T23:30:44+00:00",
-  "fallback_policy": "Se a API falhar ou regredir, a última base válida é preservada."
+  "project": "Credit Intelligence Brasil",
+  "generated_at_utc": "2026-10-05T23:49:46+00:00",
+  "series_count": 19,
+  "rows": 9768,
+  "sources": [
+    "Banco Central do Brasil / SGS",
+    "IBGE via SGS (PNAD Contínua)"
+  ],
+  "update_policy": "O workflow roda diariamente. Cada série é persistida somente quando há alteração; falhas usam a última versão válida.",
+  "series_status": {
+    "delinquency_pf": {
+      "key": "delinquency_pf",
+      "code": "21084",
+      "status": "ok",
+      "last_attempt_utc": "2026-10-05T23:49:27+00:00",
+      "last_success_utc": "2026-10-05T23:49:28+00:00",
+      "first_reference": "2011-03-01",
+      "latest_reference": "2026-08-01",
+      "rows": 186,
+      "latest_value": 6.03
+    },
+    "delinquency_pj": {
+      "key": "delinquency_pj",
+      "code": "21083",
+      "status": "ok",
+      "last_attempt_utc": "2026-10-05T23:49:28+00:00",
+      "last_success_utc": "2026-10-05T23:49:29+00:00",
+      "first_reference": "2011-03-01",
+      "latest_reference": "2026-08-01",
+      "rows": 186,
+      "latest_value": 3.35
+    },
+    "delinquency_card": {
+      "key": "delinquency_card",
+      "code": "21129",
+      "status": "ok",
+      "last_attempt_utc": "2026-10-05T23:49:29+00:00",
+      "last_success_utc": "2026-10-05T23:49:30+00:00",
+      "first_reference": "2011-03-01",
+      "latest_reference": "2026-08-01",
+      "rows": 186,
+      "latest_value": 9.96
+    },
+    "delinquency_revolving": {
+      "key": "delinquency_revolving",
+      "code": "21127",
+      "status": "ok",
+      "last_attempt_utc": "2026-10-05T23:49:30+00:00",
+      "last_success_utc": "2026-10-05T23:49:30+00:00",
+      "first_reference": "2011-03-01",
+      "latest_reference": "2026-08-01",
+      "rows": 186,
+      "latest_value": 66.15
+    },
+    "delinquency_personal": {
+      "key": "delinquency_personal",
+      "code": "21120",
+      "status": "ok",
+      "last_attempt_utc": "2026-10-05T23:49:30+00:00",
+      "last_success_utc": "2026-10-05T23:49:31+00:00",
+      "first_reference": "2011-03-01",
+      "latest_reference": "2026-08-01",
+      "rows": 186,
+      "latest_value": 6.17
+    },
+    "delinquency_vehicle": {
+      "key": "delinquency_vehicle",
+      "code": "21121",
+      "status": "ok",
+      "last_attempt_utc": "2026-10-05T23:49:31+00:00",
+      "last_success_utc": "2026-10-05T23:49:33+00:00",
+      "first_reference": "2011-03-01",
+      "latest_reference": "2026-08-01",
+      "rows": 186,
+      "latest_value": 6.57
+    },
+    "household_debt": {
+      "key": "household_debt",
+      "code": "29037",
+      "status": "ok",
+      "last_attempt_utc": "2026-10-05T23:49:33+00:00",
+      "last_success_utc": "2026-10-05T23:49:33+00:00",
+      "first_reference": "2005-01-01",
+      "latest_reference": "2026-07-01",
+      "rows": 259,
+      "latest_value": 49.86
+    },
+    "household_debt_ex_housing": {
+      "key": "household_debt_ex_housing",
+      "code": "29038",
+      "status": "ok",
+      "last_attempt_utc": "2026-10-05T23:49:33+00:00",
+      "last_success_utc": "2026-10-05T23:49:34+00:00",
+      "first_reference": "2005-01-01",
+      "latest_reference": "2026-07-01",
+      "rows": 259,
+      "latest_value": 30.81
+    },
+    "income_commitment": {
+      "key": "income_commitment",
+      "code": "29034",
+      "status": "ok",
+      "last_attempt_utc": "2026-10-05T23:49:34+00:00",
+      "last_success_utc": "2026-10-05T23:49:35+00:00",
+      "first_reference": "2005-03-01",
+      "latest_reference": "2026-07-01",
+      "rows": 257,
+      "latest_value": 28.72
+    },
+    "credit_balance_pf": {
+      "key": "credit_balance_pf",
+      "code": "20541",
+      "status": "ok",
+      "last_attempt_utc": "2026-10-05T23:49:35+00:00",
+      "last_success_utc": "2026-10-05T23:49:36+00:00",
+      "first_reference": "2007-03-01",
+      "latest_reference": "2026-08-01",
+      "rows": 234,
+      "latest_value": 4670170.0
+    },
+    "credit_balance_pj": {
+      "key": "credit_balance_pj",
+      "code": "20540",
+      "status": "ok",
+      "last_attempt_utc": "2026-10-05T23:49:36+00:00",
+      "last_success_utc": "2026-10-05T23:49:36+00:00",
+      "first_reference": "2007-03-01",
+      "latest_reference": "2026-08-01",
+      "rows": 234,
+      "latest_value": 2727499.0
+    },
+    "credit_grants_pf": {
+      "key": "credit_grants_pf",
+      "code": "20633",
+      "status": "ok",
+      "last_attempt_utc": "2026-10-05T23:49:36+00:00",
+      "last_success_utc": "2026-10-05T23:49:37+00:00",
+      "first_reference": "2011-03-01",
+      "latest_reference": "2026-08-01",
+      "rows": 186,
+      "latest_value": 394254.0
+    },
+    "credit_grants_pj": {
+      "key": "credit_grants_pj",
+      "code": "20632",
+      "status": "ok",
+      "last_attempt_utc": "2026-10-05T23:49:37+00:00",
+      "last_success_utc": "2026-10-05T23:49:38+00:00",
+      "first_reference": "2011-03-01",
+      "latest_reference": "2026-08-01",
+      "rows": 186,
+      "latest_value": 334993.0
+    },
+    "credit_interest_pf": {
+      "key": "credit_interest_pf",
+      "code": "25435",
+      "status": "ok",
+      "last_attempt_utc": "2026-10-05T23:49:38+00:00",
+      "last_success_utc": "2026-10-05T23:49:39+00:00",
+      "first_reference": "2011-03-01",
+      "latest_reference": "2026-08-01",
+      "rows": 186,
+      "latest_value": 2.73
+    },
+    "credit_interest_pj": {
+      "key": "credit_interest_pj",
+      "code": "25434",
+      "status": "ok",
+      "last_attempt_utc": "2026-10-05T23:49:39+00:00",
+      "last_success_utc": "2026-10-05T23:49:40+00:00",
+      "first_reference": "2011-03-01",
+      "latest_reference": "2026-08-01",
+      "rows": 186,
+      "latest_value": 1.51
+    },
+    "selic": {
+      "key": "selic",
+      "code": "432",
+      "status": "ok",
+      "last_attempt_utc": "2026-10-05T23:49:40+00:00",
+      "last_success_utc": "2026-10-05T23:49:42+00:00",
+      "first_reference": "2011-01-01",
+      "latest_reference": "2026-10-05",
+      "rows": 5757,
+      "latest_value": 13.75
+    },
+    "ipca": {
+      "key": "ipca",
+      "code": "433",
+      "status": "ok",
+      "last_attempt_utc": "2026-10-05T23:49:42+00:00",
+      "last_success_utc": "2026-10-05T23:49:43+00:00",
+      "first_reference": "1980-01-01",
+      "latest_reference": "2026-08-01",
+      "rows": 560,
+      "latest_value": -0.32
+    },
+    "unemployment": {
+      "key": "unemployment",
+      "code": "24369",
+      "status": "ok",
+      "last_attempt_utc": "2026-10-05T23:49:43+00:00",
+      "last_success_utc": "2026-10-05T23:49:45+00:00",
+      "first_reference": "2012-03-01",
+      "latest_reference": "2026-08-01",
+      "rows": 174,
+      "latest_value": 5.3
+    },
+    "real_income": {
+      "key": "real_income",
+      "code": "24380",
+      "status": "ok",
+      "last_attempt_utc": "2026-10-05T23:49:45+00:00",
+      "last_success_utc": "2026-10-05T23:49:46+00:00",
+      "first_reference": "2012-03-01",
+      "latest_reference": "2026-08-01",
+      "rows": 174,
+      "latest_value": 5784.0
+    }
+  }
 }

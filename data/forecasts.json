@@ -1,0 +1,278 @@
+{
+  "delinquency_pf": {
+    "model": "trend_seasonality_ols",
+    "horizon_months": 6,
+    "generated_at_utc": "2026-10-05T23:49:28+00:00",
+    "observed_through": "2026-08-01",
+    "points": [
+      {
+        "date": "2026-09-01",
+        "value": 5.2058,
+        "low80": 4.5419,
+        "high80": 5.8697
+      },
+      {
+        "date": "2026-10-01",
+        "value": 5.1884,
+        "low80": 4.5191,
+        "high80": 5.8578
+      },
+      {
+        "date": "2026-11-01",
+        "value": 5.1864,
+        "low80": 4.5117,
+        "high80": 5.8611
+      },
+      {
+        "date": "2026-12-01",
+        "value": 5.2095,
+        "low80": 4.5294,
+        "high80": 5.8895
+      },
+      {
+        "date": "2027-01-01",
+        "value": 5.2606,
+        "low80": 4.5753,
+        "high80": 5.946
+      },
+      {
+        "date": "2027-02-01",
+        "value": 5.3355,
+        "low80": 4.6449,
+        "high80": 6.0261
+      }
+    ],
+    "note_pt": "Projeção estatística de tendência + sazonalidade; não é previsão oficial.",
+    "note_en": "Statistical trend + seasonality projection; not an official forecast."
+  },
+  "delinquency_pj": {
+    "model": "trend_seasonality_ols",
+    "horizon_months": 6,
+    "generated_at_utc": "2026-10-05T23:49:29+00:00",
+    "observed_through": "2026-08-01",
+    "points": [
+      {
+        "date": "2026-09-01",
+        "value": 3.281,
+        "low80": 2.8266,
+        "high80": 3.7355
+      },
+      {
+        "date": "2026-10-01",
+        "value": 3.2679,
+        "low80": 2.8097,
+        "high80": 3.726
+      },
+      {
+        "date": "2026-11-01",
+        "value": 3.2643,
+        "low80": 2.8025,
+        "high80": 3.7262
+      },
+      {
+        "date": "2026-12-01",
+        "value": 3.2789,
+        "low80": 2.8134,
+        "high80": 3.7444
+      },
+      {
+        "date": "2027-01-01",
+        "value": 3.3153,
+        "low80": 2.8462,
+        "high80": 3.7845
+      },
+      {
+        "date": "2027-02-01",
+        "value": 3.3714,
+        "low80": 2.8987,
+        "high80": 3.8442
+      }
+    ],
+    "note_pt": "Projeção estatística de tendência + sazonalidade; não é previsão oficial.",
+    "note_en": "Statistical trend + seasonality projection; not an official forecast."
+  },
+  "delinquency_card": {
+    "model": "trend_seasonality_ols",
+    "horizon_months": 6,
+    "generated_at_utc": "2026-10-05T23:49:30+00:00",
+    "observed_through": "2026-08-01",
+    "points": [
+      {
+        "date": "2026-09-01",
+        "value": 9.3505,
+        "low80": 8.0024,
+        "high80": 10.6986
+      },
+      {
+        "date": "2026-10-01",
+        "value": 9.2449,
+        "low80": 7.8858,
+        "high80": 10.6041
+      },
+      {
+        "date": "2026-11-01",
+        "value": 9.18,
+        "low80": 7.81,
+        "high80": 10.5501
+      },
+      {
+        "date": "2026-12-01",
+        "value": 9.187,
+        "low80": 7.8061,
+        "high80": 10.5678
+      },
+      {
+        "date": "2027-01-01",
+        "value": 9.2777,
+        "low80": 7.886,
+        "high80": 10.6693
+      },
+      {
+        "date": "2027-02-01",
+        "value": 9.4416,
+        "low80": 8.0393,
+        "high80": 10.8439
+      }
+    ],
+    "note_pt": "Projeção estatística de tendência + sazonalidade; não é previsão oficial.",
+    "note_en": "Statistical trend + seasonality projection; not an official forecast."
+  },
+  "delinquency_revolving": {
+    "model": "trend_seasonality_ols",
+    "horizon_months": 6,
+    "generated_at_utc": "2026-10-05T23:49:30+00:00",
+    "observed_through": "2026-08-01",
+    "points": [
+      {
+        "date": "2026-09-01",
+        "value": 65.5683,
+        "low80": 61.9135,
+        "high80": 69.2231
+      },
+      {
+        "date": "2026-10-01",
+        "value": 65.6062,
+        "low80": 61.9216,
+        "high80": 69.2908
+      },
+      {
+        "date": "2026-11-01",
+        "value": 65.634,
+        "low80": 61.9198,
+        "high80": 69.3482
+      },
+      {
+        "date": "2026-12-01",
+        "value": 65.7525,
+        "low80": 62.009,
+        "high80": 69.4961
+      },
+      {
+        "date": "2027-01-01",
+        "value": 66.0383,
+        "low80": 62.2656,
+        "high80": 69.811
+      },
+      {
+        "date": "2027-02-01",
+        "value": 66.523,
+        "low80": 62.7214,
+        "high80": 70.3246
+      }
+    ],
+    "note_pt": "Projeção estatística de tendência + sazonalidade; não é previsão oficial.",
+    "note_en": "Statistical trend + seasonality projection; not an official forecast."
+  },
+  "delinquency_personal": {
+    "model": "trend_seasonality_ols",
+    "horizon_months": 6,
+    "generated_at_utc": "2026-10-05T23:49:31+00:00",
+    "observed_through": "2026-08-01",
+    "points": [
+      {
+        "date": "2026-09-01",
+        "value": 5.0393,
+        "low80": 4.3231,
+        "high80": 5.7555
+      },
+      {
+        "date": "2026-10-01",
+        "value": 5.0178,
+        "low80": 4.2958,
+        "high80": 5.7399
+      },
+      {
+        "date": "2026-11-01",
+        "value": 5.0066,
+        "low80": 4.2788,
+        "high80": 5.7345
+      },
+      {
+        "date": "2026-12-01",
+        "value": 5.0166,
+        "low80": 4.283,
+        "high80": 5.7502
+      },
+      {
+        "date": "2027-01-01",
+        "value": 5.0531,
+        "low80": 4.3138,
+        "high80": 5.7924
+      },
+      {
+        "date": "2027-02-01",
+        "value": 5.1142,
+        "low80": 4.3692,
+        "high80": 5.8591
+      }
+    ],
+    "note_pt": "Projeção estatística de tendência + sazonalidade; não é previsão oficial.",
+    "note_en": "Statistical trend + seasonality projection; not an official forecast."
+  },
+  "delinquency_vehicle": {
+    "model": "trend_seasonality_ols",
+    "horizon_months": 6,
+    "generated_at_utc": "2026-10-05T23:49:33+00:00",
+    "observed_through": "2026-08-01",
+    "points": [
+      {
+        "date": "2026-09-01",
+        "value": 5.8618,
+        "low80": 4.9375,
+        "high80": 6.7862
+      },
+      {
+        "date": "2026-10-01",
+        "value": 5.7937,
+        "low80": 4.8618,
+        "high80": 6.7256
+      },
+      {
+        "date": "2026-11-01",
+        "value": 5.7575,
+        "low80": 4.8182,
+        "high80": 6.6969
+      },
+      {
+        "date": "2026-12-01",
+        "value": 5.7696,
+        "low80": 4.8228,
+        "high80": 6.7164
+      },
+      {
+        "date": "2027-01-01",
+        "value": 5.8332,
+        "low80": 4.8791,
+        "high80": 6.7874
+      },
+      {
+        "date": "2027-02-01",
+        "value": 5.9378,
+        "low80": 4.9763,
+        "high80": 6.8993
+      }
+    ],
+    "note_pt": "Projeção estatística de tendência + sazonalidade; não é previsão oficial.",
+    "note_en": "Statistical trend + seasonality projection; not an official forecast."
+  }
+}

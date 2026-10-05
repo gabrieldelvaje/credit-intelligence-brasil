@@ -1,0 +1,418 @@
+[
+  {
+    "key": "delinquency_pf",
+    "code": "21084",
+    "pt": "Inadimplência PF - total",
+    "en": "Household delinquency - total",
+    "unit": "%",
+    "frequency": "monthly",
+    "category": "inadimplencia",
+    "aliases_pt": [
+      "inadimplência pf",
+      "inadimplencia pf",
+      "pessoa física",
+      "pessoas físicas",
+      "pf total"
+    ],
+    "aliases_en": [
+      "household delinquency",
+      "consumer delinquency",
+      "individual delinquency"
+    ],
+    "first_reference": "2011-03-01",
+    "latest_reference": "2026-08-01",
+    "latest_value": 6.03,
+    "rows": 186
+  },
+  {
+    "key": "delinquency_pj",
+    "code": "21083",
+    "pt": "Inadimplência PJ - total",
+    "en": "Corporate delinquency - total",
+    "unit": "%",
+    "frequency": "monthly",
+    "category": "inadimplencia",
+    "aliases_pt": [
+      "inadimplência pj",
+      "inadimplencia pj",
+      "pessoa jurídica",
+      "pessoas jurídicas",
+      "empresas"
+    ],
+    "aliases_en": [
+      "corporate delinquency",
+      "business delinquency"
+    ],
+    "first_reference": "2011-03-01",
+    "latest_reference": "2026-08-01",
+    "latest_value": 3.35,
+    "rows": 186
+  },
+  {
+    "key": "delinquency_card",
+    "code": "21129",
+    "pt": "Inadimplência - cartão de crédito total",
+    "en": "Delinquency - total credit card",
+    "unit": "%",
+    "frequency": "monthly",
+    "category": "inadimplencia",
+    "aliases_pt": [
+      "cartão de crédito",
+      "cartao de credito",
+      "cartão total"
+    ],
+    "aliases_en": [
+      "credit card delinquency",
+      "total credit card"
+    ],
+    "first_reference": "2011-03-01",
+    "latest_reference": "2026-08-01",
+    "latest_value": 9.96,
+    "rows": 186
+  },
+  {
+    "key": "delinquency_revolving",
+    "code": "21127",
+    "pt": "Inadimplência - cartão rotativo",
+    "en": "Delinquency - revolving credit card",
+    "unit": "%",
+    "frequency": "monthly",
+    "category": "inadimplencia",
+    "aliases_pt": [
+      "rotativo",
+      "cartão rotativo",
+      "cartao rotativo"
+    ],
+    "aliases_en": [
+      "revolving credit card",
+      "revolving delinquency"
+    ],
+    "first_reference": "2011-03-01",
+    "latest_reference": "2026-08-01",
+    "latest_value": 66.15,
+    "rows": 186
+  },
+  {
+    "key": "delinquency_personal",
+    "code": "21120",
+    "pt": "Inadimplência - crédito pessoal",
+    "en": "Delinquency - personal credit",
+    "unit": "%",
+    "frequency": "monthly",
+    "category": "inadimplencia",
+    "aliases_pt": [
+      "crédito pessoal",
+      "credito pessoal"
+    ],
+    "aliases_en": [
+      "personal credit",
+      "personal loan delinquency"
+    ],
+    "first_reference": "2011-03-01",
+    "latest_reference": "2026-08-01",
+    "latest_value": 6.17,
+    "rows": 186
+  },
+  {
+    "key": "delinquency_vehicle",
+    "code": "21121",
+    "pt": "Inadimplência - aquisição de veículos",
+    "en": "Delinquency - vehicle loans",
+    "unit": "%",
+    "frequency": "monthly",
+    "category": "inadimplencia",
+    "aliases_pt": [
+      "veículos",
+      "veiculos",
+      "financiamento de veículo",
+      "financiamento de veiculo"
+    ],
+    "aliases_en": [
+      "vehicle loans",
+      "auto loans"
+    ],
+    "first_reference": "2011-03-01",
+    "latest_reference": "2026-08-01",
+    "latest_value": 6.57,
+    "rows": 186
+  },
+  {
+    "key": "household_debt",
+    "code": "29037",
+    "pt": "Endividamento das famílias",
+    "en": "Household debt-to-income",
+    "unit": "%",
+    "frequency": "monthly",
+    "category": "familias",
+    "aliases_pt": [
+      "endividamento",
+      "endividamento das famílias"
+    ],
+    "aliases_en": [
+      "household debt",
+      "debt to income"
+    ],
+    "first_reference": "2005-01-01",
+    "latest_reference": "2026-07-01",
+    "latest_value": 49.86,
+    "rows": 259
+  },
+  {
+    "key": "household_debt_ex_housing",
+    "code": "29038",
+    "pt": "Endividamento das famílias sem crédito habitacional",
+    "en": "Household debt excluding housing",
+    "unit": "%",
+    "frequency": "monthly",
+    "category": "familias",
+    "aliases_pt": [
+      "endividamento sem habitação",
+      "endividamento sem habitacao"
+    ],
+    "aliases_en": [
+      "household debt excluding housing"
+    ],
+    "first_reference": "2005-01-01",
+    "latest_reference": "2026-07-01",
+    "latest_value": 30.81,
+    "rows": 259
+  },
+  {
+    "key": "income_commitment",
+    "code": "29034",
+    "pt": "Comprometimento de renda das famílias",
+    "en": "Household debt-service ratio",
+    "unit": "%",
+    "frequency": "monthly",
+    "category": "familias",
+    "aliases_pt": [
+      "comprometimento de renda",
+      "serviço da dívida",
+      "servico da divida"
+    ],
+    "aliases_en": [
+      "debt service ratio",
+      "income commitment"
+    ],
+    "first_reference": "2005-03-01",
+    "latest_reference": "2026-07-01",
+    "latest_value": 28.72,
+    "rows": 257
+  },
+  {
+    "key": "credit_balance_pf",
+    "code": "20541",
+    "pt": "Saldo de crédito - PF",
+    "en": "Credit balance - households",
+    "unit": "R$ mi",
+    "frequency": "monthly",
+    "category": "credito",
+    "aliases_pt": [
+      "saldo de crédito pf",
+      "saldo de credito pf",
+      "carteira de crédito pf"
+    ],
+    "aliases_en": [
+      "household credit balance"
+    ],
+    "first_reference": "2007-03-01",
+    "latest_reference": "2026-08-01",
+    "latest_value": 4670170.0,
+    "rows": 234
+  },
+  {
+    "key": "credit_balance_pj",
+    "code": "20540",
+    "pt": "Saldo de crédito - PJ",
+    "en": "Credit balance - companies",
+    "unit": "R$ mi",
+    "frequency": "monthly",
+    "category": "credito",
+    "aliases_pt": [
+      "saldo de crédito pj",
+      "saldo de credito pj",
+      "carteira de crédito pj"
+    ],
+    "aliases_en": [
+      "corporate credit balance"
+    ],
+    "first_reference": "2007-03-01",
+    "latest_reference": "2026-08-01",
+    "latest_value": 2727499.0,
+    "rows": 234
+  },
+  {
+    "key": "credit_grants_pf",
+    "code": "20633",
+    "pt": "Concessões de crédito - PF",
+    "en": "New credit - households",
+    "unit": "R$ mi",
+    "frequency": "monthly",
+    "category": "credito",
+    "aliases_pt": [
+      "concessões pf",
+      "concessoes pf",
+      "novos créditos pf"
+    ],
+    "aliases_en": [
+      "household credit grants",
+      "new household credit"
+    ],
+    "first_reference": "2011-03-01",
+    "latest_reference": "2026-08-01",
+    "latest_value": 394254.0,
+    "rows": 186
+  },
+  {
+    "key": "credit_grants_pj",
+    "code": "20632",
+    "pt": "Concessões de crédito - PJ",
+    "en": "New credit - companies",
+    "unit": "R$ mi",
+    "frequency": "monthly",
+    "category": "credito",
+    "aliases_pt": [
+      "concessões pj",
+      "concessoes pj",
+      "novos créditos pj"
+    ],
+    "aliases_en": [
+      "corporate credit grants",
+      "new corporate credit"
+    ],
+    "first_reference": "2011-03-01",
+    "latest_reference": "2026-08-01",
+    "latest_value": 334993.0,
+    "rows": 186
+  },
+  {
+    "key": "credit_interest_pf",
+    "code": "25435",
+    "pt": "Juros médios do crédito - PF",
+    "en": "Average credit interest - households",
+    "unit": "% a.m.",
+    "frequency": "monthly",
+    "category": "juros",
+    "aliases_pt": [
+      "juros do crédito",
+      "juros do credito",
+      "juros pf",
+      "taxa de juros pf"
+    ],
+    "aliases_en": [
+      "household credit interest",
+      "consumer credit interest"
+    ],
+    "first_reference": "2011-03-01",
+    "latest_reference": "2026-08-01",
+    "latest_value": 2.73,
+    "rows": 186
+  },
+  {
+    "key": "credit_interest_pj",
+    "code": "25434",
+    "pt": "Juros médios do crédito - PJ",
+    "en": "Average credit interest - companies",
+    "unit": "% a.m.",
+    "frequency": "monthly",
+    "category": "juros",
+    "aliases_pt": [
+      "juros pj",
+      "taxa de juros pj"
+    ],
+    "aliases_en": [
+      "corporate credit interest"
+    ],
+    "first_reference": "2011-03-01",
+    "latest_reference": "2026-08-01",
+    "latest_value": 1.51,
+    "rows": 186
+  },
+  {
+    "key": "selic",
+    "code": "432",
+    "pt": "Meta Selic",
+    "en": "Selic target rate",
+    "unit": "% a.a.",
+    "frequency": "daily",
+    "category": "macro",
+    "aliases_pt": [
+      "selic",
+      "taxa selic"
+    ],
+    "aliases_en": [
+      "selic",
+      "policy rate"
+    ],
+    "first_reference": "2011-01-01",
+    "latest_reference": "2026-10-05",
+    "latest_value": 13.75,
+    "rows": 5757
+  },
+  {
+    "key": "ipca",
+    "code": "433",
+    "pt": "IPCA - variação mensal",
+    "en": "IPCA - monthly inflation",
+    "unit": "%",
+    "frequency": "monthly",
+    "category": "macro",
+    "aliases_pt": [
+      "ipca",
+      "inflação",
+      "inflacao"
+    ],
+    "aliases_en": [
+      "ipca",
+      "inflation"
+    ],
+    "first_reference": "1980-01-01",
+    "latest_reference": "2026-08-01",
+    "latest_value": -0.32,
+    "rows": 560
+  },
+  {
+    "key": "unemployment",
+    "code": "24369",
+    "pt": "Taxa de desocupação - PNAD Contínua",
+    "en": "Unemployment rate - PNAD Continuous",
+    "unit": "%",
+    "frequency": "monthly",
+    "category": "macro",
+    "aliases_pt": [
+      "desemprego",
+      "desocupação",
+      "desocupacao"
+    ],
+    "aliases_en": [
+      "unemployment",
+      "jobless rate"
+    ],
+    "first_reference": "2012-03-01",
+    "latest_reference": "2026-08-01",
+    "latest_value": 5.3,
+    "rows": 174
+  },
+  {
+    "key": "real_income",
+    "code": "24380",
+    "pt": "Rendimento médio real habitual",
+    "en": "Average real usual earnings",
+    "unit": "R$",
+    "frequency": "monthly",
+    "category": "macro",
+    "aliases_pt": [
+      "renda real",
+      "rendimento médio",
+      "rendimento medio"
+    ],
+    "aliases_en": [
+      "real income",
+      "average earnings"
+    ],
+    "first_reference": "2012-03-01",
+    "latest_reference": "2026-08-01",
+    "latest_value": 5784.0,
+    "rows": 174
+  }
+]
