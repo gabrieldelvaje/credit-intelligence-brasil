@@ -1,0 +1,49 @@
+name: Validate site
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "index.html"
+      - "*.js"
+      - "*.css"
+      - "scripts/**"
+      - ".github/workflows/validate-site.yml"
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate JavaScript syntax
+        run: |
+          node --check app.js
+          node --check chat-ui-v5.js
+          node --check chat-staged-sections.js
+          node --check follow-up-entrance.js
+          node --check submit-arrowhead-alignment.js
+          node --check question-builder-credit.js
+
+      - name: Validate Python syntax
+        run: python -m py_compile scripts/update_data.py
+
+      - name: Check required site files
+        run: |
+          test -f index.html
+          test -f data/catalog.json
+          test -f data/credit_intelligence.json
+          test -f data/forecasts.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          catalog=json.loads(Path("data/catalog.json").read_text())
+          forecasts=json.loads(Path("data/forecasts.json").read_text())
+          rows=json.loads(Path("data/credit_intelligence.json").read_text())
+          assert len(catalog) >= 19, len(catalog)
+          assert len(rows) > 9000, len(rows)
+          assert len(forecasts) >= 6, len(forecasts)
+          print(f"OK: {len(catalog)} indicadores, {len(rows)} observações, {len(forecasts)} previsões")
+          PY
