@@ -1,0 +1,170 @@
+/* Bottom-anchored chat layout. Keep the first question just above the fixed input. */
+.page-shell.chat-started {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: calc(100dvh - 72px);
+  padding-top: 24px;
+  padding-bottom: 132px;
+}
+.page-shell.chat-started #conversation {
+  width: 100%;
+  margin-top: auto;
+}
+.conversation .message.user {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: flex-start;
+  gap: 12px;
+  width: fit-content;
+  max-width: min(88%, 780px);
+  margin-left: auto;
+}
+.conversation .message.user .message-icon { flex: 0 0 36px; }
+.conversation .message.user .message-content {
+  min-width: 0;
+  max-width: calc(100% - 48px);
+  overflow-wrap: anywhere;
+  border-radius: 16px 4px 16px 16px;
+}
+.conversation .message.user .message-content p { margin: 0; line-height: 1.5; }
+.conversation .message.assistant { min-width: 0; }
+.conversation .message.assistant .message-content { min-width: 0; }
+.conversation .message.chat-typing-message .message-content {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  min-height: 43px;
+  padding: 12px 16px;
+  border: 1px solid var(--line);
+  /* Mirror the robot error bubble, scaled to the small three-dot indicator. */
+  border-radius: 6px 24px 24px 21px;
+  background: var(--surface);
+}
+.chat-typing-dots { display: inline-flex; align-items: center; gap: 6px; height: 16px; }
+.chat-typing-dots i { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--brand); opacity: .4; }
+.chat-deferred { display: none !important; }
+.chat-stream-cursor {
+  display: inline-block;
+  height: .95em;
+  width: 2px;
+  margin-left: 2px;
+  vertical-align: -.12em;
+  background: var(--brand);
+  animation: chat-cursor-blink .75s step-end infinite;
+}
+@keyframes chat-cursor-blink { 50% { opacity: 0; } }
+.question-bar button:disabled { opacity: .65; cursor: wait; }
+.chat-motion-toggle { display: grid; place-items: center; flex: 0 0 36px; margin-left: auto; font-size: 17px; }
+.topbar .theme-button:not(.chat-motion-toggle) { margin-left: 0; flex: 0 0 36px; }
+@media (max-width: 650px) {
+  .page-shell.chat-started { padding-top: 16px; padding-bottom: 127px; }
+  .conversation .message.user { max-width: 94%; gap: 8px; }
+  .conversation .message.user .message-icon { flex-basis: 32px; }
+  .conversation .message.user .message-content { max-width: calc(100% - 40px); }
+  .chat-motion-toggle, .topbar .theme-button:not(.chat-motion-toggle) { width: 32px; height: 32px; flex-basis: 32px; }
+  .topbar .brand-copy { min-width: 0; }
+  .topbar .brand-copy strong, .topbar .brand-copy span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .chat-stream-cursor { animation: none; }
+}
+
+/* Standalone emoji avatars and a clearly differentiated user bubble. */
+.conversation .message.user .message-icon,
+.conversation .message.assistant .message-icon {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  color: inherit;
+  font-size: 25px;
+}
+.conversation .message.user .message-content {
+  background: #e7f2ff;
+  border-color: #bddbff;
+  color: #153453;
+}
+[data-theme="dark"] .conversation .message.user .message-content {
+  background: #17334c;
+  border-color: #315b81;
+  color: #eff6ff;
+}
+
+/* Fully rounded composer; a single thicker outline on focus, no glow. */
+.question-bar {
+  border: 2px solid var(--line);
+  border-radius: 999px;
+  box-shadow: none;
+  transition: border-color 180ms ease;
+}
+.question-bar:focus-within {
+  border-color: var(--brand);
+  box-shadow: none;
+  outline: none;
+}
+.question-bar button[type="submit"] {
+  display: grid;
+  place-items: center;
+  flex: 0 0 38px;
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  border-radius: 50%;
+  line-height: 1;
+  box-shadow: none;
+}
+
+/* Leave a small, consistent gap above the fixed composer after a reply. */
+.page-shell { padding-bottom: 176px; }
+.page-shell.chat-started { padding-bottom: 104px; }
+
+@media (max-width: 650px) {
+  .page-shell {
+    padding-bottom: calc(168px + env(safe-area-inset-bottom, 0px));
+  }
+  .page-shell.chat-started {
+    padding-bottom: calc(98px + env(safe-area-inset-bottom, 0px));
+  }
+}
+
+.question-bar button[type="submit"].is-loading,
+.question-bar button[type="submit"].is-loading:disabled,
+.question-bar button[type="submit"].is-returning,
+.question-bar button[type="submit"].is-returning:disabled {
+  opacity: 1;
+  cursor: wait;
+}
+
+.submit-snake-loader {
+  display: block;
+  width: 26px;
+  height: 26px;
+  overflow: visible;
+  color: currentColor;
+}
+
+.submit-snake-group {
+  transform-origin: 12px 12px;
+  will-change: transform;
+}
+
+.submit-snake-shaft {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+
+.submit-snake-head {
+  fill: currentColor;
+  stroke: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .submit-snake-group {
+    will-change: auto;
+  }
+}
