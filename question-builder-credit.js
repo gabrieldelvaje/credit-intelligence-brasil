@@ -63,6 +63,8 @@
   const actions = [...panel.querySelectorAll('.qb-action')];
   const ind1 = $('#qb-ind1');
   const ind2 = $('#qb-ind2');
+  const geo = $('#qb-geo');
+  const sex = $('#qb-sex');
   const period = $('#qb-period');
   const preview = $('#qb-preview');
   const feedback = $('#qb-feedback');
@@ -96,6 +98,22 @@
     } else {
       [...ind1.options].forEach(option => option.hidden = false);
     }
+  }
+
+  function dimensionSupport(key, dimension) {
+    return !!state.dimensions?.catalog?.some(item => item.key === key && (item.dimensions || []).includes(dimension));
+  }
+
+  function geoSuffix() {
+    if (geo.value === 'BR') return '';
+    const name = geo.options[geo.selectedIndex]?.textContent || geo.value;
+    return isEn() ? ` in ${name}` : ` em ${name}`;
+  }
+
+  function sexSuffix() {
+    if (sex.value === 'men') return isEn() ? ' for men' : ' para homens';
+    if (sex.value === 'women') return isEn() ? ' for women' : ' para mulheres';
+    return '';
   }
 
   function periodText() {
