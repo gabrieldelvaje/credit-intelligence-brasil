@@ -9,6 +9,7 @@ on:
       - "*.js"
       - "*.css"
       - "scripts/**"
+      - "data/dimensions/**"
       - ".github/workflows/validate-site.yml"
 
 jobs:
