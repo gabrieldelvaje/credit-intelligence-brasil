@@ -323,3 +323,22 @@ body.data-info-open{overflow:hidden}
   outline:none !important;
   transform:none !important;
 }
+
+
+/* Builder submit stays visually secondary; primary blue is reserved for selected analysis tabs. */
+.question-builder-panel .qb-submit{
+  background:var(--surface);
+  color:var(--brand);
+  border-color:color-mix(in srgb,var(--brand) 38%,var(--line));
+}
+.question-builder-panel .qb-submit:hover,
+.question-builder-panel .qb-submit:focus-visible{
+  background:color-mix(in srgb,var(--brand) 8%,var(--surface));
+  border-color:var(--brand);
+  color:var(--brand);
+  outline:none;
+}
+[data-theme="dark"] .question-builder-panel .qb-submit{
+  background:var(--surface);
+  color:var(--brand);
+}
