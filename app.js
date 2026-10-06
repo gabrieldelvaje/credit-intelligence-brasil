@@ -249,7 +249,54 @@ function updateLocaleUI(){
   $('#theme-toggle').setAttribute('aria-label',lang==='en'?'Switch theme':'Alternar tema');
   document.querySelectorAll('[data-q-pt]').forEach(btn=>btn.textContent=lang==='en'?btn.dataset.qEn:btn.dataset.qPt);
   const dataLink=document.querySelector('.data-link');
-  if(dataLink)dataLink.textContent=lang==='en'?'Data · Brazil + states + sex':'Dados · Brasil + estados + sexo';
+  if(dataLink)dataLink.textContent=lang==='en'?'Data':'Dados';
+
+  const modalCopy=lang==='en'?{
+    eyebrow:'ABOUT THE DATA',
+    title:'Data and methodology',
+    intro:'The platform combines official sources to answer questions about credit, delinquency and the macroeconomic context without mixing incompatible granularities.',
+    nationalTag:'BRAZIL',
+    nationalTitle:'National series',
+    nationalText:'Credit, delinquency, household debt, interest rates, Selic and inflation come from official Central Bank series. Unemployment and income are also included in the national layer.',
+    stateTag:'27 STATES',
+    stateTitle:'Credit by state',
+    stateText:'The monthly state layer uses Central Bank SCR.data. State delinquency is calculated as balances more than 90 days past due divided by the active credit portfolio.',
+    sexTag:'SEX',
+    sexTitle:'Men and women',
+    sexText:'For unemployment and earnings, IBGE PNAD Continuous allows comparisons for Total, Men and Women in Brazil and all 27 states. The project does not infer gender where the source does not publish this dimension.',
+    updateTitle:'Automatic updates',
+    updateText:'GitHub Actions checks the official sources, validates responses and preserves the last valid version if an API fails. The state history currently begins in July 2012.',
+    github:'View data on GitHub ↗',
+    close:'Close'
+  }:{
+    eyebrow:'SOBRE A BASE',
+    title:'Dados e metodologia',
+    intro:'A plataforma combina fontes oficiais para responder perguntas sobre crédito, inadimplência e contexto macroeconômico sem misturar granularidades incompatíveis.',
+    nationalTag:'BRASIL',
+    nationalTitle:'Séries nacionais',
+    nationalText:'Indicadores de crédito, inadimplência, endividamento, juros, Selic e inflação vêm de séries oficiais do Banco Central. Desemprego e renda também entram na camada nacional.',
+    stateTag:'27 UFs',
+    stateTitle:'Crédito por estado',
+    stateText:'O recorte mensal por estado usa o SCR.data do Banco Central. A inadimplência estadual é calculada com carteira em atraso acima de 90 dias sobre a carteira ativa.',
+    sexTag:'SEXO',
+    sexTitle:'Homens e mulheres',
+    sexText:'Para desemprego e rendimento, a PNAD Contínua do IBGE permite comparar Total, Homens e Mulheres no Brasil e nas 27 UFs. O projeto não infere gênero onde a fonte não publica essa dimensão.',
+    updateTitle:'Atualização automática',
+    updateText:'GitHub Actions consulta as fontes oficiais, valida os retornos e preserva a última versão válida se alguma API falhar. O histórico estadual disponível começa em julho de 2012.',
+    github:'Ver dados no GitHub ↗',
+    close:'Fechar'
+  };
+  const ids={
+    'data-info-eyebrow':'eyebrow','data-info-title':'title','data-info-intro':'intro',
+    'data-info-national-tag':'nationalTag','data-info-national-title':'nationalTitle','data-info-national-text':'nationalText',
+    'data-info-state-tag':'stateTag','data-info-state-title':'stateTitle','data-info-state-text':'stateText',
+    'data-info-sex-tag':'sexTag','data-info-sex-title':'sexTitle','data-info-sex-text':'sexText',
+    'data-info-update-title':'updateTitle','data-info-update-text':'updateText','data-info-github':'github','data-info-dismiss':'close'
+  };
+  for(const [id,key] of Object.entries(ids)){const el=document.getElementById(id);if(el)el.textContent=modalCopy[key]}
+  const close=document.getElementById('data-info-close');
+  if(close)close.setAttribute('aria-label',modalCopy.close);
+
   window.dispatchEvent(new CustomEvent('credit:locale-changed',{detail:{locale:lang}}));
 }
 async function load(){
@@ -290,6 +337,41 @@ function init(){
   const newChat=()=>{$('#conversation').replaceChildren();$('#home-hero').hidden=false;$('#question').focus()};
   $('#new-chat').addEventListener('click',newChat);
   $('#new-chat').addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();newChat();}});
+
+  const dataOpen=document.getElementById('data-info-open');
+  const dataModal=document.getElementById('data-info-modal');
+  const dataBackdrop=document.getElementById('data-info-backdrop');
+  const dataClose=document.getElementById('data-info-close');
+  const dataDismiss=document.getElementById('data-info-dismiss');
+  let dataPreviousFocus=null;
+  const setDataModal=open=>{
+    if(!dataModal||!dataBackdrop)return;
+    if(open){
+      dataPreviousFocus=document.activeElement;
+      dataModal.hidden=false;
+      dataBackdrop.hidden=false;
+      dataModal.setAttribute('aria-hidden','false');
+      document.body.classList.add('data-info-open');
+      requestAnimationFrame(()=>dataClose?.focus({preventScroll:true}));
+    }else{
+      dataModal.setAttribute('aria-hidden','true');
+      dataModal.hidden=true;
+      dataBackdrop.hidden=true;
+      document.body.classList.remove('data-info-open');
+      if(dataPreviousFocus instanceof HTMLElement)dataPreviousFocus.focus({preventScroll:true});
+    }
+  };
+  dataOpen?.addEventListener('click',()=>setDataModal(true));
+  dataClose?.addEventListener('click',()=>setDataModal(false));
+  dataDismiss?.addEventListener('click',()=>setDataModal(false));
+  dataBackdrop?.addEventListener('click',()=>setDataModal(false));
+  document.addEventListener('keydown',event=>{
+    if(event.key==='Escape'&&dataModal&&!dataModal.hidden){
+      event.preventDefault();
+      setDataModal(false);
+    }
+  });
+
   load();
 }
 init();
