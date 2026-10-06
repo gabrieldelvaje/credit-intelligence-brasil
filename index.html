@@ -3,140 +3,182 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#F3F3F1">
+  <meta name="theme-color" content="#E7E7E7">
   <meta name="description" content="Credit Intelligence Brasil — dashboard interativo de crédito, inadimplência e contexto macroeconômico com dados oficiais.">
   <title>Credit Intelligence Brasil</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg?v=4">
-  <link rel="stylesheet" href="styles.css?v=23">
+  <link rel="stylesheet" href="styles.css?v=24">
 </head>
-<body>
+<body data-report-page="overview">
   <div class="app-shell">
-
     <main class="dashboard" id="dashboard" aria-live="polite">
-      <section class="dashboard-head">
-        <div class="report-heading">
-          <div class="report-title-line"><span class="report-accent"></span><strong>Credit Intelligence Brasil</strong></div>
-          <h1 id="report-page-title">Visão geral</h1>
-          <div class="report-meta">
-            <span>Banco Central + IBGE</span>
-            <span aria-hidden="true">•</span>
-            <span class="update-status" id="update-status">Carregando dados…</span>
-          </div>
+      <aside class="report-sidebar" aria-label="Páginas do relatório">
+        <div class="sidebar-brand" aria-label="Credit Intelligence Brasil">
+          <span class="sidebar-brand-mark">CI</span>
+          <span class="sidebar-brand-copy">
+            <strong>Credit Intelligence</strong>
+            <small>Brasil</small>
+          </span>
         </div>
-        <div class="report-controls">
-          <div class="filters" aria-label="Filtros do dashboard">
-            <label class="filter-field">
-              <span>Indicador</span>
-              <select id="metric-select" aria-label="Indicador"></select>
-            </label>
-            <label class="filter-field compact">
-              <span>Histórico</span>
-              <select id="period-select" aria-label="Período histórico">
-                <option value="24">24 meses</option>
-                <option value="60" selected>5 anos</option>
-                <option value="120">10 anos</option>
-                <option value="all">Todo histórico</option>
-              </select>
-            </label>
-          </div>
-          <div class="report-actions">
-            <a class="report-icon-link" href="https://github.com/gabrieldelvaje/credit-intelligence-brasil" target="_blank" rel="noopener noreferrer" title="Fonte e código" aria-label="Fonte e código">↗</a>
-            <button class="report-icon-button" id="methodology-open" type="button" aria-haspopup="dialog" aria-controls="methodology-dialog" title="Informações" aria-label="Informações">i</button>
-          </div>
+
+        <nav class="sidebar-nav">
+          <button class="sidebar-item is-active" type="button" data-report-page-button="overview" aria-current="page">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+            <span>Resumo</span>
+          </button>
+          <button class="sidebar-item" type="button" data-report-page-button="geography">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s6-5.3 6-11a6 6 0 1 0-12 0c0 5.7 6 11 6 11Z"/><circle cx="12" cy="10" r="2.2"/></svg>
+            <span>Geografia</span>
+          </button>
+          <button class="sidebar-item" type="button" data-report-page-button="risk">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V9m6 10V5m6 14v-7m4 7H2"/></svg>
+            <span>Risco & crédito</span>
+          </button>
+          <button class="sidebar-item" type="button" data-report-page-button="macro">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17l5-5 4 3 7-8"/><path d="M15 7h4v4"/></svg>
+            <span>Contexto macro</span>
+          </button>
+        </nav>
+
+        <div class="sidebar-footer">
+          <button class="sidebar-utility" id="methodology-open" type="button" aria-haspopup="dialog" aria-controls="methodology-dialog">
+            <span class="utility-icon">i</span><span>Metodologia</span>
+          </button>
+          <a class="sidebar-utility" href="https://github.com/gabrieldelvaje/credit-intelligence-brasil" target="_blank" rel="noopener noreferrer">
+            <span class="utility-icon">↗</span><span>Fonte e código</span>
+          </a>
         </div>
-      </section>
+      </aside>
 
-      <section class="kpi-grid" id="kpi-grid" aria-label="Principais indicadores"></section>
-
-      <section class="dashboard-grid top-grid" data-page-view="overview">
-        <article class="panel map-panel">
-          <div class="panel-head">
-            <div>
-              <p class="panel-kicker">GEOGRAFIA DO RISCO</p>
-              <h2 id="map-title">Inadimplência PF por estado</h2>
-              <p id="map-subtitle">Clique no mapa para comparar até três UFs.</p>
-            </div>
-            <button class="clear-button" id="clear-states" type="button" disabled>Limpar seleção</button>
+      <div class="report-main">
+        <header class="report-header">
+          <div class="report-heading">
+            <p class="report-product">Credit Intelligence Brasil</p>
+            <h1 id="report-page-title">Resumo</h1>
+            <p id="report-page-subtitle">Os principais indicadores para acompanhar crédito, inadimplência e custo financeiro.</p>
           </div>
-          <div class="map-layout">
-            <div class="map-wrap">
-              <svg id="brazil-map" viewBox="0 0 620 620" role="img" aria-label="Mapa do Brasil por unidade da federação"></svg>
-              <div class="map-tooltip" id="map-tooltip" hidden></div>
-              <div class="map-legend" id="map-legend"></div>
-            </div>
-            <aside class="selected-states" aria-label="Estados selecionados">
-              <span class="mini-label">COMPARAR</span>
-              <div id="selected-states-list" class="selected-states-list"></div>
-              <p class="selection-help" id="selection-help">Selecione até 3 estados no mapa ou no ranking.</p>
-            </aside>
-          </div>
-        </article>
 
-        <article class="panel ranking-panel">
-          <div class="panel-head">
-            <div>
-              <p class="panel-kicker">RANKING ESTADUAL</p>
-              <h2 id="ranking-title">Maiores valores</h2>
+          <div class="report-header-right">
+            <div class="filters" aria-label="Filtros do relatório">
+              <label class="filter-field metric-filter">
+                <span>Indicador</span>
+                <select id="metric-select" aria-label="Indicador"></select>
+              </label>
+              <label class="filter-field compact period-filter">
+                <span>Histórico</span>
+                <select id="period-select" aria-label="Período histórico">
+                  <option value="24">24 meses</option>
+                  <option value="60" selected>5 anos</option>
+                  <option value="120">10 anos</option>
+                  <option value="all">Todo histórico</option>
+                </select>
+              </label>
             </div>
-            <span class="reference-pill" id="ranking-reference">—</span>
-          </div>
-          <div class="ranking-list" id="ranking-list"></div>
-        </article>
-      </section>
-
-      <section class="dashboard-grid middle-grid" data-page-view="overview">
-        <article class="panel trend-panel">
-          <div class="panel-head chart-head">
-            <div>
-              <p class="panel-kicker" id="trend-kicker">SÉRIE HISTÓRICA</p>
-              <h2 id="trend-title">Evolução da inadimplência PF</h2>
-              <p id="trend-subtitle">Brasil · série nacional oficial</p>
-            </div>
-            <div class="legend-inline" id="trend-legend"></div>
-          </div>
-          <div class="chart-wrap" id="trend-chart"></div>
-          <p class="chart-note" id="trend-note"></p>
-        </article>
-
-        <article class="panel composition-panel">
-          <div class="panel-head">
-            <div>
-              <p class="panel-kicker">ONDE A INADIMPLÊNCIA PESA</p>
-              <h2>Modalidades de crédito</h2>
-              <p>Última leitura disponível de cada série.</p>
+            <div class="report-meta">
+              <span>BCB + IBGE</span>
+              <span aria-hidden="true">•</span>
+              <span class="update-status" id="update-status">Carregando dados…</span>
             </div>
           </div>
-          <div class="composition-chart" id="composition-chart"></div>
-        </article>
-      </section>
+        </header>
 
-      <section class="dashboard-grid bottom-grid" data-page-view="context">
-        <article class="panel macro-panel">
-          <div class="panel-head">
-            <div>
-              <p class="panel-kicker">CONTEXTO MACRO</p>
-              <h2>O ambiente em volta do crédito</h2>
-              <p>Juros, inflação, mercado de trabalho e renda.</p>
-            </div>
+        <section class="report-page overview-page" data-page-view="overview">
+          <div class="overview-intro">
+            <span class="section-label">VISÃO NACIONAL</span>
+            <h2>Indicadores-chave</h2>
+            <p>Uma leitura rápida do risco de crédito, tamanho da carteira e custo financeiro no Brasil.</p>
           </div>
-          <div class="macro-grid" id="macro-grid"></div>
-        </article>
+          <section class="kpi-grid" id="kpi-grid" aria-label="Principais indicadores"></section>
+        </section>
 
-        <article class="panel outlook-panel">
-          <div class="panel-head">
-            <div>
-              <p class="panel-kicker">PERSPECTIVA</p>
-              <h2 id="outlook-title">Próximos 6 meses</h2>
-              <p id="outlook-subtitle">Projeção estatística nacional.</p>
-            </div>
+        <section class="report-page geography-page" data-page-view="geography">
+          <div class="geography-grid">
+            <article class="panel map-panel">
+              <div class="panel-head">
+                <div>
+                  <span class="section-label">27 UFs</span>
+                  <h2 id="map-title">Inadimplência PF por estado</h2>
+                  <p id="map-subtitle">Clique no mapa para comparar até três UFs.</p>
+                </div>
+                <button class="clear-button" id="clear-states" type="button" disabled>Limpar seleção</button>
+              </div>
+              <div class="map-layout">
+                <div class="map-wrap">
+                  <svg id="brazil-map" viewBox="0 0 620 620" role="img" aria-label="Mapa do Brasil por unidade da federação"></svg>
+                  <div class="map-tooltip" id="map-tooltip" hidden></div>
+                  <div class="map-legend" id="map-legend"></div>
+                </div>
+                <aside class="selected-states" aria-label="Estados selecionados">
+                  <span class="mini-label">COMPARAR</span>
+                  <div id="selected-states-list" class="selected-states-list"></div>
+                  <p class="selection-help" id="selection-help">Selecione até 3 estados no mapa ou no ranking.</p>
+                </aside>
+              </div>
+            </article>
+
+            <article class="panel ranking-panel">
+              <div class="panel-head">
+                <div>
+                  <span class="section-label">RANKING</span>
+                  <h2 id="ranking-title">Maiores valores</h2>
+                </div>
+                <span class="reference-pill" id="ranking-reference">—</span>
+              </div>
+              <div class="ranking-list" id="ranking-list"></div>
+            </article>
           </div>
-          <div id="outlook-content" class="outlook-content"></div>
-        </article>
-      </section>
-      <nav class="report-tabs" aria-label="Páginas do relatório">
-        <button class="report-tab is-active" type="button" data-report-tab="overview" aria-current="page">Visão geral</button>
-        <button class="report-tab" type="button" data-report-tab="context">Contexto macro</button>
-      </nav>
+        </section>
+
+        <section class="report-page risk-page" data-page-view="risk">
+          <div class="risk-grid">
+            <article class="panel trend-panel">
+              <div class="panel-head chart-head">
+                <div>
+                  <span class="section-label">SÉRIE HISTÓRICA</span>
+                  <h2 id="trend-title">Evolução da inadimplência PF</h2>
+                  <p id="trend-subtitle">Brasil · série nacional oficial</p>
+                </div>
+                <div class="legend-inline" id="trend-legend"></div>
+              </div>
+              <div class="chart-wrap" id="trend-chart"></div>
+              <p class="chart-note" id="trend-note"></p>
+            </article>
+
+            <article class="panel composition-panel">
+              <div class="panel-head">
+                <div>
+                  <span class="section-label">MODALIDADES</span>
+                  <h2>Onde a inadimplência pesa</h2>
+                  <p>Última leitura disponível de cada série.</p>
+                </div>
+              </div>
+              <div class="composition-chart" id="composition-chart"></div>
+            </article>
+
+            <article class="panel outlook-panel">
+              <div class="panel-head">
+                <div>
+                  <span class="section-label">PERSPECTIVA</span>
+                  <h2 id="outlook-title">Próximos 6 meses</h2>
+                  <p id="outlook-subtitle">Projeção estatística nacional.</p>
+                </div>
+              </div>
+              <div id="outlook-content" class="outlook-content"></div>
+            </article>
+          </div>
+        </section>
+
+        <section class="report-page macro-page" data-page-view="macro">
+          <div class="macro-intro">
+            <span class="section-label">AMBIENTE ECONÔMICO</span>
+            <h2>O que está em volta do crédito</h2>
+            <p>Juros, inflação, mercado de trabalho e renda em uma leitura separada do risco de crédito.</p>
+          </div>
+          <article class="panel macro-panel">
+            <div class="macro-grid" id="macro-grid"></div>
+          </article>
+        </section>
+      </div>
     </main>
 
     <div class="loading-screen" id="loading-screen" role="status">
@@ -154,47 +196,23 @@
   <dialog class="methodology-dialog" id="methodology-dialog">
     <div class="dialog-head">
       <div>
-        <p class="panel-kicker">SOBRE A BASE</p>
+        <span class="section-label">SOBRE A BASE</span>
         <h2>Dados e metodologia</h2>
       </div>
       <button id="methodology-close" class="dialog-close" type="button" aria-label="Fechar">×</button>
     </div>
     <div class="dialog-grid">
-      <section>
-        <span class="dialog-number">01</span>
-        <h3>Séries nacionais</h3>
-        <p>Banco Central do Brasil via SGS para crédito, inadimplência, juros, Selic e inflação. Indicadores de mercado de trabalho e renda entram na leitura nacional.</p>
-      </section>
-      <section>
-        <span class="dialog-number">02</span>
-        <h3>27 UFs</h3>
-        <p>O recorte estadual de crédito usa o SCR.data. A inadimplência estadual é calculada como saldo com atraso acima de 90 dias dividido pela carteira ativa.</p>
-      </section>
-      <section>
-        <span class="dialog-number">03</span>
-        <h3>PNAD Contínua</h3>
-        <p>Desemprego e rendimento real por UF usam dados oficiais do IBGE/SIDRA. O painel utiliza a categoria Total para o mapa.</p>
-      </section>
-      <section>
-        <span class="dialog-number">04</span>
-        <h3>Projeções</h3>
-        <p>As projeções de inadimplência combinam tendência e sazonalidade. São estimativas experimentais e não previsões oficiais.</p>
-      </section>
+      <section><span class="dialog-number">01</span><h3>Séries nacionais</h3><p>Banco Central do Brasil via SGS para crédito, inadimplência, juros, Selic e inflação. Indicadores de mercado de trabalho e renda entram na leitura nacional.</p></section>
+      <section><span class="dialog-number">02</span><h3>27 UFs</h3><p>O recorte estadual de crédito usa o SCR.data. A inadimplência estadual é calculada como saldo com atraso acima de 90 dias dividido pela carteira ativa.</p></section>
+      <section><span class="dialog-number">03</span><h3>PNAD Contínua</h3><p>Desemprego e rendimento real por UF usam dados oficiais do IBGE/SIDRA. O painel utiliza a categoria Total para o mapa.</p></section>
+      <section><span class="dialog-number">04</span><h3>Projeções</h3><p>As projeções de inadimplência combinam tendência e sazonalidade. São estimativas experimentais e não previsões oficiais.</p></section>
     </div>
-    <div class="dialog-note">
-      <strong>Atualização automática.</strong>
-      <span>GitHub Actions consulta as fontes, valida os retornos e preserva a última versão válida se alguma API falhar.</span>
-    </div>
+    <div class="dialog-note"><strong>Atualização automática.</strong><span>GitHub Actions consulta as fontes, valida os retornos e preserva a última versão válida se alguma API falhar.</span></div>
   </dialog>
 
-  <footer class="footer">
-    <span>Credit Intelligence Brasil</span>
-    <span>Desenvolvido por Gabriel Delvaje · Fontes: Banco Central do Brasil e IBGE</span>
-  </footer>
-
-  <script src="dashboard-core.js?v=23"></script>
-  <script src="dashboard-map.js?v=23"></script>
-  <script src="dashboard-charts.js?v=23"></script>
-  <script src="app.js?v=23"></script>
+  <script src="dashboard-core.js?v=24"></script>
+  <script src="dashboard-map.js?v=24"></script>
+  <script src="dashboard-charts.js?v=24"></script>
+  <script src="app.js?v=24"></script>
 </body>
 </html>
