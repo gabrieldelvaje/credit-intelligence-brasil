@@ -61,7 +61,7 @@ SERIES = [
     {"key":"unemployment","code":"24369","pt":"Taxa de desocupação - PNAD Contínua","en":"Unemployment rate - PNAD Continuous","unit":"%","frequency":"monthly","category":"macro","forecast":False,
      "aliases_pt":["desemprego","desocupação","desocupacao"],"aliases_en":["unemployment","jobless rate"]},
     {"key":"real_income","code":"24380","pt":"Rendimento médio real habitual","en":"Average real usual earnings","unit":"R$","frequency":"monthly","category":"macro","forecast":False,
-     "aliases_pt":["renda real","rendimento médio","rendimento medio"],"aliases_en":["real income","average earnings"]},
+     "aliases_pt":["renda real","rendimento real","rendimento médio","rendimento medio","rendimento médio real","rendimento medio real"],"aliases_en":["real income","real earnings","average earnings"]},
 ]
 
 def utc_now():
