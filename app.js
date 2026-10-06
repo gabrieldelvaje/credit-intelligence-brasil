@@ -187,7 +187,19 @@ function chart(sets,title,chartMeta=null){
       const prev=byYear.get(year);
       if(!prev||String(p.date)>String(prev.date))byYear.set(year,p);
     }
-    return {...s,points:[...byYear.values()].sort((a,b)=>String(a.date).localeCompare(String(b.date)))};
+    return {...s,points:[...byYear.entries()].sort((a,b)=>a[0].localeCompare(b[0])).map(([year,p])=>({...p,sourceDate:p.date,date:year+'-01-01'}))};
+  });
+
+  const payloadFor=layerSets=>({
+    dates:[...new Set(layerSets.flatMap(s=>s.points.map(p=>p.date)))].sort(),
+    series:layerSets.map(s=>({
+      label:s.label,
+      points:s.points.map(p=>{
+        const m=s.meta||chartMeta||{};
+        const sourceDate=p.sourceDate||p.date;
+        return {date:p.date,sourceDate,dateLabel:monthFmt(sourceDate),valueLabel:formatValue(p.value,m)};
+      })
+    }))
   });
 
   const renderLayer=(layerSets,granularity,hidden)=>{
@@ -204,29 +216,28 @@ function chart(sets,title,chartMeta=null){
       const d=s.points.map((p,j)=>(j?'L ':'M ')+x(p.date).toFixed(1)+' '+y(p.value).toFixed(1)).join(' ');
       return '<path class="ci-series ci-series-'+(i+1)+'" d="'+d+'"/>';
     }).join('');
-    const points=layerSets.map((s,i)=>s.points.map(p=>{
-      const m=s.meta||chartMeta||{};
-      return '<circle class="ci-chart-point ci-point-'+(i+1)+'" cx="'+x(p.date).toFixed(1)+'" cy="'+y(p.value).toFixed(1)+'" r="4" tabindex="0" data-date="'+esc(monthFmt(p.date))+'" data-value="'+esc(formatValue(p.value,m))+'" data-series="'+esc(s.label)+'"/>';
-    }).join('')).join('');
     const first=dates[0],last=dates.at(-1);
     const left=granularity==='year'?String(first).slice(0,4):monthFmt(first);
     const right=granularity==='year'?String(last).slice(0,4):monthFmt(last);
-    return '<g class="ci-chart-layer" data-granularity-layer="'+granularity+'"'+(hidden?' hidden':'')+'>'+ticks+paths+points+'<text class="axis" x="'+P.l+'" y="'+(H-11)+'">'+esc(left)+'</text><text class="axis" x="'+(W-P.r)+'" y="'+(H-11)+'" text-anchor="end">'+esc(right)+'</text></g>';
+    return '<g class="ci-chart-layer" data-granularity-layer="'+granularity+'" style="'+(hidden?'display:none':'')+'">'+ticks+paths+'<text class="axis" x="'+P.l+'" y="'+(H-11)+'">'+esc(left)+'</text><text class="axis" x="'+(W-P.r)+'" y="'+(H-11)+'" text-anchor="end">'+esc(right)+'</text></g>';
   };
 
   const defaultGranularity=Math.max(...validSets.map(s=>s.points.length))>48?'year':'month';
+  const payload=encodeURIComponent(JSON.stringify({year:payloadFor(yearlySets),month:payloadFor(validSets)}));
   const legends=validSets.map((s,i)=>'<span><i class="ci-key ci-key-'+(i+1)+'"></i>'+esc(s.label)+'</span>').join('');
   const yearLayer=renderLayer(yearlySets,'year',defaultGranularity!=='year');
   const monthLayer=renderLayer(validSets,'month',defaultGranularity!=='month');
   const methodHidden=defaultGranularity==='year'?'':' hidden';
 
-  return '<div class="chart ci-history-chart" data-default-granularity="'+defaultGranularity+'">'
+  return '<div class="chart ci-history-chart" data-chart-payload="'+esc(payload)+'" data-chart-width="'+W+'" data-plot-left="'+P.l+'" data-plot-right="'+P.r+'">'
     +'<div class="ci-chart-heading"><div><strong>'+esc(title)+'</strong><div class="ci-legend">'+legends+'</div></div>'
     +'<label class="ci-granularity-control"><span>'+t('Visualizar','View')+'</span><select class="ci-granularity-select" aria-label="'+t('Granularidade do gráfico','Chart granularity')+'">'
     +'<option value="year"'+(defaultGranularity==='year'?' selected':'')+'>'+t('Anos','Years')+'</option>'
     +'<option value="month"'+(defaultGranularity==='month'?' selected':'')+'>'+t('Meses','Months')+'</option></select></label></div>'
-    +'<svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="'+esc(title)+'">'+yearLayer+monthLayer+'</svg>'
-    +'<small class="ci-chart-method"'+methodHidden+'>'+t('Anos: última observação disponível de cada ano.','Years: last available observation of each year.')+'</small></div>';
+    +'<svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="'+esc(title)+'">'+yearLayer+monthLayer
+    +'<line class="ci-chart-crosshair" x1="0" y1="'+P.t+'" x2="0" y2="'+(H-P.b)+'" style="display:none"/>'
+    +'<rect class="ci-chart-hit-area" x="'+P.l+'" y="'+P.t+'" width="'+(W-P.l-P.r)+'" height="'+(H-P.t-P.b)+'" fill="transparent" tabindex="0"/></svg>'
+    +'<small class="ci-chart-method"'+methodHidden+'>'+t('Anos: um ponto por ano, usando a última observação disponível daquele ano.','Years: one point per year, using the last available observation for that year.')+'</small></div>';
 }
 function capability(){
   return`<div class="sci-capability-overview"><h2 class="result-title">${t('O que eu consigo analisar','What I can analyze')}</h2><p class="answer">${t('A base combina séries oficiais de crédito e macroeconomia. Você pode consultar valores atuais, evolução histórica, comparar indicadores, ranquear modalidades de inadimplência, explorar correlações e ver projeções estatísticas de curto prazo.','The database combines official credit and macroeconomic series. You can query current values, historical trends, compare indicators, rank delinquency categories, explore correlations and view short-term statistical projections.')}</p><ul><li>${t('Inadimplência PF, PJ, cartão, rotativo, crédito pessoal e veículos.','Household, corporate, credit card, revolving, personal credit and vehicle-loan delinquency.')}</li><li>${t('Endividamento e comprometimento de renda das famílias.','Household debt and debt-service ratio.')}</li><li>${t('Saldo, concessões e juros médios do crédito.','Credit balances, new lending and average interest rates.')}</li><li>${t('Selic, IPCA, desemprego e renda real.','Selic, IPCA, unemployment and real income.')}</li><li>${t('Comparações e rankings por estado para crédito e inadimplência; desemprego e renda por estado e sexo.','State comparisons and rankings for credit and delinquency; unemployment and income by state and sex.')}</li></ul></div>`
@@ -404,64 +415,70 @@ function initChartInteractions(){
     tooltip.hidden=true;
     document.body.appendChild(tooltip);
   }
-  let hideTimer=null;
+  const hide=chart=>{
+    tooltip.hidden=true;
+    const crosshair=chart?.querySelector('.ci-chart-crosshair');
+    if(crosshair)crosshair.style.display='none';
+  };
   const position=(event,target)=>{
     const rect=target.getBoundingClientRect();
-    const x=Number.isFinite(event?.clientX)&&event.clientX?event.clientX:rect.left+rect.width/2;
-    const y=Number.isFinite(event?.clientY)&&event.clientY?event.clientY:rect.top;
-    const width=tooltip.offsetWidth||150,height=tooltip.offsetHeight||70,pad=10;
-    const left=Math.min(window.innerWidth-width-pad,Math.max(pad,x+12));
-    const top=Math.min(window.innerHeight-height-pad,Math.max(pad,y-height-12));
-    tooltip.style.left=left+'px';
-    tooltip.style.top=top+'px';
+    const x=event?.clientX||rect.left+rect.width/2;
+    const y=event?.clientY||rect.top+rect.height/2;
+    const width=tooltip.offsetWidth||170,height=tooltip.offsetHeight||80,pad=10;
+    tooltip.style.left=Math.min(window.innerWidth-width-pad,Math.max(pad,x+14))+'px';
+    tooltip.style.top=Math.min(window.innerHeight-height-pad,Math.max(pad,y-height-14))+'px';
   };
-  const show=(target,event)=>{
-    clearTimeout(hideTimer);
-    tooltip.innerHTML='<strong>'+esc(target.dataset.series||'')+'</strong><span>'+esc(target.dataset.date||'')+'</span><span>'+esc(target.dataset.value||'')+'</span>';
+  const showAt=(target,event)=>{
+    const chart=target.closest('.ci-history-chart');
+    if(!chart)return;
+    let payload;
+    try{payload=JSON.parse(decodeURIComponent(chart.dataset.chartPayload||''))}catch(_){return}
+    const granularity=chart.querySelector('.ci-granularity-select')?.value||chart.dataset.defaultGranularity||'month';
+    const layer=payload[granularity];
+    if(!layer?.dates?.length)return;
+    const rect=target.getBoundingClientRect();
+    const ratio=Math.max(0,Math.min(1,((event?.clientX||rect.left)-rect.left)/Math.max(1,rect.width)));
+    const index=Math.max(0,Math.min(layer.dates.length-1,Math.round(ratio*(layer.dates.length-1))));
+    const date=layer.dates[index];
+    const entries=layer.series.map(series=>({series,point:series.points.find(p=>p.date===date)})).filter(x=>x.point);
+    if(!entries.length)return;
+    const dateLabel=entries[0].point.dateLabel;
+    tooltip.innerHTML='<strong>'+esc(dateLabel)+'</strong>'+entries.map(({series,point})=>'<span><b>'+esc(series.label)+'</b> · '+esc(point.valueLabel)+'</span>').join('');
     tooltip.hidden=false;
-    target.classList.add('is-tooltip-active');
     position(event,target);
+
+    const W=+chart.dataset.chartWidth||760,left=+chart.dataset.plotLeft||50,right=+chart.dataset.plotRight||20;
+    const x=left+(index/Math.max(1,layer.dates.length-1))*(W-left-right);
+    const crosshair=chart.querySelector('.ci-chart-crosshair');
+    if(crosshair){crosshair.setAttribute('x1',x);crosshair.setAttribute('x2',x);crosshair.style.display='';}
   };
-  const hide=target=>{
-    if(target)target.classList.remove('is-tooltip-active');
-    tooltip.hidden=true;
-  };
+
   document.addEventListener('change',event=>{
     const target=event.target;
     if(!(target instanceof HTMLSelectElement)||!target.matches('.ci-granularity-select'))return;
     const chart=target.closest('.ci-history-chart');
     if(!chart)return;
     const value=target.value;
-    chart.querySelectorAll('.ci-chart-layer').forEach(layer=>{layer.hidden=layer.dataset.granularityLayer!==value});
+    chart.querySelectorAll('.ci-chart-layer').forEach(layer=>{layer.style.display=layer.dataset.granularityLayer===value?'':'none'});
     const method=chart.querySelector('.ci-chart-method');
     if(method)method.hidden=value!=='year';
-    hide();
-  });
-  document.addEventListener('pointerover',event=>{
-    const target=event.target;
-    if(target instanceof Element&&target.matches('.ci-chart-point'))show(target,event);
+    hide(chart);
   });
   document.addEventListener('pointermove',event=>{
     const target=event.target;
-    if(target instanceof Element&&target.matches('.ci-chart-point')&&!tooltip.hidden)position(event,target);
+    if(target instanceof Element&&target.matches('.ci-chart-hit-area'))showAt(target,event);
   });
-  document.addEventListener('pointerout',event=>{
+  document.addEventListener('pointerleave',event=>{
     const target=event.target;
-    if(target instanceof Element&&target.matches('.ci-chart-point'))hide(target);
-  });
-  document.addEventListener('focusin',event=>{
+    if(target instanceof Element&&target.matches('.ci-chart-hit-area'))hide(target.closest('.ci-history-chart'));
+  },true);
+  document.addEventListener('pointerdown',event=>{
     const target=event.target;
-    if(target instanceof Element&&target.matches('.ci-chart-point'))show(target,event);
+    if(target instanceof Element&&target.matches('.ci-chart-hit-area'))showAt(target,event);
   });
   document.addEventListener('focusout',event=>{
     const target=event.target;
-    if(target instanceof Element&&target.matches('.ci-chart-point'))hide(target);
-  });
-  document.addEventListener('pointerdown',event=>{
-    const target=event.target;
-    if(!(target instanceof Element)||!target.matches('.ci-chart-point'))return;
-    show(target,event);
-    hideTimer=setTimeout(()=>hide(target),1800);
+    if(target instanceof Element&&target.matches('.ci-chart-hit-area'))hide(target.closest('.ci-history-chart'));
   });
 }
 function init(){
