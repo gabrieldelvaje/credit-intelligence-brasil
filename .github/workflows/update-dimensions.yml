@@ -9,7 +9,6 @@ on:
       - main
     paths:
       - "scripts/update_dimensions.py"
-      - "scripts/update_map_geometry.py"
       - ".github/workflows/update-dimensions.yml"
 
 permissions:
@@ -35,9 +34,6 @@ jobs:
 
       - name: Fetch and aggregate state and sex dimensions
         run: python scripts/update_dimensions.py
-
-      - name: Refresh Brazil state geometry
-        run: python scripts/update_map_geometry.py
 
       - name: Commit dimensional data changes
         shell: bash
