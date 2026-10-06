@@ -264,6 +264,11 @@
     form.requestSubmit();
   });
 
+  window.addEventListener('credit:locale-changed',()=>{
+    localize();
+    syncFields();
+  });
+
   localize();
   syncFields();
 })();
