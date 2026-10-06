@@ -664,3 +664,7 @@ body[data-report-page="context"] .filter-field.compact{display:none}
   .report-actions{align-self:flex-end}
   .kpi-card strong{font-size:19px}
 }
+
+
+/* Critical visibility rule: author styles must never override the HTML hidden state. */
+[hidden]{display:none!important}
