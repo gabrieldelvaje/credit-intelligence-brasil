@@ -42,7 +42,12 @@ function yearsIn(q){
 }
 function sliceRange(rows,q){const[a,b]=yearsIn(q);return !a&&!b?rows:rows.filter(r=>{const y=+r.date.slice(0,4);return(!a||y>=a)&&(!b||y<=b)})}
 function aliasesFor(m){return[m.pt,m.en,...(m.aliases_pt||[]),...(m.aliases_en||[])].map(norm).filter(Boolean).sort((a,b)=>b.length-a.length)}
-function identify(q){const n=norm(q),found=[];for(const m of state.catalog)if(aliasesFor(m).some(a=>n.includes(a)))found.push(m.key);return[...new Set(found)]}
+function identify(q){
+  const n=norm(q),found=[];
+  const pool=[...state.catalog,...state.dimensions.catalog.filter(d=>!state.catalog.some(m=>m.key===d.key))];
+  for(const m of pool)if(aliasesFor(m).some(a=>n.includes(a)))found.push(m.key);
+  return[...new Set(found)];
+}
 function pearson(a,b){if(a.length<4||a.length!==b.length)return null;const ma=a.reduce((s,x)=>s+x,0)/a.length,mb=b.reduce((s,x)=>s+x,0)/b.length;let top=0,da=0,db=0;for(let i=0;i<a.length;i++){const x=a[i]-ma,y=b[i]-mb;top+=x*y;da+=x*x;db+=y*y}return da&&db?top/Math.sqrt(da*db):null}
 function align(k1,k2,lag=0){const a=seriesRows(k1),b=seriesRows(k2),mb=new Map(b.map(r=>[r.date.slice(0,7),r.value])),out=[];for(let i=0;i<a.length;i++){const j=i-lag;if(j<0)continue;const bv=mb.get(a[j].date.slice(0,7));if(Number.isFinite(bv))out.push([a[i].value,bv])}return out}
 
@@ -60,6 +65,10 @@ const UF_LABELS={AC:'Acre',AL:'Alagoas',AP:'Amapá',AM:'Amazonas',BA:'Bahia',CE:
 function statesIn(question){
   const nq=norm(question),found=[];
   for(const [uf,names] of Object.entries(UF_NAMES)){
+    if(uf==='PA'){
+      if(/\bpará\b/i.test(question))found.push(uf);
+      continue;
+    }
     if(names.some(name=>nq.includes(norm(name))))found.push(uf);
   }
   for(const uf of Object.keys(UF_NAMES)){
@@ -256,7 +265,9 @@ async function load(){
     state.series=new Map();
     for(const r of state.rows){if(!state.series.has(r.key))state.series.set(r.key,[]);state.series.get(r.key).push(r)}
     for(const rows of state.series.values())rows.sort((a,b)=>a.date.localeCompare(b.date));
-    state.ready=true;box.classList.remove('is-visible');
+    state.ready=true;
+    box.classList.remove('is-visible');
+    window.dispatchEvent(new CustomEvent('credit:data-ready'));
   }catch(e){box.innerHTML=`<div><strong>${esc(t('Não foi possível carregar a base.','Could not load the data.'))}</strong><small>${esc(e.message)}</small></div>`;box.classList.add('is-visible')}
 }
 function init(){
