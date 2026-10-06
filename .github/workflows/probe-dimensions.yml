@@ -11,19 +11,24 @@ jobs:
   probe:
     runs-on: ubuntu-latest
     steps:
-      - name: Probe BCB and IBGE dimension APIs
+      - name: Probe BCB Olinda and IBGE SIDRA APIs
         shell: python
         run: |
-          import json, urllib.request
+          import json, urllib.request, urllib.error
 
-          def get(url):
-              req=urllib.request.Request(url,headers={"User-Agent":"Credit-Intelligence-Brasil/1.0","Accept":"application/json"})
-              with urllib.request.urlopen(req,timeout=60) as r:
-                  raw=r.read().decode("utf-8","replace")
-              print("\nURL",url,"\n",raw[:12000])
-              return json.loads(raw)
-
-          get("https://dadosabertos.bcb.gov.br/api/3/action/package_show?id=scr_data")
-          get("https://dadosabertos.bcb.gov.br/api/3/action/resource_show?id=b8f105b9-fb9c-49ea-8f45-6d8df20f702a")
-          get("https://apisidra.ibge.gov.br/values/t/4093/n1/all/v/all/p/last%201")
-          get("https://apisidra.ibge.gov.br/values/t/5436/n1/all/v/all/p/last%201")
+          urls=[
+            "https://olinda.bcb.gov.br/olinda/servico/scr_sub_regiao/versao/v1/odata/",
+            "https://olinda.bcb.gov.br/olinda/servico/scr_sub_regiao/versao/v1/odata/$metadata",
+            "https://apisidra.ibge.gov.br/values/t/4093/n1/all/v/all/p/last%201",
+            "https://apisidra.ibge.gov.br/values/t/6396/n1/all/v/all/p/last%201",
+            "https://apisidra.ibge.gov.br/values/t/5436/n1/all/v/all/p/last%201",
+          ]
+          for url in urls:
+              print("\n====",url,"====")
+              try:
+                  req=urllib.request.Request(url,headers={"User-Agent":"Mozilla/5.0 Credit-Intelligence-Brasil","Accept":"application/json, application/xml;q=0.9, */*;q=0.8"})
+                  with urllib.request.urlopen(req,timeout=90) as r:
+                      raw=r.read().decode("utf-8","replace")
+                  print(raw[:18000])
+              except Exception as e:
+                  print("ERROR",repr(e))
