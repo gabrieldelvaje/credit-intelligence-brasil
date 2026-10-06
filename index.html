@@ -11,12 +11,12 @@
   <link rel="stylesheet" href="follow-up-suggestions.css?v=2">
   <link rel="stylesheet" href="chat-animations.css?v=2">
   <link rel="stylesheet" href="chat-minimal-suggestions.css?v=2">
-  <link rel="stylesheet" href="question-builder.css?v=2">
+  <link rel="stylesheet" href="question-builder.css?v=3">
   <link rel="stylesheet" href="answer-neutral-surfaces.css?v=2">
   <link rel="stylesheet" href="question-builder-slide.css?v=2">
   <link rel="stylesheet" href="dark-flat-overlays.css?v=2">
   <link rel="stylesheet" href="question-builder-light.css?v=2">
-  <link rel="stylesheet" href="credit-blue.css?v=6">
+  <link rel="stylesheet" href="credit-blue.css?v=7">
 </head>
 <body>
   <header class="topbar">
@@ -63,7 +63,52 @@
     </button>
   </form>
 
-  <a class="data-link" href="data/catalog.json">Dados · Brasil + estados + sexo</a>
+  <button class="data-link" id="data-info-open" type="button" aria-haspopup="dialog" aria-controls="data-info-modal">Dados</button>
+
+  <div class="data-info-backdrop" id="data-info-backdrop" hidden></div>
+  <section class="data-info-modal" id="data-info-modal" role="dialog" aria-modal="true" aria-labelledby="data-info-title" aria-hidden="true" hidden>
+    <div class="data-info-heading">
+      <div>
+        <span class="data-info-eyebrow" id="data-info-eyebrow">SOBRE A BASE</span>
+        <h2 id="data-info-title">Dados e metodologia</h2>
+      </div>
+      <button class="data-info-close" id="data-info-close" type="button" aria-label="Fechar">×</button>
+    </div>
+
+    <div class="data-info-content">
+      <p class="data-info-intro" id="data-info-intro">A plataforma combina fontes oficiais para responder perguntas sobre crédito, inadimplência e contexto macroeconômico sem misturar granularidades incompatíveis.</p>
+
+      <div class="data-info-grid">
+        <article class="data-info-card">
+          <span class="data-info-tag" id="data-info-national-tag">BRASIL</span>
+          <h3 id="data-info-national-title">Séries nacionais</h3>
+          <p id="data-info-national-text">Indicadores de crédito, inadimplência, endividamento, juros, Selic e inflação vêm de séries oficiais do Banco Central. Desemprego e renda também entram na camada nacional.</p>
+        </article>
+
+        <article class="data-info-card">
+          <span class="data-info-tag" id="data-info-state-tag">27 UFs</span>
+          <h3 id="data-info-state-title">Crédito por estado</h3>
+          <p id="data-info-state-text">O recorte mensal por estado usa o SCR.data do Banco Central. A inadimplência estadual é calculada com carteira em atraso acima de 90 dias sobre a carteira ativa.</p>
+        </article>
+
+        <article class="data-info-card">
+          <span class="data-info-tag" id="data-info-sex-tag">SEXO</span>
+          <h3 id="data-info-sex-title">Homens e mulheres</h3>
+          <p id="data-info-sex-text">Para desemprego e rendimento, a PNAD Contínua do IBGE permite comparar Total, Homens e Mulheres no Brasil e nas 27 UFs. O projeto não infere gênero onde a fonte não publica essa dimensão.</p>
+        </article>
+      </div>
+
+      <div class="data-info-note">
+        <strong id="data-info-update-title">Atualização automática</strong>
+        <p id="data-info-update-text">GitHub Actions consulta as fontes oficiais, valida os retornos e preserva a última versão válida se alguma API falhar. O histórico estadual disponível começa em julho de 2012.</p>
+      </div>
+    </div>
+
+    <div class="data-info-actions">
+      <a class="data-info-github" id="data-info-github" href="https://github.com/gabrieldelvaje/credit-intelligence-brasil/tree/main/data" target="_blank" rel="noopener noreferrer">Ver dados no GitHub ↗</a>
+      <button class="data-info-dismiss" id="data-info-dismiss" type="button">Fechar</button>
+    </div>
+  </section>
 
   <template id="message-template">
     <article class="message">
@@ -72,7 +117,7 @@
     </article>
   </template>
 
-  <script src="app.js?v=5"></script>
+  <script src="app.js?v=6"></script>
   <script src="chat-ui-v5.js?v=3"></script>
   <script src="chat-staged-sections.js?v=2"></script>
   <script src="follow-up-entrance.js?v=2"></script>
