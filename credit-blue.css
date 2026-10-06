@@ -492,3 +492,16 @@ body.data-info-open{overflow:hidden}
 .ci-key-3{background:var(--series-3)!important}
 .ci-key-4{background:var(--series-4)!important}
 .ci-key-5{background:var(--series-5)!important}
+
+
+/* Error replies use the mirrored teardrop geometry of the user bubble. */
+.conversation .message.assistant .error{
+  display:block;
+  width:fit-content;
+  max-width:100%;
+  padding:17px 21px;
+  border:1px solid color-mix(in srgb,var(--danger) 30%,var(--line));
+  border-radius:14px 56px 56px 55px !important;
+  background:color-mix(in srgb,var(--danger) 10%,var(--surface));
+  color:var(--danger);
+}
