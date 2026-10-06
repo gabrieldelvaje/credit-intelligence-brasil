@@ -28,11 +28,13 @@ jobs:
           node --check submit-arrowhead-alignment.js
           node --check question-builder-credit.js
           node --check question-builder-slide.js
+          node --check state-map.js
 
       - name: Validate Python syntax
         run: |
           python -m py_compile scripts/update_data.py
           python -m py_compile scripts/update_dimensions.py
+          python -m py_compile scripts/update_map_geometry.py
 
       - name: Check required site files
         run: |
