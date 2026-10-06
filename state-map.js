@@ -127,14 +127,21 @@
 
   function buildProjection(geometry){
     const coords=allCoordinates(geometry);
-    const merc=lat=>Math.log(Math.tan(Math.PI/4+lat*Math.PI/360));
-    const lons=coords.map(c=>c[0]),ys=coords.map(c=>merc(c[1]));
-    const minLon=Math.min(...lons),maxLon=Math.max(...lons),minY=Math.min(...ys),maxY=Math.max(...ys);
+    // GeoJSON longitudes arrive in degrees while Mercator Y is expressed
+    // in radians. Convert longitude to radians too, otherwise the map is
+    // compressed vertically into an almost-flat line.
+    const lonX=lon=>lon*Math.PI/180;
+    const mercY=lat=>Math.log(Math.tan(Math.PI/4+lat*Math.PI/360));
+    const xs=coords.map(c=>lonX(c[0])),ys=coords.map(c=>mercY(c[1]));
+    const minX=Math.min(...xs),maxX=Math.max(...xs),minY=Math.min(...ys),maxY=Math.max(...ys);
     const pad=28,W=620,H=620;
-    const scale=Math.min((W-pad*2)/(maxLon-minLon),(H-pad*2)/(maxY-minY));
-    const usedW=(maxLon-minLon)*scale,usedH=(maxY-minY)*scale;
+    const scale=Math.min((W-pad*2)/(maxX-minX),(H-pad*2)/(maxY-minY));
+    const usedW=(maxX-minX)*scale,usedH=(maxY-minY)*scale;
     const offsetX=(W-usedW)/2,offsetY=(H-usedH)/2;
-    return ([lon,lat])=>[offsetX+(lon-minLon)*scale,offsetY+(maxY-merc(lat))*scale];
+    return ([lon,lat])=>[
+      offsetX+(lonX(lon)-minX)*scale,
+      offsetY+(maxY-mercY(lat))*scale
+    ];
   }
 
   function geometryPath(geom,project){
