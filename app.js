@@ -9,8 +9,8 @@ const monthFmt=iso=>new Intl.DateTimeFormat(window.creditLocale==='en'?'en-US':'
 const t=(pt,en)=>window.creditLocale==='en'?en:pt;
 
 const copy={
-  pt:{title:'O que você quer saber sobre crédito e inadimplência?',subtitle:'Consulte inadimplência, endividamento, crédito, juros e contexto macroeconômico do Brasil.',placeholder:'Pergunte sobre inadimplência, crédito, juros ou previsão...',loading:'Carregando base de crédito',loadingSmall:'Banco Central + indicadores do IBGE via SGS.',by:'Desenvolvido por Gabriel Delvaje'},
-  en:{title:'What do you want to know about credit and delinquency?',subtitle:'Explore delinquency, household debt, credit, interest rates and Brazil’s macroeconomic context.',placeholder:'Ask about delinquency, credit, interest rates or forecasts...',loading:'Loading credit data',loadingSmall:'Central Bank + IBGE indicators via SGS.',by:'Developed by Gabriel Delvaje'}
+  pt:{title:'O que você quer saber sobre crédito e inadimplência?',subtitle:'Consulte crédito, inadimplência e contexto macroeconômico, com recortes por estado e sexo quando disponíveis.',placeholder:'Pergunte sobre inadimplência, crédito, juros ou previsão...',loading:'Carregando base de crédito',loadingSmall:'Banco Central + IBGE.',by:'Desenvolvido por Gabriel Delvaje'},
+  en:{title:'What do you want to know about credit and delinquency?',subtitle:'Explore credit, delinquency and the macroeconomic context, with state and sex breakdowns where available.',placeholder:'Ask about delinquency, credit, interest rates or forecasts...',loading:'Loading credit data',loadingSmall:'Central Bank + IBGE.',by:'Developed by Gabriel Delvaje'}
 };
 
 function label(meta){return meta?.[window.creditLocale==='en'?'en':'pt']||meta?.key||''}
@@ -249,7 +249,7 @@ function updateLocaleUI(){
   $('#theme-toggle').setAttribute('aria-label',lang==='en'?'Switch theme':'Alternar tema');
   document.querySelectorAll('[data-q-pt]').forEach(btn=>btn.textContent=lang==='en'?btn.dataset.qEn:btn.dataset.qPt);
   const dataLink=document.querySelector('.data-link');
-  if(dataLink)dataLink.textContent=lang==='en'?'19 indicators · data':'19 indicadores · dados';
+  if(dataLink)dataLink.textContent=lang==='en'?'Data · Brazil + states + sex':'Dados · Brasil + estados + sexo';
   window.dispatchEvent(new CustomEvent('credit:locale-changed',{detail:{locale:lang}}));
 }
 async function load(){
