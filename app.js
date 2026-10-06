@@ -119,7 +119,25 @@ function compareStatesAnswer(key,ufs,q){
   const last=sets.map(s=>({label:s.label,row:s.points.at(-1)}));
   return `<h2 class="result-title">${t('Comparação entre estados','State comparison')} — ${esc(label(m))}</h2><p class="answer"><strong>${esc(last[0].label)}</strong>: ${esc(formatValue(last[0].row.value,m))} · <strong>${esc(last[1].label)}</strong>: ${esc(formatValue(last[1].row.value,m))}.</p>${cards(last.map(x=>({label:x.label,value:formatValue(x.row.value,m),small:monthFmt(x.row.date)})))}${chart(sets.map(s=>({...s,meta:m})),t('Evolução por estado','Trend by state'),m)}`;
 }
-function stateRankingAnswer(key,ascending=false){
+function requestedRankCount(q){
+  const n=norm(q);
+  if(/\b(todos|todas|all)\b/.test(n))return 27;
+  const digit=n.match(/(?:top\s*)?(\d{1,2})(?:\s*(?:estados|states|ufs))?/);
+  if(digit)return Math.max(1,Math.min(27,+digit[1]));
+  const words={cinco:5,five:5,dez:10,ten:10,quinze:15,fifteen:15,vinte:20,twenty:20};
+  for(const [word,value] of Object.entries(words))if(new RegExp('\\b'+word+'\\b').test(n))return value;
+  return 5;
+}
+function rankingBars(rows,m){
+  if(!rows.length)return'';
+  const max=Math.max(...rows.map(r=>r.value),1e-9);
+  return '<div class="ranking-bar-chart"><div class="ranking-chart-heading"><strong>'+t('Ranking estadual','State ranking')+'</strong><span>'+esc(monthFmt(rows[0].date))+'</span></div><div class="ranking-bars">'
+    +rows.map((r,i)=>{
+      const pct=Math.max(2,Math.min(100,r.value/max*100));
+      return '<div class="ranking-bar-row'+(i===0?' is-leader':'')+'"><div class="ranking-bar-meta"><span class="ranking-bar-rank">'+(i+1)+'</span><span class="ranking-bar-name">'+esc(UF_LABELS[r.uf]||r.uf)+'</span><span class="ranking-bar-value">'+esc(formatValue(r.value,m))+'</span></div><div class="ranking-bar-track"><div class="ranking-bar-fill'+(i===0?' is-leader':'')+'" style="width:'+pct.toFixed(2)+'%"></div></div></div>';
+    }).join('')+'</div></div>';
+}
+function stateRankingAnswer(key,ascending=false,q=''){
   const rows=dimSupports(key,'gender')
     ? state.dimensions.genderState.filter(r=>r.key===key&&r.gender==='total'&&r.uf!=='BR')
     : state.dimensions.stateCredit.filter(r=>r.key===key);
@@ -128,8 +146,16 @@ function stateRankingAnswer(key,ascending=false){
   for(const r of rows){const prev=latestByUf.get(r.uf);if(!prev||r.date>prev.date)latestByUf.set(r.uf,r)}
   const ranked=[...latestByUf.entries()].map(([uf,r])=>({uf,...r})).sort((a,b)=>ascending?a.value-b.value:b.value-a.value);
   if(!ranked.length)return `<div class="error">${t('Ainda não há recorte estadual disponível para esse indicador.','State-level data is not available for this indicator yet.')}</div>`;
-  const top=ranked[0];
-  return `<h2 class="result-title">${ascending?t('Estados com menor valor','States with the lowest value'):t('Estados com maior valor','States with the highest value')} — ${esc(label(m))}</h2><p class="answer"><strong>${esc(UF_LABELS[top.uf]||top.uf)}</strong> ${t('aparece no topo do ranking com','ranks first at')} <strong>${esc(formatValue(top.value,m))}</strong> (${esc(monthFmt(top.date))}).</p><div class="table-wrap"><table class="data-table"><thead><tr><th>#</th><th>${t('Estado','State')}</th><th>${t('Valor','Value')}</th><th>${t('Referência','Reference')}</th></tr></thead><tbody>${ranked.map((r,i)=>`<tr><td>${i+1}</td><td>${esc(UF_LABELS[r.uf]||r.uf)}</td><td class="number">${esc(formatValue(r.value,m))}</td><td>${esc(monthFmt(r.date))}</td></tr>`).join('')}</tbody></table></div>`;
+
+  const requested=requestedRankCount(q);
+  const visible=ranked.slice(0,requested);
+  const bars=visible.slice(0,Math.min(5,visible.length));
+  const top=visible[0];
+  const extraTable=requested>5
+    ? '<div class="table-wrap"><table class="data-table"><thead><tr><th>#</th><th>'+t('Estado','State')+'</th><th>'+t('Valor','Value')+'</th><th>'+t('Referência','Reference')+'</th></tr></thead><tbody>'+visible.map((r,i)=>'<tr><td>'+(i+1)+'</td><td>'+esc(UF_LABELS[r.uf]||r.uf)+'</td><td class="number">'+esc(formatValue(r.value,m))+'</td><td>'+esc(monthFmt(r.date))+'</td></tr>').join('')+'</tbody></table></div>'
+    : '';
+
+  return `<h2 class="result-title">${ascending?t('Estados com menor valor','States with the lowest value'):t('Estados com maior valor','States with the highest value')} — ${esc(label(m))}</h2><p class="answer"><strong>${esc(UF_LABELS[top.uf]||top.uf)}</strong> ${t('aparece no topo do ranking com','ranks first at')} <strong>${esc(formatValue(top.value,m))}</strong> (${esc(monthFmt(top.date))}). ${requested===5?t('Por padrão, mostro os cinco primeiros estados.','By default, I show the top five states.') : t('O ranking abaixo mostra os '+requested+' estados solicitados.','The ranking below shows the '+requested+' requested states.')}</p>${rankingBars(bars,m)}${extraTable}`;
 }
 function genderStateAnswer(key,uf,genders,q){
   const m=dimMeta(key,genderRows(key,uf,genders[0])[0]?.unit);
@@ -262,10 +288,10 @@ function answer(q){
 
   if(asksState){
     if(!dimSupports(key,'state'))return dimensionUnavailable(key,'state');
-    if(asksRankingState&&!ufs.length)return stateRankingAnswer(key,/menor|menores|lowest/.test(n));
+    if(asksRankingState&&!ufs.length)return stateRankingAnswer(key,/menor|menores|lowest/.test(n),q);
     if(ufs.length>=2)return compareStatesAnswer(key,ufs,q);
     if(ufs.length===1)return stateTrendAnswer(key,ufs[0],q);
-    return stateRankingAnswer(key,false);
+    return stateRankingAnswer(key,false,q);
   }
 
   if(/maior inadimplencia|maior inadimplência|highest delinquency|qual modalidade|which credit category/.test(n))return ranking();
