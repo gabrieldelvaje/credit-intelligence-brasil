@@ -1,0 +1,47 @@
+name: Update dimensions
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "37 10 * * 1"
+  push:
+    branches:
+      - main
+    paths:
+      - "scripts/update_dimensions.py"
+      - ".github/workflows/update-dimensions.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Fetch and aggregate state and sex dimensions
+        run: python scripts/update_dimensions.py
+
+      - name: Commit dimensional data changes
+        shell: bash
+        run: |
+          if [ -z "$(git status --porcelain -- data/dimensions)" ]; then
+            echo "Nenhuma mudança nos dados dimensionais."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/dimensions
+          git commit -m "data: refresh state and sex dimensions"
+          git pull --rebase origin main
+          git push
