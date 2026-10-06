@@ -11,30 +11,22 @@ jobs:
   probe:
     runs-on: ubuntu-latest
     steps:
-      - name: Probe dimensional endpoints
+      - name: Inspect latest SCR.data ZIP
         shell: python
         run: |
-          import re, urllib.request
+          import io, zipfile, urllib.request
 
-          urls=[
-            "https://apisidra.ibge.gov.br/values/t/6396/n3/all/v/4099/p/last%202/c2/all",
-            "https://apisidra.ibge.gov.br/values/t/5436/n3/all/v/5933/p/last%202/c2/all",
-            "https://olinda.bcb.gov.br/olinda/servico/scr_sub_regiao/versao/v1/odata/scr_sub_regiao(DataBase=202608)?%24top=8&%24format=json",
-            "https://olinda.bcb.gov.br/olinda/servico/scr_sub_regiao/versao/v1/odata/scr_sub_regiao(DataBase=@DataBase)?@DataBase=202608&%24top=8&%24format=json",
-            "https://dadosabertos.bcb.gov.br/dataset/scr_data/resource/b8f105b9-fb9c-49ea-8f45-6d8df20f702a",
-          ]
-          for url in urls:
-              print("\n====",url,"====")
-              try:
-                  req=urllib.request.Request(url,headers={"User-Agent":"Mozilla/5.0 Credit-Intelligence-Brasil","Accept":"application/json,text/html,application/xml;q=0.9,*/*;q=0.8"})
-                  with urllib.request.urlopen(req,timeout=90) as r:
-                      raw=r.read().decode("utf-8","replace")
-                  if "resource/b8f" in url:
-                      for m in re.findall(r'href=["\']([^"\']+)["\']',raw,re.I):
-                          if "zip" in m.lower() or "scr" in m.lower():
-                              print("LINK",m)
-                      print(raw[:6000])
-                  else:
-                      print(raw[:18000])
-              except Exception as e:
-                  print("ERROR",repr(e))
+          url="https://www.bcb.gov.br/pda/desig/scrdata_2026.zip"
+          req=urllib.request.Request(url,headers={"User-Agent":"Mozilla/5.0 Credit-Intelligence-Brasil"})
+          with urllib.request.urlopen(req,timeout=180) as r:
+              raw=r.read()
+          print("bytes",len(raw))
+          z=zipfile.ZipFile(io.BytesIO(raw))
+          print("FILES")
+          for n in z.namelist():
+              info=z.getinfo(n)
+              print(n, info.file_size)
+          for n in z.namelist()[:4]:
+              print("\nHEAD",n)
+              with z.open(n) as fh:
+                  print(fh.read(12000).decode("utf-8-sig","replace"))
