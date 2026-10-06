@@ -27,9 +27,8 @@
   panel.innerHTML=`
     <div class="state-map-head">
       <div>
-        <span class="state-map-eyebrow">BRASIL · 27 UFs</span>
         <h2 id="state-map-title">Mapa por estado</h2>
-        <p id="state-map-subtitle">Escolha um indicador e clique em até dois estados para comparar.</p>
+        <p id="state-map-subtitle">Escolha um indicador para comparar estados.</p>
       </div>
       <button type="button" class="state-map-close" aria-label="Fechar">×</button>
     </div>
@@ -161,7 +160,7 @@
 
   function renderSelected(){
     selectedBox.innerHTML=selected.length
-      ? selected.map(uf=>'<button type="button" data-remove-uf="'+uf+'">'+esc(UF_LABELS[uf]||uf)+' <span>×</span></button>').join('')
+      ? selected.map((uf,i)=>'<button type="button" class="is-series-'+(i+1)+'" data-remove-uf="'+uf+'">'+esc(UF_LABELS[uf]||uf)+' <span>×</span></button>').join('')
       : '<small>'+ (isEn()?'None selected':'Nenhum selecionado') +'</small>';
   }
 
@@ -189,9 +188,11 @@
       const uf=feature.properties?.uf;
       const row=latest.get(uf);
       const alpha=heatAlpha(row?.value,min,max);
-      const selectedClass=selected.includes(uf)?' is-selected':'';
+      const selectedIndex=selected.indexOf(uf);
+      const selectedClass=selectedIndex===0?' is-selected is-selected-1':selectedIndex===1?' is-selected is-selected-2':'';
+      const dimmedClass=selected.length&&selectedIndex<0?' is-dimmed':'';
       const path=geometryPath(feature.geometry,project);
-      return '<path class="state-map-shape'+selectedClass+'" data-uf="'+esc(uf)+'" d="'+path+'" style="--state-heat:'+alpha.toFixed(3)+'" tabindex="0"><title>'+esc((UF_LABELS[uf]||uf)+(row?' · '+formatValue(row.value,m):''))+'</title></path>';
+      return '<path class="state-map-shape'+selectedClass+dimmedClass+'" data-uf="'+esc(uf)+'" d="'+path+'" style="--state-heat:'+alpha.toFixed(3)+'" tabindex="0"><title>'+esc((UF_LABELS[uf]||uf)+(row?' · '+formatValue(row.value,m):''))+'</title></path>';
     }).join('');
 
     loading.hidden=true;
@@ -212,9 +213,8 @@
 
   function localize(){
     toggle.setAttribute('aria-label',isEn()?'Open state map':'Abrir mapa por estado');
-    panel.querySelector('.state-map-eyebrow').textContent=isEn()?'BRAZIL · 27 STATES':'BRASIL · 27 UFs';
     panel.querySelector('#state-map-title').textContent=isEn()?'Map by state':'Mapa por estado';
-    panel.querySelector('#state-map-subtitle').textContent=isEn()?'Choose an indicator and click up to two states to compare.':'Escolha um indicador e clique em até dois estados para comparar.';
+    panel.querySelector('#state-map-subtitle').textContent=isEn()?'Choose an indicator to compare states.':'Escolha um indicador para comparar estados.';
     panel.querySelector('#state-map-indicator-label').textContent=isEn()?'Indicator':'Indicador';
     panel.querySelector('#state-map-selection-label').textContent=isEn()?'Compare states':'Comparar estados';
     close.setAttribute('aria-label',isEn()?'Close':'Fechar');
