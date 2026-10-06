@@ -20,16 +20,44 @@
 }
 body{font-family:Helvetica,Arial,sans-serif}
 .topbar{background:color-mix(in srgb,var(--bg) 94%,transparent);backdrop-filter:blur(18px)}
-.brand-icon{font-size:22px;font-weight:800;letter-spacing:-.04em;color:var(--brand);background:var(--surface);border-color:var(--line)}
+.brand-icon{
+  display:grid;place-items:center;flex:0 0 42px;width:42px;height:42px;padding:0;
+  border:0;background:transparent;box-shadow:none;color:inherit;font-size:27px;line-height:1;
+}
 .brand-copy{flex:1 1 auto;min-width:0}.brand-copy strong{letter-spacing:-.02em}
 .hero h1{max-width:820px;margin-inline:auto;letter-spacing:-.045em}
 .hero>p{max-width:760px;margin-inline:auto}
-.suggestions button{border-radius:18px;background:var(--surface)}
-.suggestions button:hover{border-color:var(--brand);color:var(--brand)}
-.message.user .message-icon{background:color-mix(in srgb,var(--brand) 12%,var(--surface))}
-.message.user .message-icon:after{content:'●';color:var(--brand);font-size:13px}
-.message.assistant .message-icon{background:var(--brand)}
-.message.assistant .message-icon:after{content:'CI';font-size:10px;font-weight:800;letter-spacing:-.04em}
+.suggestions button,
+.follow-up-suggestions button{
+  width:100%;
+  min-height:52px;
+  padding:12px 20px;
+  border:1px solid var(--line);
+  border-radius:9999px !important;
+  background:var(--surface);
+  box-shadow:none;
+  color:var(--text);
+  text-align:left;
+  line-height:1.45;
+}
+.suggestions button:hover,
+.follow-up-suggestions button:hover{
+  border-color:var(--brand);
+  background:var(--surface2);
+  color:var(--text);
+}
+.conversation .message.user .message-icon,
+.conversation .message.assistant .message-icon{
+  display:grid;place-items:center;
+  background:transparent !important;
+  border:0 !important;
+  border-radius:0 !important;
+  box-shadow:none !important;
+  color:inherit;
+  font-size:25px;
+}
+.conversation .message.user .message-icon::after{content:'🗣️';font-size:25px}
+.conversation .message.assistant .message-icon::after{content:'🤖';font-size:25px}
 .question-bar{background:color-mix(in srgb,var(--surface2) 94%,transparent);backdrop-filter:blur(18px)}
 .question-bar button[type=submit]{background:var(--brand)}
 #locale-toggle{display:flex;align-items:center;justify-content:center;margin-left:auto;flex:0 0 36px;width:36px;height:36px;padding:0;border:1px solid var(--line);border-radius:10px;background:var(--surface);color:var(--text);font-size:12px;font-weight:700;line-height:1;cursor:pointer}
@@ -61,3 +89,24 @@ body{font-family:Helvetica,Arial,sans-serif}
 
 .question-builder-panel .qb-action[aria-pressed="true"],
 .question-builder-panel .qb-submit{color:#fff}
+
+/* Match Sugar Cane Intelligence geometry exactly. */
+.suggestions button,
+.follow-up-suggestions button{
+  border-radius:9999px !important;
+}
+.conversation .message.user .message-content{
+  background:color-mix(in srgb,var(--brand) 9%,#ffffff);
+  border-color:color-mix(in srgb,var(--brand) 28%,var(--line));
+  color:#1f2c52;
+  border-radius:56px 14px 55px 56px !important;
+  padding:17px 21px;
+}
+[data-theme="dark"] .conversation .message.user .message-content{
+  background:color-mix(in srgb,var(--brand) 18%,#151515);
+  border-color:color-mix(in srgb,var(--brand) 42%,var(--line));
+  color:#f3f3f1;
+}
+.conversation .message.chat-typing-message .message-content{
+  border-radius:6px 24px 24px 21px !important;
+}
