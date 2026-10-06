@@ -81,25 +81,27 @@
     ];
 
     const genderQuestions = en ? [
-      `Compare unemployment among men and women in ${A}.`,
-      `How has unemployment among women changed in ${B}?`,
-      `How has unemployment among men changed in ${C}?`,
-      `Compare real income for men and women in ${D}.`,
-      `How has real income for women changed in ${E}?`,
-      `How has real income for men changed in ${A}?`,
-      'Compare unemployment among men and women in Brazil.',
-      'How has real income for women changed in Brazil?',
-      'How has unemployment among men changed in Brazil?'
+      `How has unemployment evolved by sex in ${A}?`,
+      `Compare unemployment between men and women in ${B} over the last 5 years.`,
+      `How has real income evolved by sex in ${C}?`,
+      `Compare real income between men and women in ${D} over the last 5 years.`,
+      `How has the unemployment gap between men and women changed in ${E}?`,
+      `How has the real-income gap between men and women changed in ${A}?`,
+      'How has unemployment evolved by sex in Brazil?',
+      'Compare unemployment between men and women in Brazil over the last 5 years.',
+      'How has real income evolved by sex in Brazil?',
+      'Compare real income between men and women in Brazil over the last 5 years.'
     ] : [
-      `Compare o desemprego de homens e mulheres em ${A}.`,
-      `Como evoluiu o desemprego das mulheres em ${B}?`,
-      `Como evoluiu o desemprego dos homens em ${C}?`,
-      `Compare o rendimento real de homens e mulheres em ${D}.`,
-      `Como evoluiu o rendimento real das mulheres em ${E}?`,
-      `Como evoluiu o rendimento real dos homens em ${A}?`,
-      'Compare o desemprego de homens e mulheres no Brasil.',
-      'Como evoluiu o rendimento real das mulheres no Brasil?',
-      'Como evoluiu o desemprego dos homens no Brasil?'
+      `Como evoluiu o desemprego por gênero em ${A}?`,
+      `Compare o desemprego entre homens e mulheres em ${B} nos últimos 5 anos.`,
+      `Como evoluiu o rendimento real por gênero em ${C}?`,
+      `Compare o rendimento real entre homens e mulheres em ${D} nos últimos 5 anos.`,
+      `Como evoluiu a diferença de desemprego entre homens e mulheres em ${E}?`,
+      `Como evoluiu a diferença de rendimento real entre homens e mulheres em ${A}?`,
+      'Como evoluiu o desemprego por gênero no Brasil?',
+      'Compare o desemprego entre homens e mulheres no Brasil nos últimos 5 anos.',
+      'Como evoluiu o rendimento real por gênero no Brasil?',
+      'Compare o rendimento real entre homens e mulheres no Brasil nos últimos 5 anos.'
     ];
 
     return { state: stateQuestions, gender: genderQuestions };
