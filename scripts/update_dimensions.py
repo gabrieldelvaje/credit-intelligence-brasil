@@ -147,7 +147,7 @@ def aggregate_scr_year(year):
         raise RuntimeError(f"SCR.data {year}: no rows")
     return agg, sorted(set(months))
 
-def build_state_credit():
+def build_state_credit(existing_rows=None):
     current_year = datetime.now().year
     years = [current_year - 1, current_year]
     combined = defaultdict(lambda: {"active":0.0, "delinq":0.0, "problem":0.0})
@@ -200,7 +200,19 @@ def build_state_credit():
             })
     if len(rows) < 100:
         raise RuntimeError(f"Suspicious SCR aggregate: {len(rows)} rows")
-    return rows, sorted(set(loaded_months))
+
+    # Preserve historical years already backfilled. Refreshed rows for the
+    # current and previous year replace matching historical keys.
+    merged = {}
+    for row in (existing_rows or []):
+        try:
+            merged[(row["date"], row["uf"], row["key"])] = row
+        except Exception:
+            continue
+    for row in rows:
+        merged[(row["date"], row["uf"], row["key"])] = row
+    rows = sorted(merged.values(), key=lambda r: (r["date"], r["uf"], r["key"]))
+    return rows, sorted({r["date"] for r in rows})
 
 def quarter_date(code):
     s = str(code)
@@ -283,7 +295,7 @@ def main():
     existing_gender = load_existing(GENDER_JSON)
 
     try:
-        state_rows, scr_months = build_state_credit()
+        state_rows, scr_months = build_state_credit(existing_state or [])
         write_json(STATE_JSON, state_rows)
         write_csv(STATE_CSV, state_rows, ["date","uf","key","value","unit","source"])
         status["state_credit"] = {
