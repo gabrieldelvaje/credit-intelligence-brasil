@@ -56,11 +56,12 @@ jobs:
           assert len(catalog) >= 19, len(catalog)
           assert len(rows) > 9000, len(rows)
           assert len(forecasts) >= 6, len(forecasts)
-          assert len(state_rows) > 5000, len(state_rows)
+          assert len(state_rows) > 45000, len(state_rows)
           assert len(sex_rows) > 8000, len(sex_rows)
           assert any(x["key"]=="delinquency_pf" and "state" in x["dimensions"] for x in dim_catalog)
           assert any(x["key"]=="unemployment" and "gender" in x["dimensions"] for x in dim_catalog)
           assert any(r["uf"]=="BR" and r["gender"]=="women" for r in sex_rows)
+          assert min(r["date"] for r in state_rows) <= "2012-07-31"
           latest_state=max(r["date"] for r in state_rows)
           latest_ufs={r["uf"] for r in state_rows if r["date"]==latest_state and r["key"]=="delinquency_pf"}
           assert len(latest_ufs)==27, (latest_state,len(latest_ufs))
