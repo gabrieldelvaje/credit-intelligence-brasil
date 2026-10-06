@@ -25,7 +25,10 @@
       'Qual é a previsão da inadimplência PF para os próximos 6 meses?',
       'Compare cartão rotativo e crédito pessoal.',
       'Como está o endividamento das famílias?',
-      'Os juros do crédito PF subiram no último ano?'
+      'Os juros do crédito PF subiram no último ano?',
+      'Qual estado tem a maior inadimplência PF?',
+      'Compare a inadimplência PF de São Paulo e Minas Gerais.',
+      'Compare o desemprego de homens e mulheres em São Paulo.'
     ],
     en: [
       'Is household delinquency increasing?',
@@ -37,7 +40,10 @@
       'What is the 6-month forecast for household delinquency?',
       'Compare revolving credit card and personal credit delinquency.',
       'How high is household debt today?',
-      'Have household credit interest rates increased over the last year?'
+      'Have household credit interest rates increased over the last year?',
+      'Which state has the highest household delinquency rate?',
+      'Compare household delinquency in São Paulo and Minas Gerais.',
+      'Compare unemployment among men and women in São Paulo.'
     ]
   };
   const activeQuestions = () => questions[window.creditLocale === 'en' ? 'en' : 'pt'];
