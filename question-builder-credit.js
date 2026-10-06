@@ -81,15 +81,24 @@
     feedback.hidden = !message;
   }
 
+  function metricPool() {
+    const base=[...state.catalog];
+    for(const item of (state.dimensions?.catalog||[])){
+      if(!base.some(m=>m.key===item.key) && (item.pt||item.en)) base.push(item);
+    }
+    return base;
+  }
+
   function populate() {
     if (!state.catalog?.length) return;
+    const pool=metricPool();
     const current1 = ind1.value;
     const current2 = ind2.value;
-    const options = state.catalog.map(m => `<option value="${m.key}">${display(m)}</option>`).join('');
+    const options = pool.map(m => `<option value="${m.key}">${display(m)}</option>`).join('');
     ind1.innerHTML = options;
     ind2.innerHTML = options;
-    ind1.value = state.catalog.some(m => m.key === current1) ? current1 : 'delinquency_pf';
-    ind2.value = state.catalog.some(m => m.key === current2) ? current2 : 'selic';
+    ind1.value = pool.some(m => m.key === current1) ? current1 : 'delinquency_pf';
+    ind2.value = pool.some(m => m.key === current2) ? current2 : 'selic';
 
     if (action === 'forecast') {
       const allowed = new Set(['delinquency_pf','delinquency_pj','delinquency_card','delinquency_revolving','delinquency_personal','delinquency_vehicle']);
@@ -123,8 +132,9 @@
   }
 
   function buildQuestion() {
-    const a = display(state.catalog.find(m => m.key === ind1.value));
-    const b = display(state.catalog.find(m => m.key === ind2.value));
+    const pool=metricPool();
+    const a = display(pool.find(m => m.key === ind1.value));
+    const b = display(pool.find(m => m.key === ind2.value));
     const p = periodText();
     const where = geoSuffix() + sexSuffix();
 
