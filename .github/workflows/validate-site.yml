@@ -29,7 +29,9 @@ jobs:
           node --check question-builder-slide.js
 
       - name: Validate Python syntax
-        run: python -m py_compile scripts/update_data.py
+        run: |
+          python -m py_compile scripts/update_data.py
+          python -m py_compile scripts/update_dimensions.py
 
       - name: Check required site files
         run: |
@@ -37,14 +39,26 @@ jobs:
           test -f data/catalog.json
           test -f data/credit_intelligence.json
           test -f data/forecasts.json
+          test -f data/dimensions/state_credit.json
+          test -f data/dimensions/gender_state.json
+          test -f data/dimensions/catalog.json
+          test -f data/dimensions/metadata.json
           python - <<'PY'
           import json
           from pathlib import Path
           catalog=json.loads(Path("data/catalog.json").read_text())
           forecasts=json.loads(Path("data/forecasts.json").read_text())
           rows=json.loads(Path("data/credit_intelligence.json").read_text())
+          state_rows=json.loads(Path("data/dimensions/state_credit.json").read_text())
+          sex_rows=json.loads(Path("data/dimensions/gender_state.json").read_text())
+          dim_catalog=json.loads(Path("data/dimensions/catalog.json").read_text())
           assert len(catalog) >= 19, len(catalog)
           assert len(rows) > 9000, len(rows)
           assert len(forecasts) >= 6, len(forecasts)
-          print(f"OK: {len(catalog)} indicadores, {len(rows)} observações, {len(forecasts)} previsões")
+          assert len(state_rows) > 5000, len(state_rows)
+          assert len(sex_rows) > 8000, len(sex_rows)
+          assert any(x["key"]=="delinquency_pf" and "state" in x["dimensions"] for x in dim_catalog)
+          assert any(x["key"]=="unemployment" and "gender" in x["dimensions"] for x in dim_catalog)
+          assert any(r["uf"]=="BR" and r["gender"]=="women" for r in sex_rows)
+          print(f"OK: {len(catalog)} indicadores nacionais, {len(state_rows)} linhas estaduais, {len(sex_rows)} linhas por sexo")
           PY
