@@ -58,3 +58,6 @@ body{font-family:Helvetica,Arial,sans-serif}
   #theme-toggle{margin-left:0}
   .data-link{display:none}
 }
+
+.question-builder-panel .qb-action[aria-pressed="true"],
+.question-builder-panel .qb-submit{color:#fff}
