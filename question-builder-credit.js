@@ -301,6 +301,10 @@
     localize();
     syncFields();
   });
+  window.addEventListener('credit:data-ready',()=>{
+    populate();
+    syncFields();
+  });
 
   localize();
   syncFields();
