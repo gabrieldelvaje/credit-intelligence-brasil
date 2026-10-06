@@ -62,23 +62,14 @@
     const [ePt,eEn] = randomState();
     const A=en?aEn:aPt,B=en?bEn:bPt,C=en?cEn:cPt,D=en?dEn:dPt,E=en?eEn:ePt;
 
-    return en ? [
+    const stateQuestions = en ? [
       `How has household delinquency changed in ${A} over the last 5 years?`,
       `Compare household delinquency in ${A} and ${B}.`,
       'Which state has the highest household delinquency rate?',
       `How has credit card delinquency changed in ${C}?`,
       `How has household credit balance changed in ${D}?`,
       'Which state has the highest household credit balance?',
-      `How has household problem-asset ratio changed in ${E}?`,
-      `Compare unemployment among men and women in ${A}.`,
-      `How has unemployment among women changed in ${B}?`,
-      `How has unemployment among men changed in ${C}?`,
-      `Compare real earnings for men and women in ${D}.`,
-      `How have real earnings for women changed in ${E}?`,
-      `How have real earnings for men changed in ${A}?`,
-      'Compare unemployment among men and women in Brazil.',
-      'How have real earnings for women changed in Brazil?',
-      'How has unemployment among men changed in Brazil?'
+      `Compare personal credit delinquency in ${D} and ${E}.`
     ] : [
       `Como evoluiu a inadimplência PF em ${A} nos últimos 5 anos?`,
       `Compare a inadimplência PF de ${A} e ${B}.`,
@@ -86,7 +77,20 @@
       `Como evoluiu a inadimplência do cartão em ${C}?`,
       `Como evoluiu o saldo de crédito PF em ${D}?`,
       'Qual estado tem o maior saldo de crédito PF?',
-      `Como evoluiu o ativo problemático PF em ${E}?`,
+      `Compare a inadimplência do crédito pessoal de ${D} e ${E}.`
+    ];
+
+    const genderQuestions = en ? [
+      `Compare unemployment among men and women in ${A}.`,
+      `How has unemployment among women changed in ${B}?`,
+      `How has unemployment among men changed in ${C}?`,
+      `Compare real income for men and women in ${D}.`,
+      `How has real income for women changed in ${E}?`,
+      `How has real income for men changed in ${A}?`,
+      'Compare unemployment among men and women in Brazil.',
+      'How has real income for women changed in Brazil?',
+      'How has unemployment among men changed in Brazil?'
+    ] : [
       `Compare o desemprego de homens e mulheres em ${A}.`,
       `Como evoluiu o desemprego das mulheres em ${B}?`,
       `Como evoluiu o desemprego dos homens em ${C}?`,
@@ -97,11 +101,23 @@
       'Como evoluiu o rendimento real das mulheres no Brasil?',
       'Como evoluiu o desemprego dos homens no Brasil?'
     ];
+
+    return { state: stateQuestions, gender: genderQuestions };
+  }
+
+  function questionPools() {
+    const locale = window.creditLocale === 'en' ? 'en' : 'pt';
+    const dimensional = dimensionalQuestions(locale);
+    return {
+      national: [...nationalQuestions[locale]],
+      state: dimensional.state,
+      gender: dimensional.gender
+    };
   }
 
   function activeQuestions() {
-    const locale = window.creditLocale === 'en' ? 'en' : 'pt';
-    return [...nationalQuestions[locale], ...dimensionalQuestions(locale)];
+    const pools=questionPools();
+    return [...pools.national,...pools.state,...pools.gender];
   }
 
   function shuffle(list) {
@@ -113,10 +129,20 @@
     return copy;
   }
 
+  function oneFrom(list, excluded=new Set()) {
+    return shuffle(list).find(q=>!excluded.has(normalize(q))) || shuffle(list)[0] || '';
+  }
+
   function renderInitialSuggestions() {
     const locale=window.creditLocale === 'en' ? 'en' : 'pt';
     const capability=locale==='en'?'What can you do?':'O que você pode fazer?';
-    const options=shuffle(activeQuestions()).slice(0,3);
+    const pools=questionPools();
+    const selected=[
+      oneFrom(pools.national),
+      oneFrom(pools.state),
+      oneFrom(pools.gender)
+    ].filter(Boolean);
+    const options=shuffle(selected);
     initial.replaceChildren();
 
     const capabilityButton=document.createElement('button');
@@ -613,12 +639,15 @@
   const normalize = text => String(text).normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim();
   function suggestions(content, prompt) {
     const recent = new Set(previous.map(normalize));
-    let choices = shuffle(activeQuestions().filter(q => normalize(q) !== normalize(prompt) && !recent.has(normalize(q))));
-    if (choices.length < 2) {
-      previous = [];
-      choices = shuffle(activeQuestions().filter(q => normalize(q) !== normalize(prompt)));
+    const pools=questionPools();
+    const blocked=new Set([...recent,normalize(prompt)]);
+    const categories=round%3===0?['state','gender']:round%3===1?['gender','national']:['state','national'];
+    let picked=categories.map(category=>oneFrom(pools[category],blocked)).filter(Boolean);
+    for(const q of picked)blocked.add(normalize(q));
+    if(picked.length<2){
+      picked=[...picked,...shuffle(activeQuestions()).filter(q=>!blocked.has(normalize(q))).slice(0,2-picked.length)];
     }
-    previous = choices.slice(0, 2);
+    previous=shuffle(picked).slice(0,2);
     const group = document.createElement('div');
     group.className = 'follow-up-suggestions';
     group.setAttribute('aria-label', window.creditLocale === 'en' ? 'Suggested next questions' : 'Sugestões de próximas perguntas');
