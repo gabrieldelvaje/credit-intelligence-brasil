@@ -132,6 +132,8 @@ def aggregate_scr_year(year):
                 b = bucket_for(row.get("submodalidade"))
                 if b:
                     targets.append(b)
+                    if b == "revolving_card":
+                        targets.append("credit_card")
 
                 for bucket in targets:
                     rec = agg[(dt,uf,client,bucket)]
@@ -207,33 +209,37 @@ def quarter_date(code):
     return f"{year:04d}-{q*3:02d}-01"
 
 def parse_sidra(table, variable, key, unit):
-    url = f"https://apisidra.ibge.gov.br/values/t/{table}/n3/all/v/{variable}/p/all/c2/all"
-    payload = fetch_json(url)
-    if not isinstance(payload,list) or len(payload) < 10:
-        raise RuntimeError(f"SIDRA {table}: invalid response")
     rows = []
     gender_map = {"6794":"total","4":"men","5":"women"}
-    for r in payload[1:]:
-        uf = UF_BY_IBGE.get(str(r.get("D1C","")))
-        gender = gender_map.get(str(r.get("D4C","")))
-        raw = str(r.get("V","")).strip().replace(",",".")
-        if not uf or not gender or raw in {"","-","..","...","X"}:
-            continue
-        try:
-            value = float(raw)
-        except ValueError:
-            continue
-        if not math.isfinite(value):
-            continue
-        rows.append({
-            "date":quarter_date(r.get("D3C")),
-            "uf":uf,
-            "gender":gender,
-            "key":key,
-            "value":value,
-            "unit":unit,
-            "source":f"IBGE SIDRA {table}",
-        })
+    for level in ("n1/all", "n3/all"):
+        url = f"https://apisidra.ibge.gov.br/values/t/{table}/{level}/v/{variable}/p/all/c2/all"
+        payload = fetch_json(url)
+        if not isinstance(payload,list) or len(payload) < 4:
+            raise RuntimeError(f"SIDRA {table} {level}: invalid response")
+        for r in payload[1:]:
+            if level.startswith("n1"):
+                uf = "BR"
+            else:
+                uf = UF_BY_IBGE.get(str(r.get("D1C","")))
+            gender = gender_map.get(str(r.get("D4C","")))
+            raw = str(r.get("V","")).strip().replace(",",".")
+            if not uf or not gender or raw in {"","-","..","...","X"}:
+                continue
+            try:
+                value = float(raw)
+            except ValueError:
+                continue
+            if not math.isfinite(value):
+                continue
+            rows.append({
+                "date":quarter_date(r.get("D3C")),
+                "uf":uf,
+                "gender":gender,
+                "key":key,
+                "value":value,
+                "unit":unit,
+                "source":f"IBGE SIDRA {table}",
+            })
     if len(rows) < 1000:
         raise RuntimeError(f"SIDRA {table}: suspicious row count {len(rows)}")
     return rows
