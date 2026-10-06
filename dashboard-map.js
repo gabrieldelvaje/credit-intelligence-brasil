@@ -6,7 +6,13 @@ function allCoordinates(geometry){
 }
 function buildProjection(geometry){
   const coords=allCoordinates(geometry),lonX=lon=>lon*Math.PI/180,mercY=lat=>Math.log(Math.tan(Math.PI/4+lat*Math.PI/360));
-  const xs=coords.map(c=>lonX(c[0])),ys=coords.map(c=>mercY(c[1])),minX=Math.min(...xs),maxX=Math.max(...xs),minY=Math.min(...ys),maxY=Math.max(...ys),pad=22,W=620,H=620;
+  let minX=Infinity,maxX=-Infinity,minY=Infinity,maxY=-Infinity;
+  for(const coord of coords){
+    const x=lonX(coord[0]),y=mercY(coord[1]);
+    if(x<minX)minX=x;if(x>maxX)maxX=x;
+    if(y<minY)minY=y;if(y>maxY)maxY=y;
+  }
+  const pad=22,W=620,H=620;
   const scale=Math.min((W-pad*2)/(maxX-minX),(H-pad*2)/(maxY-minY)),usedW=(maxX-minX)*scale,usedH=(maxY-minY)*scale,offsetX=(W-usedW)/2,offsetY=(H-usedH)/2;
   return ([lon,lat])=>[offsetX+(lonX(lon)-minX)*scale,offsetY+(maxY-mercY(lat))*scale];
 }

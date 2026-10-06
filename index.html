@@ -7,52 +7,48 @@
   <meta name="description" content="Credit Intelligence Brasil — dashboard interativo de crédito, inadimplência e contexto macroeconômico com dados oficiais.">
   <title>Credit Intelligence Brasil</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg?v=4">
-  <link rel="stylesheet" href="styles.css?v=21">
+  <link rel="stylesheet" href="styles.css?v=22">
 </head>
 <body>
   <div class="app-shell">
-    <header class="topbar">
-      <div class="brand">
-        <div class="brand-mark" aria-hidden="true">CI</div>
-        <div>
-          <strong>Credit Intelligence Brasil</strong>
-          <span>Crédito, risco e contexto econômico em dados oficiais</span>
-        </div>
-      </div>
-      <div class="topbar-actions">
-        <span class="update-status" id="update-status">Carregando dados…</span>
-        <a class="text-link" href="https://github.com/gabrieldelvaje/credit-intelligence-brasil" target="_blank" rel="noopener noreferrer">Fonte ↗</a>
-        <button class="info-button" id="methodology-open" type="button" aria-haspopup="dialog" aria-controls="methodology-dialog">Informações</button>
-      </div>
-    </header>
 
     <main class="dashboard" id="dashboard" aria-live="polite">
       <section class="dashboard-head">
-        <div>
-          <p class="eyebrow">PAINEL NACIONAL + 27 UFs</p>
-          <h1>Visão geral</h1>
-          <p class="dashboard-subtitle">Crédito, inadimplência, carteira e contexto macroeconômico do Brasil.</p>
+        <div class="report-heading">
+          <div class="report-title-line"><span class="report-accent"></span><strong>Credit Intelligence Brasil</strong></div>
+          <h1 id="report-page-title">Visão geral</h1>
+          <div class="report-meta">
+            <span>Banco Central + IBGE</span>
+            <span aria-hidden="true">•</span>
+            <span class="update-status" id="update-status">Carregando dados…</span>
+          </div>
         </div>
-        <div class="filters" aria-label="Filtros do dashboard">
-          <label class="filter-field">
-            <span>Indicador no mapa</span>
-            <select id="metric-select" aria-label="Indicador do mapa"></select>
-          </label>
-          <label class="filter-field compact">
-            <span>Histórico</span>
-            <select id="period-select" aria-label="Período histórico">
-              <option value="24">24 meses</option>
-              <option value="60" selected>5 anos</option>
-              <option value="120">10 anos</option>
-              <option value="all">Todo histórico</option>
-            </select>
-          </label>
+        <div class="report-controls">
+          <div class="filters" aria-label="Filtros do dashboard">
+            <label class="filter-field">
+              <span>Indicador</span>
+              <select id="metric-select" aria-label="Indicador"></select>
+            </label>
+            <label class="filter-field compact">
+              <span>Histórico</span>
+              <select id="period-select" aria-label="Período histórico">
+                <option value="24">24 meses</option>
+                <option value="60" selected>5 anos</option>
+                <option value="120">10 anos</option>
+                <option value="all">Todo histórico</option>
+              </select>
+            </label>
+          </div>
+          <div class="report-actions">
+            <a class="report-icon-link" href="https://github.com/gabrieldelvaje/credit-intelligence-brasil" target="_blank" rel="noopener noreferrer" title="Fonte e código" aria-label="Fonte e código">↗</a>
+            <button class="report-icon-button" id="methodology-open" type="button" aria-haspopup="dialog" aria-controls="methodology-dialog" title="Informações" aria-label="Informações">i</button>
+          </div>
         </div>
       </section>
 
       <section class="kpi-grid" id="kpi-grid" aria-label="Principais indicadores"></section>
 
-      <section class="dashboard-grid top-grid">
+      <section class="dashboard-grid top-grid" data-page-view="overview">
         <article class="panel map-panel">
           <div class="panel-head">
             <div>
@@ -88,7 +84,7 @@
         </article>
       </section>
 
-      <section class="dashboard-grid middle-grid">
+      <section class="dashboard-grid middle-grid" data-page-view="overview">
         <article class="panel trend-panel">
           <div class="panel-head chart-head">
             <div>
@@ -114,7 +110,7 @@
         </article>
       </section>
 
-      <section class="dashboard-grid bottom-grid">
+      <section class="dashboard-grid bottom-grid" data-page-view="context">
         <article class="panel macro-panel">
           <div class="panel-head">
             <div>
@@ -137,6 +133,10 @@
           <div id="outlook-content" class="outlook-content"></div>
         </article>
       </section>
+      <nav class="report-tabs" aria-label="Páginas do relatório">
+        <button class="report-tab is-active" type="button" data-report-tab="overview" aria-current="page">Visão geral</button>
+        <button class="report-tab" type="button" data-report-tab="context">Contexto macro</button>
+      </nav>
     </main>
 
     <div class="loading-screen" id="loading-screen" role="status">
@@ -192,9 +192,9 @@
     <span>Desenvolvido por Gabriel Delvaje · Fontes: Banco Central do Brasil e IBGE</span>
   </footer>
 
-  <script src="dashboard-core.js?v=21"></script>
-  <script src="dashboard-map.js?v=21"></script>
-  <script src="dashboard-charts.js?v=21"></script>
-  <script src="app.js?v=21"></script>
+  <script src="dashboard-core.js?v=22"></script>
+  <script src="dashboard-map.js?v=22"></script>
+  <script src="dashboard-charts.js?v=22"></script>
+  <script src="app.js?v=22"></script>
 </body>
 </html>

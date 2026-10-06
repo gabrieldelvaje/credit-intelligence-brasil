@@ -406,3 +406,261 @@ body{
   .selected-states-list{grid-template-columns:1fr}
   .macro-grid{grid-template-columns:1fr 1fr}
 }
+
+
+/* v22 — report-canvas layout, closer to a published Power BI report */
+html,body{min-height:100%;background:#d7d7d7}
+body{margin:0;font-family:"Segoe UI",SegoeUI,Arial,sans-serif;color:#252423}
+.app-shell{min-height:100vh;background:#d7d7d7;padding:10px 0}
+.topbar{display:none!important}
+.dashboard{
+  position:relative;
+  width:min(calc((100dvh - 20px) * 16 / 9),calc(100vw - 20px));
+  height:min(calc(100dvh - 20px),calc((100vw - 20px) * 9 / 16));
+  min-height:650px;
+  max-width:none;
+  margin:0 auto;
+  padding:8px 8px 36px;
+  overflow:hidden;
+  background:#f2f2f2;
+  border:1px solid #bfbfbf;
+  box-shadow:0 8px 28px rgba(0,0,0,.18);
+}
+.dashboard-head{
+  height:62px;
+  min-height:62px;
+  margin:0 0 7px;
+  padding:7px 10px 7px 12px;
+  border:0;
+  border-left:4px solid var(--pbi-blue);
+  background:#fff;
+  box-shadow:none;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.report-heading{min-width:0}
+.report-title-line{
+  display:flex;
+  align-items:center;
+  gap:7px;
+  color:#555;
+  font-size:9px;
+  line-height:1;
+}
+.report-title-line strong{font-weight:600}
+.report-accent{display:none}
+.dashboard-head h1{
+  margin:4px 0 0;
+  font-size:19px;
+  line-height:1;
+  font-weight:600;
+  letter-spacing:-.02em;
+}
+.report-meta{
+  display:flex;
+  align-items:center;
+  gap:5px;
+  margin-top:4px;
+  color:#777;
+  font-size:8px;
+}
+.report-controls{
+  display:flex;
+  align-items:center;
+  gap:7px;
+  min-width:0;
+}
+.filters{display:flex;gap:6px;margin:0}
+.filter-field{min-width:190px;gap:2px}
+.filter-field.compact{min-width:108px}
+.filter-field span{
+  font-size:8px;
+  font-weight:600;
+  color:#666;
+}
+.filter-field select{
+  height:28px;
+  padding:0 24px 0 7px;
+  border:1px solid #bfbfbf;
+  border-radius:0;
+  background:#fff;
+  color:#252423;
+  font-size:9px;
+}
+.report-actions{display:flex;gap:4px;align-self:flex-end}
+.report-icon-link,.report-icon-button{
+  width:28px;
+  height:28px;
+  display:grid;
+  place-items:center;
+  border:1px solid #c9c9c9;
+  border-radius:0;
+  background:#fff;
+  color:#555;
+  text-decoration:none;
+  font:600 11px/1 "Segoe UI",Arial,sans-serif;
+}
+.report-icon-link:hover,.report-icon-button:hover{background:#ededed;color:#111;border-color:#aaa}
+.kpi-grid{
+  height:92px;
+  min-height:92px;
+  gap:7px;
+  margin:0 0 7px;
+}
+.kpi-card{
+  min-height:0;
+  height:92px;
+  padding:8px 10px 5px;
+  border-radius:0;
+  box-shadow:none;
+}
+.kpi-card strong{margin-top:5px;font-size:21px}
+.kpi-meta{margin-top:4px}
+.sparkline{height:22px;margin-top:3px}
+.dashboard-grid{gap:7px;margin-bottom:7px}
+.panel{border-radius:0;box-shadow:none}
+.top-grid{
+  height:310px;
+  grid-template-columns:minmax(0,1.6fr) minmax(275px,.62fr);
+}
+.top-grid .panel{height:310px}
+.panel-head{min-height:42px;padding:8px 10px 3px}
+.panel-head h2{font-size:10.5px}
+.panel-head p:not(.panel-kicker){font-size:8px}
+.map-layout{height:266px;min-height:266px;grid-template-columns:minmax(0,1fr) 126px}
+.map-wrap{height:266px;min-height:266px;padding:0 3px 13px}
+#brazil-map{width:min(100%,360px);height:252px}
+.selected-states{padding:7px 7px}
+.state-chip{padding:5px 16px 5px 6px}
+.map-legend{bottom:5px}
+.ranking-list{height:264px;overflow:hidden;padding:0 9px 5px}
+.rank-row{
+  min-height:25px;
+  height:25px;
+  grid-template-columns:18px minmax(0,1fr) auto;
+  gap:5px;
+}
+.rank-track{height:2px;margin-top:2px}
+.rank-name,.rank-value{font-size:8px}
+.rank-number{font-size:7.5px}
+.middle-grid{
+  height:235px;
+  grid-template-columns:minmax(0,1.5fr) minmax(290px,.78fr);
+  margin-bottom:0;
+}
+.middle-grid .panel{height:235px}
+.chart-wrap{height:174px;padding:0 8px 2px}
+.chart-note{min-height:19px;padding:4px 10px 5px}
+.composition-chart{height:188px;padding:0 10px 4px;overflow:hidden}
+.composition-row{min-height:34px;height:34px}
+.composition-name,.composition-value{font-size:8.5px}
+.bottom-grid{
+  height:calc(100% - 168px);
+  min-height:430px;
+  grid-template-columns:minmax(0,1.35fr) minmax(320px,.65fr);
+  margin:0;
+}
+.bottom-grid .panel{height:100%}
+.bottom-grid .macro-grid{
+  height:calc(100% - 42px);
+  grid-template-columns:repeat(2,1fr);
+}
+.bottom-grid .macro-item{
+  min-height:0;
+  padding:16px;
+  border-right:1px solid #e7e7e7;
+  border-bottom:1px solid #e7e7e7;
+}
+.bottom-grid .macro-item:nth-child(2n){border-right:0}
+.bottom-grid .macro-item:nth-last-child(-n+2){border-bottom:0}
+.bottom-grid .macro-item strong{font-size:28px}
+.bottom-grid .macro-item .sparkline{height:58px;margin-top:18px}
+.bottom-grid .outlook-content{min-height:0;height:calc(100% - 42px);padding:18px}
+.bottom-grid .outlook-flow{margin-top:25px}
+.bottom-grid .outlook-node strong{font-size:29px}
+body[data-report-page="overview"] [data-page-view="context"]{display:none!important}
+body[data-report-page="context"] [data-page-view="overview"]{display:none!important}
+body[data-report-page="context"] .filter-field.compact{display:none}
+.report-tabs{
+  position:absolute;
+  left:0;right:0;bottom:0;
+  height:29px;
+  display:flex;
+  align-items:stretch;
+  gap:0;
+  padding-left:8px;
+  background:#fff;
+  border-top:1px solid #cfcfcf;
+}
+.report-tab{
+  min-width:92px;
+  padding:0 13px;
+  border:0;
+  border-right:1px solid #e5e5e5;
+  border-bottom:3px solid transparent;
+  background:#fff;
+  color:#555;
+  font-size:9px;
+  text-align:center;
+}
+.report-tab:hover{background:#f3f3f3}
+.report-tab.is-active{
+  color:#222;
+  font-weight:600;
+  border-bottom-color:var(--pbi-blue);
+}
+.footer{display:none}
+.loading-screen,.error-screen{
+  inset:0;
+  background:#d7d7d7;
+}
+.loading-screen:before,.error-screen:before{
+  content:"";
+  position:absolute;
+  width:min(calc((100dvh - 20px) * 16 / 9),calc(100vw - 20px));
+  height:min(calc(100dvh - 20px),calc((100vw - 20px) * 9 / 16));
+  min-height:650px;
+  left:50%;top:10px;transform:translateX(-50%);
+  background:#f2f2f2;
+  border:1px solid #bfbfbf;
+  z-index:-1;
+}
+@media(max-width:900px){
+  .app-shell{padding:0}
+  .dashboard{
+    width:100%;
+    height:auto;
+    min-height:100vh;
+    padding:6px 6px 38px;
+    border:0;
+    box-shadow:none;
+    overflow:visible;
+  }
+  .dashboard-head{height:auto;min-height:0;display:grid;gap:8px}
+  .report-controls{width:100%;display:flex}
+  .filters{flex:1;display:grid;grid-template-columns:minmax(0,1fr) 110px}
+  .filter-field,.filter-field.compact{min-width:0}
+  .kpi-grid{height:auto;min-height:0;grid-template-columns:repeat(2,1fr)}
+  .kpi-card{height:90px}
+  .top-grid,.middle-grid,.bottom-grid{height:auto;min-height:0;grid-template-columns:1fr}
+  .top-grid .panel,.middle-grid .panel,.bottom-grid .panel{height:auto}
+  .map-layout{height:auto;min-height:360px;grid-template-columns:1fr}
+  .map-wrap{height:330px;min-height:330px}
+  #brazil-map{height:315px}
+  .ranking-list{height:auto;max-height:none}
+  .rank-row{height:34px;min-height:34px}
+  .middle-grid .chart-wrap{height:260px}
+  .composition-chart{height:auto}
+  .composition-row{height:38px;min-height:38px}
+  .bottom-grid .macro-grid{height:auto}
+  .bottom-grid .outlook-content{height:auto;min-height:180px}
+  .report-tabs{position:fixed;z-index:80}
+  body[data-report-page="context"] .filter-field.compact{display:grid}
+}
+@media(max-width:520px){
+  .report-controls{align-items:flex-end}
+  .filters{grid-template-columns:1fr}
+  .report-actions{align-self:flex-end}
+  .kpi-card strong{font-size:19px}
+}

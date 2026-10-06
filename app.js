@@ -31,6 +31,18 @@ function bindEvents(){
   $('#methodology-open').addEventListener('click',()=>dialog.showModal());
   $('#methodology-close').addEventListener('click',()=>dialog.close());
   dialog.addEventListener('click',event=>{if(event.target===dialog)dialog.close()});
+  document.querySelectorAll('[data-report-tab]').forEach(button=>{
+    button.addEventListener('click',()=>{
+      const page=button.dataset.reportTab;
+      document.body.dataset.reportPage=page;
+      document.querySelectorAll('[data-report-tab]').forEach(tab=>{
+        const active=tab===button;
+        tab.classList.toggle('is-active',active);
+        if(active)tab.setAttribute('aria-current','page');else tab.removeAttribute('aria-current');
+      });
+      $('#report-page-title').textContent=page==='context'?'Contexto macro':'Visão geral';
+    });
+  });
 }
 
 async function fetchJson(path,{required=true,fallback=null}={}){
@@ -86,6 +98,7 @@ function renderUpdateStatus(){
 }
 
 async function init(){
+  document.body.dataset.reportPage='overview';
   try{
     await loadCore();
     populateMetricSelect();
