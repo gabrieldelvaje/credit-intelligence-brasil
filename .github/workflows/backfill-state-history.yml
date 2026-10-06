@@ -1,0 +1,77 @@
+name: Backfill state history
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/backfill-state-history.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: credit-intelligence-state-backfill
+  cancel-in-progress: true
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        year: [2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Aggregate SCR.data year
+        run: |
+          mkdir -p backfill
+          python scripts/export_state_year.py ${{ matrix.year }} backfill/state_${{ matrix.year }}.json
+      - name: Upload annual aggregate
+        uses: actions/upload-artifact@v4
+        with:
+          name: state-${{ matrix.year }}
+          path: backfill/state_${{ matrix.year }}.json
+          retention-days: 1
+
+  merge:
+    needs: export
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout latest repository
+        uses: actions/checkout@v4
+      - name: Download annual aggregates
+        uses: actions/download-artifact@v4
+        with:
+          pattern: state-*
+          path: backfill
+          merge-multiple: true
+      - name: Merge historical state data
+        run: python scripts/merge_state_history.py backfill
+      - name: Commit complete state history
+        shell: bash
+        run: |
+          if [ -z "$(git status --porcelain -- data/dimensions)" ]; then
+            echo "Nenhuma mudança histórica."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/dimensions/state_credit.json data/dimensions/state_credit.csv data/dimensions/metadata.json
+          git commit -m "data: backfill SCR state history to 2012"
+          for attempt in 1 2 3 4; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then exit 0; fi
+            sleep $((attempt * 2))
+          done
+          exit 1
