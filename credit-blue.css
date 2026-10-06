@@ -342,3 +342,89 @@ body.data-info-open{overflow:hidden}
   background:var(--surface);
   color:var(--brand);
 }
+
+
+/* Interactive historical line charts. */
+.ci-history-chart{position:relative}
+.ci-chart-heading{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:14px;
+  margin-bottom:4px;
+}
+.ci-chart-heading>div{min-width:0}
+.ci-history-chart svg{display:block;width:100%;height:auto;overflow:visible}
+.ci-granularity-control{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  flex:0 0 auto;
+  color:var(--muted);
+  font-size:11px;
+}
+.ci-granularity-control select{
+  height:32px;
+  padding:0 28px 0 10px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  background:var(--surface);
+  color:var(--text);
+  font:inherit;
+  font-weight:650;
+  outline:none;
+}
+.ci-granularity-control select:focus{border-color:var(--brand)}
+.ci-chart-layer[hidden]{display:none!important}
+.ci-chart-point{
+  cursor:pointer;
+  fill:var(--surface);
+  stroke:var(--brand);
+  stroke-width:2;
+  vector-effect:non-scaling-stroke;
+  transition:r 120ms ease,stroke-width 120ms ease;
+}
+.ci-chart-point.ci-point-2{stroke:#231F20}
+[data-theme="dark"] .ci-chart-point.ci-point-2{stroke:#f3f3f1}
+.ci-chart-point.ci-point-3{stroke:#8b8b87}
+.ci-chart-point:hover,
+.ci-chart-point:focus,
+.ci-chart-point.is-tooltip-active{
+  r:6px;
+  stroke-width:3;
+  outline:none;
+}
+.ci-chart-method{
+  display:block;
+  margin-top:4px;
+  color:var(--muted);
+  font-size:10px;
+  line-height:1.4;
+}
+.historical-chart-tooltip{
+  position:fixed;
+  z-index:1000;
+  display:grid;
+  gap:3px;
+  min-width:132px;
+  max-width:min(240px,calc(100vw - 24px));
+  padding:9px 11px;
+  border:1px solid var(--line);
+  border-radius:12px;
+  background:color-mix(in srgb,var(--bg) 96%,transparent);
+  color:var(--text);
+  box-shadow:none;
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  pointer-events:none;
+  font-size:12px;
+  line-height:1.35;
+}
+.historical-chart-tooltip[hidden]{display:none}
+.historical-chart-tooltip strong{font-size:12px;font-weight:700}
+.historical-chart-tooltip span{color:var(--muted)}
+@media(max-width:650px){
+  .ci-chart-heading{align-items:center;gap:9px}
+  .ci-granularity-control>span{display:none}
+  .ci-granularity-control select{height:30px;padding-left:9px;padding-right:25px}
+}
