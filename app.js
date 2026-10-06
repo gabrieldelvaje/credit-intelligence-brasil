@@ -109,7 +109,8 @@ function stateTrendAnswer(key,uf,q){
   if(!rows.length)return `<div class="error">${t('Não encontrei esse indicador para '+(UF_LABELS[uf]||uf)+'.','I could not find this indicator for '+(UF_LABELS[uf]||uf)+'.')}</div>`;
   const first=rows[0],last=rows.at(-1),delta=last.value-first.value,isRate=(m.unit||'').includes('%');
   const deltaText=isRate?`${delta>=0?'+':''}${numFmt(delta,2)} p.p.`:`${delta>=0?'+':''}${numFmt((last.value/first.value-1)*100,1)}%`;
-  return `<h2 class="result-title">${esc(label(m))} — ${esc(UF_LABELS[uf]||uf)}</h2><p class="answer">${t('O valor mais recente é','The latest value is')} <strong>${esc(formatValue(last.value,m))}</strong> (${esc(monthFmt(last.date))}). ${t('No período exibido, a variação foi','Over the displayed period, the change was')} <strong>${esc(deltaText)}</strong>.</p>${cards([{label:t('Último valor','Latest value'),value:formatValue(last.value,m),small:monthFmt(last.date)},{label:t('Estado','State'),value:UF_LABELS[uf]||uf},{label:t('Fonte','Source'),value:'BCB SCR.data'}])}${chart([{label:UF_LABELS[uf]||uf,points:rows}],`${label(m)} — ${UF_LABELS[uf]||uf}`)}${table(rows,m)}`;
+  const source=all[0]?.source||'—';
+  return `<h2 class="result-title">${esc(label(m))} — ${esc(UF_LABELS[uf]||uf)}</h2><p class="answer">${t('O valor mais recente é','The latest value is')} <strong>${esc(formatValue(last.value,m))}</strong> (${esc(monthFmt(last.date))}). ${t('No período exibido, a variação foi','Over the displayed period, the change was')} <strong>${esc(deltaText)}</strong>.</p>${cards([{label:t('Último valor','Latest value'),value:formatValue(last.value,m),small:monthFmt(last.date)},{label:t('Estado','State'),value:UF_LABELS[uf]||uf},{label:t('Fonte','Source'),value:source}])}${chart([{label:UF_LABELS[uf]||uf,points:rows}],`${label(m)} — ${UF_LABELS[uf]||uf}`)}${table(rows,m)}`;
 }
 function compareStatesAnswer(key,ufs,q){
   const m=dimMeta(key,geographicRows(key,ufs[0])[0]?.unit);
