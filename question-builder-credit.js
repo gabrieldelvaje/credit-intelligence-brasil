@@ -126,6 +126,7 @@
     const a = display(state.catalog.find(m => m.key === ind1.value));
     const b = display(state.catalog.find(m => m.key === ind2.value));
     const p = periodText();
+    const where = geoSuffix() + sexSuffix();
 
     if (action === 'forecast') return isEn()
       ? `What is the 6-month forecast for ${a}?`
@@ -136,16 +137,16 @@
       : `Qual é a relação entre ${a} e ${b}?`;
 
     if (action === 'compare') return isEn()
-      ? `Compare ${a} and ${b} ${p}.`
-      : `Compare ${a} e ${b} ${p}.`;
+      ? `Compare ${a} and ${b}${where} ${p}.`
+      : `Compare ${a} e ${b}${where} ${p}.`;
 
     if (period.value === 'latest') return isEn()
-      ? `What is the latest value for ${a}?`
-      : `Qual é o valor mais recente de ${a}?`;
+      ? `What is the latest value for ${a}${where}?`
+      : `Qual é o valor mais recente de ${a}${where}?`;
 
     return isEn()
-      ? `How has ${a} changed ${p}?`
-      : `Como evoluiu ${a} ${p}?`;
+      ? `How has ${a} changed${where} ${p}?`
+      : `Como evoluiu ${a}${where} ${p}?`;
   }
 
   function updatePreview() {
