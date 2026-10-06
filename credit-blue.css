@@ -110,3 +110,19 @@ body{font-family:Helvetica,Arial,sans-serif}
 .conversation .message.chat-typing-message .message-content{
   border-radius:6px 24px 24px 21px !important;
 }
+
+/* Keep all four starter prompts visually equal; blue is only an accent. */
+.suggestions .sci-capability-suggestion{
+  background:var(--surface) !important;
+  color:var(--text) !important;
+  border-color:var(--line) !important;
+  font-weight:400 !important;
+  padding-right:20px !important;
+}
+.suggestions .sci-capability-suggestion::after{display:none !important}
+.suggestions .sci-capability-suggestion:hover,
+.suggestions .sci-capability-suggestion:focus-visible{
+  background:var(--surface2) !important;
+  border-color:var(--brand) !important;
+  color:var(--text) !important;
+}
