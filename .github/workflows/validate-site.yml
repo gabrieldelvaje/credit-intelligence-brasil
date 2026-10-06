@@ -26,6 +26,7 @@ jobs:
           node --check follow-up-entrance.js
           node --check submit-arrowhead-alignment.js
           node --check question-builder-credit.js
+          node --check question-builder-slide.js
 
       - name: Validate Python syntax
         run: python -m py_compile scripts/update_data.py
