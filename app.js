@@ -138,7 +138,9 @@ function init(){
     localStorage.setItem('ci-locale',window.creditLocale);
     updateLocaleUI();
   });
-  $('#new-chat').addEventListener('click',()=>{$('#conversation').replaceChildren();$('#home-hero').hidden=false;$('#question').focus()});
+  const newChat=()=>{$('#conversation').replaceChildren();$('#home-hero').hidden=false;$('#question').focus()};
+  $('#new-chat').addEventListener('click',newChat);
+  $('#new-chat').addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();newChat();}});
   load();
 }
 init();
