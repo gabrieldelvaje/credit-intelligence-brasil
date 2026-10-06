@@ -466,3 +466,29 @@ body.data-info-open{overflow:hidden}
   .ranking-bar-name{white-space:normal}
   .ranking-bars{gap:16px}
 }
+
+
+/* Up to five synchronized comparison series. */
+:root{
+  --series-1:var(--brand);
+  --series-2:#231F20;
+  --series-3:#8b8b87;
+  --series-4:#b34d86;
+  --series-5:#c98914;
+}
+[data-theme="dark"]{
+  --series-2:#f3f3f1;
+  --series-3:#aaa7a3;
+  --series-4:#d77bac;
+  --series-5:#e0ad48;
+}
+.ci-series-1{stroke:var(--series-1)!important}
+.ci-series-2{stroke:var(--series-2)!important}
+.ci-series-3{stroke:var(--series-3)!important}
+.ci-series-4{stroke:var(--series-4)!important}
+.ci-series-5{stroke:var(--series-5)!important}
+.ci-key-1{background:var(--series-1)!important}
+.ci-key-2{background:var(--series-2)!important}
+.ci-key-3{background:var(--series-3)!important}
+.ci-key-4{background:var(--series-4)!important}
+.ci-key-5{background:var(--series-5)!important}

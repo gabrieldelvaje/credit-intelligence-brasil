@@ -288,3 +288,148 @@ body.state-map-open{overflow:hidden}
   margin-top:0;
   height:100%;
 }
+
+
+/* Compact desktop map layout: map left, indicator/reference/chart right. */
+@media(min-width:761px){
+  .state-map-panel{
+    width:min(1040px,calc(100% - 28px));
+    height:min(760px,calc(100dvh - 18px));
+  }
+  .state-map-head{
+    align-items:center;
+    padding:15px 22px 6px;
+    min-height:46px;
+  }
+  .state-map-head h2{font-size:22px}
+  .state-map-body{
+    grid-template-columns:minmax(400px,.98fr) minmax(390px,1.02fr);
+    gap:18px;
+    padding:8px 22px 18px;
+    overflow:hidden;
+    flex:1 1 auto;
+    min-height:0;
+    align-items:start;
+  }
+  .state-map-left{
+    min-width:0;
+    min-height:0;
+    display:grid;
+    grid-template-rows:minmax(0,1fr) auto;
+    gap:10px;
+  }
+  .state-map-figure{
+    min-height:0;
+    height:100%;
+    padding:6px 9px 5px;
+  }
+  #state-map-svg{
+    height:min(57dvh,535px);
+    max-height:535px;
+  }
+  .state-map-selection{
+    display:grid;
+    gap:6px;
+    padding:0 2px;
+  }
+  .state-map-selection>span{color:var(--muted);font-size:11px}
+  .state-map-selected{min-height:34px}
+  .state-map-side{
+    min-width:0;
+    min-height:0;
+    display:grid;
+    grid-template-rows:auto auto;
+    align-content:start;
+    gap:12px;
+  }
+  .state-map-side-top{
+    display:grid;
+    grid-template-columns:minmax(0,1.1fr) minmax(150px,.9fr);
+    gap:10px;
+    align-items:stretch;
+  }
+  .state-map-indicator-card,
+  .state-map-summary{
+    min-width:0;
+    min-height:78px;
+    padding:12px 13px;
+    border:1px solid var(--line);
+    border-radius:15px;
+    background:var(--surface);
+  }
+  .state-map-indicator-card{
+    display:grid;
+    align-content:center;
+    gap:6px;
+  }
+  .state-map-indicator-card>span{color:var(--muted);font-size:11px}
+  .state-map-indicator-card select{
+    width:100%;
+    min-height:38px;
+    padding:0 10px;
+    border:1px solid var(--line);
+    border-radius:11px;
+    background:var(--bg);
+    color:var(--text);
+    font:inherit;
+    font-size:12px;
+  }
+  .state-map-summary{
+    display:grid;
+    grid-template-columns:1fr auto;
+    align-content:center;
+    gap:4px 8px;
+  }
+  .state-map-summary span,.state-map-summary small{font-size:10px}
+  .state-map-summary strong{font-size:13px}
+  .state-map-comparison{
+    min-height:0;
+    overflow:visible;
+  }
+  .state-map-comparison .chart{
+    height:auto!important;
+    margin-top:0;
+    padding:14px;
+  }
+  .state-map-comparison .ci-history-chart svg{
+    height:auto;
+    max-height:none;
+  }
+}
+
+/* The former top controls are no longer used. */
+.state-map-controls{display:none!important}
+
+.state-map-selected button.is-series-3{
+  border-color:var(--series-3,#8b8b87);
+  background:color-mix(in srgb,var(--series-3,#8b8b87) 10%,var(--surface));
+  color:var(--series-3,#8b8b87);
+}
+.state-map-selected button.is-series-4{
+  border-color:var(--series-4,#b34d86);
+  background:color-mix(in srgb,var(--series-4,#b34d86) 10%,var(--surface));
+  color:var(--series-4,#b34d86);
+}
+.state-map-selected button.is-series-5{
+  border-color:var(--series-5,#c98914);
+  background:color-mix(in srgb,var(--series-5,#c98914) 10%,var(--surface));
+  color:var(--series-5,#c98914);
+}
+.state-map-shape.is-selected-1{fill:var(--series-1,var(--brand))!important}
+.state-map-shape.is-selected-2{fill:var(--series-2,#231F20)!important}
+.state-map-shape.is-selected-3{fill:var(--series-3,#8b8b87)!important}
+.state-map-shape.is-selected-4{fill:var(--series-4,#b34d86)!important}
+.state-map-shape.is-selected-5{fill:var(--series-5,#c98914)!important}
+
+@media(max-width:760px){
+  .state-map-head p{display:none}
+  .state-map-left{display:grid;gap:9px}
+  .state-map-selection{display:grid;gap:6px}
+  .state-map-selection>span{color:var(--muted);font-size:11px}
+  .state-map-side-top{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .state-map-indicator-card{
+    display:grid;align-content:center;gap:5px;padding:11px;border:1px solid var(--line);border-radius:14px;background:var(--surface)
+  }
+  .state-map-indicator-card>span{color:var(--muted);font-size:10px}
+  .state-map-indicator-card select{width:100%;min-height:36px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--text)}
+}

@@ -26,31 +26,34 @@
   panel.hidden=true;
   panel.innerHTML=`
     <div class="state-map-head">
-      <div>
-        <h2 id="state-map-title">Mapa por estado</h2>
-        <p id="state-map-subtitle">Escolha um indicador para comparar estados.</p>
-      </div>
+      <h2 id="state-map-title">Mapa por estado</h2>
       <button type="button" class="state-map-close" aria-label="Fechar">×</button>
     </div>
-    <div class="state-map-controls">
-      <label>
-        <span id="state-map-indicator-label">Indicador</span>
-        <select id="state-map-indicator"></select>
-      </label>
-      <div class="state-map-selection">
-        <span id="state-map-selection-label">Comparar estados</span>
-        <div id="state-map-selected" class="state-map-selected"></div>
-      </div>
-    </div>
+
     <div class="state-map-body">
-      <div class="state-map-figure">
-        <div class="state-map-loading" id="state-map-loading">Carregando malha do Brasil…</div>
-        <svg id="state-map-svg" viewBox="0 0 620 620" role="img" aria-label="Mapa do Brasil por estado"></svg>
-        <div class="state-map-legend" id="state-map-legend"></div>
-        <div class="state-map-hover" id="state-map-hover" hidden></div>
+      <div class="state-map-left">
+        <div class="state-map-figure">
+          <div class="state-map-loading" id="state-map-loading">Carregando malha do Brasil…</div>
+          <svg id="state-map-svg" viewBox="0 0 620 620" role="img" aria-label="Mapa do Brasil por estado"></svg>
+          <div class="state-map-legend" id="state-map-legend"></div>
+          <div class="state-map-hover" id="state-map-hover" hidden></div>
+        </div>
+
+        <div class="state-map-selection">
+          <span id="state-map-selection-label">Estados selecionados · até 5</span>
+          <div id="state-map-selected" class="state-map-selected"></div>
+        </div>
       </div>
+
       <div class="state-map-side">
-        <div class="state-map-summary" id="state-map-summary"></div>
+        <div class="state-map-side-top">
+          <label class="state-map-indicator-card">
+            <span id="state-map-indicator-label">Indicador</span>
+            <select id="state-map-indicator"></select>
+          </label>
+          <div class="state-map-summary" id="state-map-summary"></div>
+        </div>
+
         <div class="state-map-comparison" id="state-map-comparison"></div>
       </div>
     </div>
@@ -166,8 +169,8 @@
 
   function renderComparison(key){
     comparison.innerHTML='';
-    if(selected.length<2){
-      comparison.innerHTML='<p class="state-map-hint">'+(isEn()?'Select two states on the map to compare their history.':'Selecione dois estados no mapa para comparar a série histórica.')+'</p>';
+    if(selected.length<1){
+      comparison.innerHTML='<p class="state-map-hint">'+(isEn()?'Select up to five states on the map to compare their history.':'Selecione até cinco estados no mapa para comparar a série histórica.')+'</p>';
       return;
     }
     const m=dimMeta(key,geographicRows(key,selected[0])[0]?.unit);
@@ -189,7 +192,7 @@
       const row=latest.get(uf);
       const alpha=heatAlpha(row?.value,min,max);
       const selectedIndex=selected.indexOf(uf);
-      const selectedClass=selectedIndex===0?' is-selected is-selected-1':selectedIndex===1?' is-selected is-selected-2':'';
+      const selectedClass=selectedIndex>=0?' is-selected is-selected-'+(selectedIndex+1):'';
       const dimmedClass=selected.length&&selectedIndex<0?' is-dimmed':'';
       const path=geometryPath(feature.geometry,project);
       return '<path class="state-map-shape'+selectedClass+dimmedClass+'" data-uf="'+esc(uf)+'" d="'+path+'" style="--state-heat:'+alpha.toFixed(3)+'" tabindex="0"><title>'+esc((UF_LABELS[uf]||uf)+(row?' · '+formatValue(row.value,m):''))+'</title></path>';
@@ -206,17 +209,16 @@
   function selectState(uf){
     if(!uf)return;
     if(selected.includes(uf))selected=selected.filter(x=>x!==uf);
-    else if(selected.length<2)selected=[...selected,uf];
-    else selected=[selected[1],uf];
+    else if(selected.length<5)selected=[...selected,uf];
+    else return;
     renderMap();
   }
 
   function localize(){
     toggle.setAttribute('aria-label',isEn()?'Open state map':'Abrir mapa por estado');
     panel.querySelector('#state-map-title').textContent=isEn()?'Map by state':'Mapa por estado';
-    panel.querySelector('#state-map-subtitle').textContent=isEn()?'Choose an indicator to compare states.':'Escolha um indicador para comparar estados.';
     panel.querySelector('#state-map-indicator-label').textContent=isEn()?'Indicator':'Indicador';
-    panel.querySelector('#state-map-selection-label').textContent=isEn()?'Compare states':'Comparar estados';
+    panel.querySelector('#state-map-selection-label').textContent=isEn()?'Selected states · up to 5':'Estados selecionados · até 5';
     close.setAttribute('aria-label',isEn()?'Close':'Fechar');
     populateIndicators();
     if(geometry&&state.ready)renderMap();
