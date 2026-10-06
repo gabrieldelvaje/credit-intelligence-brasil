@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import gzip
 import json
 import urllib.request
 from pathlib import Path
@@ -18,7 +19,10 @@ UA = "Credit-Intelligence-Brasil/1.0 (+https://github.com/gabrieldelvaje/credit-
 def fetch_json(url: str):
     req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "application/json"})
     with urllib.request.urlopen(req, timeout=120) as response:
-        return json.loads(response.read().decode("utf-8"))
+        raw = response.read()
+        if raw[:2] == b"\x1f\x8b":
+            raw = gzip.decompress(raw)
+        return json.loads(raw.decode("utf-8"))
 
 
 def main():
