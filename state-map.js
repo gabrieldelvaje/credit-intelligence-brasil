@@ -11,7 +11,7 @@
   toggle.className='state-map-toggle';
   toggle.setAttribute('aria-label','Abrir mapa por estado');
   toggle.setAttribute('aria-expanded','false');
-  toggle.innerHTML='<svg viewBox="0 0 34 38" aria-hidden="true"><path d="M13.7 2.4 19 4.8l3.1 4.2 5 1.7-1.8 5.1 3.9 4.1-4.8 4.4-1.7 6.1-4.4 4.9-3.9-4.2-4.6-2.5-2-4.5-4.6-2.8 2.1-5.8 3.3-2.8 1-5.7 4.1-1.5Z"/></svg>';
+  toggle.innerHTML='<img src="IMG_3724.png" alt="" aria-hidden="true">';
   submit.before(toggle);
 
   const backdrop=document.createElement('div');

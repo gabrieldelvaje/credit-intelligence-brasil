@@ -11,7 +11,14 @@
   color:var(--muted);
   box-shadow:none;
 }
-.question-bar .state-map-toggle svg{width:22px;height:25px;fill:currentColor;stroke:none}
+.question-bar .state-map-toggle img{
+  display:block;
+  width:22px;
+  height:22px;
+  object-fit:contain;
+  opacity:.82;
+  filter:none;
+}
 .question-bar .state-map-toggle:hover,
 .question-bar .state-map-toggle[aria-expanded="true"]{
   color:var(--brand);
@@ -212,10 +219,14 @@ body.state-map-open{overflow:hidden}
 
 @media(max-width:760px){
   .question-bar .state-map-toggle{flex-basis:33px;width:33px;height:33px}
-  .question-bar .state-map-toggle svg{width:20px;height:23px}
+  .question-bar .state-map-toggle img{width:20px;height:20px}
   .state-map-panel{width:100%;max-height:92dvh;border-radius:24px 24px 0 0}
   .state-map-head{padding:17px 16px 13px}
   .state-map-controls{grid-template-columns:1fr;padding:12px 16px}
   .state-map-body{grid-template-columns:1fr;padding:14px 16px 22px;max-height:calc(92dvh - 220px)}
   .state-map-figure{min-height:auto}
 }
+
+.question-bar .state-map-toggle:hover img,
+.question-bar .state-map-toggle[aria-expanded="true"] img{opacity:1}
+[data-theme="dark"] .question-bar .state-map-toggle img{filter:invert(1)}
