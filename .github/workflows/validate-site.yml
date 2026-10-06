@@ -46,6 +46,7 @@ jobs:
           test -f data/dimensions/gender_state.json
           test -f data/dimensions/catalog.json
           test -f data/dimensions/metadata.json
+          test -f data/dimensions/br_states.geojson
           python - <<'PY'
           import json
           from pathlib import Path
@@ -55,6 +56,7 @@ jobs:
           state_rows=json.loads(Path("data/dimensions/state_credit.json").read_text())
           sex_rows=json.loads(Path("data/dimensions/gender_state.json").read_text())
           dim_catalog=json.loads(Path("data/dimensions/catalog.json").read_text())
+          geometry=json.loads(Path("data/dimensions/br_states.geojson").read_text())
           assert len(catalog) >= 19, len(catalog)
           assert len(rows) > 9000, len(rows)
           assert len(forecasts) >= 6, len(forecasts)
@@ -72,5 +74,8 @@ jobs:
           assert br_sexes=={"total","men","women"}, (latest_sex,br_sexes)
           expected_state_keys={"delinquency_pf","delinquency_pj","delinquency_card","delinquency_revolving","delinquency_personal","delinquency_vehicle","credit_balance_pf","credit_balance_pj","problem_assets_pf","problem_assets_pj"}
           assert expected_state_keys.issubset({r["key"] for r in state_rows})
-          print(f"OK: {len(catalog)} indicadores nacionais, {len(state_rows)} linhas estaduais, {len(sex_rows)} linhas por sexo")
+          assert geometry.get("type")=="FeatureCollection"
+          assert len(geometry.get("features",[]))==27, len(geometry.get("features",[]))
+          assert len({f["properties"]["uf"] for f in geometry["features"]})==27
+          print(f"OK: {len(catalog)} indicadores nacionais, {len(state_rows)} linhas estaduais, {len(sex_rows)} linhas por sexo, 27 UFs no mapa")
           PY
