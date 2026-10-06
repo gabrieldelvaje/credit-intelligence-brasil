@@ -217,7 +217,7 @@
     ],
     "first_reference": "2007-03-01",
     "latest_reference": "2026-08-01",
-    "latest_value": 4670170.0,
+    "latest_value": 4670170,
     "rows": 234
   },
   {
@@ -238,7 +238,7 @@
     ],
     "first_reference": "2007-03-01",
     "latest_reference": "2026-08-01",
-    "latest_value": 2727499.0,
+    "latest_value": 2727499,
     "rows": 234
   },
   {
@@ -260,7 +260,7 @@
     ],
     "first_reference": "2011-03-01",
     "latest_reference": "2026-08-01",
-    "latest_value": 394254.0,
+    "latest_value": 394254,
     "rows": 186
   },
   {
@@ -282,7 +282,7 @@
     ],
     "first_reference": "2011-03-01",
     "latest_reference": "2026-08-01",
-    "latest_value": 334993.0,
+    "latest_value": 334993,
     "rows": 186
   },
   {
@@ -404,15 +404,19 @@
     "aliases_pt": [
       "renda real",
       "rendimento médio",
-      "rendimento medio"
+      "rendimento medio",
+      "rendimento real",
+      "rendimento médio real",
+      "rendimento medio real"
     ],
     "aliases_en": [
       "real income",
-      "average earnings"
+      "average earnings",
+      "real earnings"
     ],
     "first_reference": "2012-03-01",
     "latest_reference": "2026-08-01",
-    "latest_value": 5784.0,
+    "latest_value": 5784,
     "rows": 174
   }
 ]
