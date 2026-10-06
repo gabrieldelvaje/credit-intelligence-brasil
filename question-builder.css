@@ -270,3 +270,29 @@
     animation: none;
   }
 }
+
+
+/* Compact action: keep the builder CTA secondary to the analysis controls. */
+.question-builder-panel .qb-submit {
+  align-self: flex-end;
+  justify-content: center;
+  width: auto;
+  min-width: 132px;
+  min-height: 36px;
+  padding: 8px 13px 8px 15px;
+  gap: 9px;
+  border: 1px solid color-mix(in srgb,var(--brand) 70%,var(--line));
+  font-size: 12px;
+  font-weight: 650;
+}
+.question-builder-panel .qb-submit span:last-child {
+  font-size: 14px;
+  line-height: 1;
+}
+@media (max-width:650px) {
+  .question-builder-panel .qb-submit {
+    min-width: 124px;
+    min-height: 35px;
+    padding: 8px 12px 8px 14px;
+  }
+}
