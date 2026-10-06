@@ -101,9 +101,24 @@ function answer(q){
   return trendAnswer(keys[0]||'delinquency_pf',q);
 }
 function updateLocaleUI(){
-  const c=copy[window.creditLocale];document.documentElement.lang=window.creditLocale==='en'?'en':'pt-BR';
-  $('#hero-title').textContent=c.title;$('#hero-subtitle').textContent=c.subtitle;$('#question').placeholder=c.placeholder;$('#loading-title').textContent=c.loading;$('#loading-small').textContent=c.loadingSmall;$('#brand-by').textContent=c.by;$('#locale-toggle').textContent=window.creditLocale==='en'?'PT':'EN';
-  document.querySelectorAll('[data-q-pt]').forEach(btn=>btn.textContent=window.creditLocale==='en'?btn.dataset.qEn:btn.dataset.qPt);
+  const lang=window.creditLocale,c=copy[lang];
+  document.documentElement.lang=lang==='en'?'en':'pt-BR';
+  $('#hero-title').textContent=c.title;
+  $('#hero-subtitle').textContent=c.subtitle;
+  $('#question').placeholder=c.placeholder;
+  $('#loading-title').textContent=c.loading;
+  $('#loading-small').textContent=c.loadingSmall;
+  $('#brand-by').textContent=c.by;
+  $('#locale-toggle').textContent=lang==='en'?'PT':'EN';
+  $('#locale-toggle').setAttribute('aria-label',lang==='en'?'Mudar para português':'Switch to English');
+  $('#locale-toggle').setAttribute('title',lang==='en'?'Mudar para português':'Switch to English');
+  $('#new-chat').setAttribute('aria-label',lang==='en'?'New chat':'Novo chat');
+  $('#new-chat').setAttribute('title',lang==='en'?'New chat':'Novo chat');
+  $('#theme-toggle').setAttribute('aria-label',lang==='en'?'Switch theme':'Alternar tema');
+  document.querySelectorAll('[data-q-pt]').forEach(btn=>btn.textContent=lang==='en'?btn.dataset.qEn:btn.dataset.qPt);
+  const dataLink=document.querySelector('.data-link');
+  if(dataLink)dataLink.textContent=lang==='en'?'19 indicators · data':'19 indicadores · dados';
+  window.dispatchEvent(new CustomEvent('credit:locale-changed',{detail:{locale:lang}}));
 }
 async function load(){
   const box=$('#loading-card');box.classList.add('is-visible');
@@ -118,7 +133,11 @@ async function load(){
 function init(){
   document.documentElement.dataset.theme=state.theme;updateLocaleUI();
   $('#theme-toggle').addEventListener('click',()=>{state.theme=state.theme==='dark'?'light':'dark';document.documentElement.dataset.theme=state.theme;localStorage.setItem('ci-theme',state.theme)});
-  $('#locale-toggle').addEventListener('click',()=>{window.creditLocale=window.creditLocale==='pt'?'en':'pt';localStorage.setItem('ci-locale',window.creditLocale);updateLocaleUI()});
+  $('#locale-toggle').addEventListener('click',()=>{
+    window.creditLocale=window.creditLocale==='pt'?'en':'pt';
+    localStorage.setItem('ci-locale',window.creditLocale);
+    updateLocaleUI();
+  });
   $('#new-chat').addEventListener('click',()=>{$('#conversation').replaceChildren();$('#home-hero').hidden=false;$('#question').focus()});
   load();
 }
