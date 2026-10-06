@@ -61,5 +61,13 @@ jobs:
           assert any(x["key"]=="delinquency_pf" and "state" in x["dimensions"] for x in dim_catalog)
           assert any(x["key"]=="unemployment" and "gender" in x["dimensions"] for x in dim_catalog)
           assert any(r["uf"]=="BR" and r["gender"]=="women" for r in sex_rows)
+          latest_state=max(r["date"] for r in state_rows)
+          latest_ufs={r["uf"] for r in state_rows if r["date"]==latest_state and r["key"]=="delinquency_pf"}
+          assert len(latest_ufs)==27, (latest_state,len(latest_ufs))
+          latest_sex=max(r["date"] for r in sex_rows)
+          br_sexes={r["gender"] for r in sex_rows if r["date"]==latest_sex and r["uf"]=="BR" and r["key"]=="unemployment"}
+          assert br_sexes=={"total","men","women"}, (latest_sex,br_sexes)
+          expected_state_keys={"delinquency_pf","delinquency_pj","delinquency_card","delinquency_revolving","delinquency_personal","delinquency_vehicle","credit_balance_pf","credit_balance_pj","problem_assets_pf","problem_assets_pj"}
+          assert expected_state_keys.issubset({r["key"] for r in state_rows})
           print(f"OK: {len(catalog)} indicadores nacionais, {len(state_rows)} linhas estaduais, {len(sex_rows)} linhas por sexo")
           PY
