@@ -26,7 +26,10 @@
   panel.hidden=true;
   panel.innerHTML=`
     <div class="state-map-head">
-      <h2 id="state-map-title">Mapa por estado</h2>
+      <div>
+        <h2 id="state-map-title">Mapa por estado</h2>
+        <p id="state-map-subtitle">Escolha um indicador para comparar estados.</p>
+      </div>
       <button type="button" class="state-map-close" aria-label="Fechar">×</button>
     </div>
 
@@ -37,11 +40,6 @@
           <svg id="state-map-svg" viewBox="0 0 620 620" role="img" aria-label="Mapa do Brasil por estado"></svg>
           <div class="state-map-legend" id="state-map-legend"></div>
           <div class="state-map-hover" id="state-map-hover" hidden></div>
-        </div>
-
-        <div class="state-map-selection">
-          <span id="state-map-selection-label">Estados selecionados · até 5</span>
-          <div id="state-map-selected" class="state-map-selected"></div>
         </div>
       </div>
 
@@ -55,6 +53,11 @@
         </div>
 
         <div class="state-map-comparison" id="state-map-comparison"></div>
+
+        <div class="state-map-selection">
+          <span id="state-map-selection-label">Estados selecionados · até 3</span>
+          <div id="state-map-selected" class="state-map-selected"></div>
+        </div>
       </div>
     </div>
   `;
@@ -170,7 +173,7 @@
   function renderComparison(key){
     comparison.innerHTML='';
     if(selected.length<1){
-      comparison.innerHTML='<p class="state-map-hint">'+(isEn()?'Select up to five states on the map to compare their history.':'Selecione até cinco estados no mapa para comparar a série histórica.')+'</p>';
+      comparison.innerHTML='<p class="state-map-hint">'+(isEn()?'Select up to three states on the map to compare their history.':'Selecione até três estados no mapa para comparar a série histórica.')+'</p>';
       return;
     }
     const m=dimMeta(key,geographicRows(key,selected[0])[0]?.unit);
@@ -209,7 +212,7 @@
   function selectState(uf){
     if(!uf)return;
     if(selected.includes(uf))selected=selected.filter(x=>x!==uf);
-    else if(selected.length<5)selected=[...selected,uf];
+    else if(selected.length<3)selected=[...selected,uf];
     else return;
     renderMap();
   }
@@ -218,7 +221,8 @@
     toggle.setAttribute('aria-label',isEn()?'Open state map':'Abrir mapa por estado');
     panel.querySelector('#state-map-title').textContent=isEn()?'Map by state':'Mapa por estado';
     panel.querySelector('#state-map-indicator-label').textContent=isEn()?'Indicator':'Indicador';
-    panel.querySelector('#state-map-selection-label').textContent=isEn()?'Selected states · up to 5':'Estados selecionados · até 5';
+    panel.querySelector('#state-map-subtitle').textContent=isEn()?'Choose an indicator to compare states.':'Escolha um indicador para comparar estados.';
+    panel.querySelector('#state-map-selection-label').textContent=isEn()?'Selected states · up to 3':'Estados selecionados · até 3';
     close.setAttribute('aria-label',isEn()?'Close':'Fechar');
     populateIndicators();
     if(geometry&&state.ready)renderMap();

@@ -433,3 +433,86 @@ body.state-map-open{overflow:hidden}
   .state-map-indicator-card>span{color:var(--muted);font-size:10px}
   .state-map-indicator-card select{width:100%;min-height:36px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--text)}
 }
+
+
+/* Content-sized state map panel. */
+@media(min-width:761px){
+  .state-map-panel{
+    height:auto!important;
+    max-height:calc(100dvh - 18px)!important;
+  }
+  .state-map-head{
+    padding:15px 22px 8px!important;
+    min-height:0!important;
+  }
+  .state-map-head p{
+    display:block;
+    margin:4px 0 0;
+    color:var(--muted);
+    font-size:12px;
+    line-height:1.4;
+  }
+  .state-map-body{
+    flex:0 0 auto!important;
+    min-height:0!important;
+    align-items:start!important;
+    padding:8px 22px 16px!important;
+  }
+  .state-map-left{
+    display:block!important;
+    min-height:0!important;
+  }
+  .state-map-figure{
+    height:auto!important;
+  }
+  #state-map-svg{
+    height:min(50dvh,455px)!important;
+    max-height:455px!important;
+    flex:none!important;
+  }
+  .state-map-side{
+    grid-template-rows:auto auto auto!important;
+    align-content:start!important;
+  }
+  .state-map-comparison{
+    min-height:0!important;
+    overflow:visible!important;
+  }
+  .state-map-comparison .chart{
+    height:auto!important;
+    margin-top:0!important;
+  }
+  .state-map-selection{
+    display:grid!important;
+    gap:6px;
+    padding:0 2px;
+    margin-top:0;
+  }
+  .state-map-selection>span{
+    color:var(--muted);
+    font-size:11px;
+  }
+  .state-map-selected{
+    min-height:32px;
+  }
+}
+
+/* Only three comparison colors are used in the map panel. */
+.state-map-shape.is-selected-4,
+.state-map-shape.is-selected-5{display:initial}
+
+@media(max-width:760px){
+  .state-map-head p{
+    display:block!important;
+    margin:4px 0 0;
+    color:var(--muted);
+    font-size:12px;
+    line-height:1.4;
+  }
+  .state-map-side{
+    grid-template-rows:auto auto auto!important;
+  }
+  .state-map-selection{
+    margin-top:0;
+  }
+}
