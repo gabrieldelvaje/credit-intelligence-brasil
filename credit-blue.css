@@ -428,3 +428,41 @@ body.data-info-open{overflow:hidden}
   .ci-granularity-control>span{display:none}
   .ci-granularity-control select{height:30px;padding-left:9px;padding-right:25px}
 }
+
+
+/* State ranking bars — same visual language as Sugar Cane Intelligence. */
+.ranking-bar-chart{margin-top:18px}
+.ranking-chart-heading{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:16px}
+.ranking-chart-heading strong{font-size:14px;color:var(--text)}
+.ranking-chart-heading span{font-size:12px;color:var(--muted)}
+.ranking-bars{display:grid;gap:14px}
+.ranking-bar-row{display:grid;gap:7px}
+.ranking-bar-meta{display:grid;grid-template-columns:34px minmax(0,1fr) auto;align-items:center;gap:10px;font-size:13px}
+.ranking-bar-rank{color:var(--muted);font-weight:650}
+.ranking-bar-name{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--text);font-weight:550}
+.ranking-bar-value{color:var(--muted);font-size:12px;font-weight:650;text-align:right;white-space:nowrap}
+.ranking-bar-track{height:13px;overflow:hidden;border:1px solid var(--line);border-radius:999px;background:var(--surface2)}
+.ranking-bar-fill{height:100%;border-radius:999px;background:color-mix(in srgb,var(--brand) 38%,var(--surface2));transition:width 320ms cubic-bezier(.22,1,.36,1)}
+.ranking-bar-row.is-leader .ranking-bar-rank,.ranking-bar-row.is-leader .ranking-bar-name,.ranking-bar-row.is-leader .ranking-bar-value{color:var(--text);font-weight:750}
+.ranking-bar-row.is-leader .ranking-bar-track{border-color:color-mix(in srgb,var(--brand) 52%,var(--line))}
+.ranking-bar-fill.is-leader{background:var(--brand)}
+
+/* Historical chart interaction uses the whole plot area; no visible point markers. */
+.ci-chart-point{display:none!important}
+.ci-chart-hit-area{pointer-events:all;cursor:crosshair}
+.ci-chart-crosshair{
+  stroke:color-mix(in srgb,var(--text) 48%,transparent);
+  stroke-width:1;
+  stroke-dasharray:4 4;
+  vector-effect:non-scaling-stroke;
+  pointer-events:none;
+}
+.historical-chart-tooltip span{display:block}
+.historical-chart-tooltip span b{font-weight:700;color:var(--text)}
+@media(max-width:650px){
+  .ranking-chart-heading{align-items:flex-start;flex-direction:column;gap:3px}
+  .ranking-bar-meta{grid-template-columns:30px minmax(0,1fr)}
+  .ranking-bar-value{grid-column:2;text-align:left}
+  .ranking-bar-name{white-space:normal}
+  .ranking-bars{gap:16px}
+}
