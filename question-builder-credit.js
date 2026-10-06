@@ -158,7 +158,13 @@
     $('#qb-subtitle').textContent = isEn() ? 'Choose the analysis and indicators you want to explore.' : 'Escolha a análise e os indicadores que quer consultar.';
     $('#qb-ind1-label').textContent = isEn() ? 'Indicator' : 'Indicador';
     $('#qb-ind2-label').textContent = isEn() ? 'Second indicator' : 'Segundo indicador';
+    $('#qb-geo-label').textContent = isEn() ? 'Geography' : 'Geografia';
+    $('#qb-sex-label').textContent = isEn() ? 'Sex' : 'Sexo';
     $('#qb-period-label').textContent = isEn() ? 'Period' : 'Período';
+    geo.options[0].textContent = isEn() ? 'Brazil' : 'Brasil';
+    sex.options[0].textContent = 'Total';
+    sex.options[1].textContent = isEn() ? 'Men' : 'Homens';
+    sex.options[2].textContent = isEn() ? 'Women' : 'Mulheres';
     $('#qb-submit-text').textContent = isEn() ? 'Ask' : 'Enviar pergunta';
 
     const labels = isEn() ? ['Trend','Compare','Relationship','Forecast'] : ['Evolução','Comparar','Relação','Previsão'];
@@ -177,6 +183,12 @@
     $('#qb-ind2-field').hidden = !['compare','correlation'].includes(action);
     $('#qb-period-field').hidden = ['correlation','forecast'].includes(action);
     populate();
+    const canState = dimensionSupport(ind1.value,'state') && (action !== 'compare' || dimensionSupport(ind2.value,'state'));
+    const canSex = dimensionSupport(ind1.value,'gender') && (action !== 'compare' || dimensionSupport(ind2.value,'gender'));
+    $('#qb-geo-field').hidden = ['correlation','forecast'].includes(action) || !canState;
+    $('#qb-sex-field').hidden = ['correlation','forecast'].includes(action) || !canSex;
+    if (!canState) geo.value = 'BR';
+    if (!canSex) sex.value = 'total';
     if (ind1.value === ind2.value && ['compare','correlation'].includes(action)) {
       const alternative = [...ind2.options].find(option => option.value !== ind1.value && !option.hidden);
       if (alternative) ind2.value = alternative.value;
@@ -260,7 +272,7 @@
     syncFields();
   }));
 
-  [ind1, ind2, period].forEach(control => control.addEventListener('change', syncFields));
+  [ind1, ind2, geo, sex, period].forEach(control => control.addEventListener('change', syncFields));
   toggle.addEventListener('click', () => setOpen(!open));
   backdrop.addEventListener('click', () => setOpen(false));
   $('.qb-close').addEventListener('click', () => setOpen(false));
