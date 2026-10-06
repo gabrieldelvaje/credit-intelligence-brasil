@@ -14,7 +14,14 @@
       !submit || typeof answer !== 'function' || typeof state === 'undefined') return;
 
   const EASE = 'cubic-bezier(.22, 1, .36, 1)';
-  const questions = {
+  const STATES = [
+    ['São Paulo','São Paulo'],['Minas Gerais','Minas Gerais'],['Rio de Janeiro','Rio de Janeiro'],
+    ['Paraná','Paraná'],['Bahia','Bahia'],['Rio Grande do Sul','Rio Grande do Sul'],
+    ['Santa Catarina','Santa Catarina'],['Pernambuco','Pernambuco'],['Ceará','Ceará'],
+    ['Goiás','Goiás'],['Mato Grosso','Mato Grosso'],['Espírito Santo','Espírito Santo']
+  ];
+
+  const nationalQuestions = {
     pt: [
       'A inadimplência das pessoas físicas está aumentando?',
       'Qual modalidade de crédito tem a maior inadimplência hoje?',
@@ -25,10 +32,7 @@
       'Qual é a previsão da inadimplência PF para os próximos 6 meses?',
       'Compare cartão rotativo e crédito pessoal.',
       'Como está o endividamento das famílias?',
-      'Os juros do crédito PF subiram no último ano?',
-      'Qual estado tem a maior inadimplência PF?',
-      'Compare a inadimplência PF de São Paulo e Minas Gerais.',
-      'Compare o desemprego de homens e mulheres em São Paulo.'
+      'Os juros do crédito PF subiram no último ano?'
     ],
     en: [
       'Is household delinquency increasing?',
@@ -40,13 +44,95 @@
       'What is the 6-month forecast for household delinquency?',
       'Compare revolving credit card and personal credit delinquency.',
       'How high is household debt today?',
-      'Have household credit interest rates increased over the last year?',
-      'Which state has the highest household delinquency rate?',
-      'Compare household delinquency in São Paulo and Minas Gerais.',
-      'Compare unemployment among men and women in São Paulo.'
+      'Have household credit interest rates increased over the last year?'
     ]
   };
-  const activeQuestions = () => questions[window.creditLocale === 'en' ? 'en' : 'pt'];
+
+  function randomState(except='') {
+    const options = STATES.filter(([pt]) => pt !== except);
+    return options[Math.floor(Math.random() * options.length)] || STATES[0];
+  }
+
+  function dimensionalQuestions(locale) {
+    const en = locale === 'en';
+    const [aPt,aEn] = randomState();
+    const [bPt,bEn] = randomState(aPt);
+    const [cPt,cEn] = randomState();
+    const [dPt,dEn] = randomState();
+    const [ePt,eEn] = randomState();
+    const A=en?aEn:aPt,B=en?bEn:bPt,C=en?cEn:cPt,D=en?dEn:dPt,E=en?eEn:ePt;
+
+    return en ? [
+      `How has household delinquency changed in ${A} over the last 5 years?`,
+      `Compare household delinquency in ${A} and ${B}.`,
+      'Which state has the highest household delinquency rate?',
+      `How has credit card delinquency changed in ${C}?`,
+      `How has household credit balance changed in ${D}?`,
+      'Which state has the highest household credit balance?',
+      `How has household problem-asset ratio changed in ${E}?`,
+      `Compare unemployment among men and women in ${A}.`,
+      `How has unemployment among women changed in ${B}?`,
+      `How has unemployment among men changed in ${C}?`,
+      `Compare real earnings for men and women in ${D}.`,
+      `How have real earnings for women changed in ${E}?`,
+      `How have real earnings for men changed in ${A}?`,
+      'Compare unemployment among men and women in Brazil.',
+      'How have real earnings for women changed in Brazil?',
+      'How has unemployment among men changed in Brazil?'
+    ] : [
+      `Como evoluiu a inadimplência PF em ${A} nos últimos 5 anos?`,
+      `Compare a inadimplência PF de ${A} e ${B}.`,
+      'Qual estado tem a maior inadimplência PF?',
+      `Como evoluiu a inadimplência do cartão em ${C}?`,
+      `Como evoluiu o saldo de crédito PF em ${D}?`,
+      'Qual estado tem o maior saldo de crédito PF?',
+      `Como evoluiu o ativo problemático PF em ${E}?`,
+      `Compare o desemprego de homens e mulheres em ${A}.`,
+      `Como evoluiu o desemprego das mulheres em ${B}?`,
+      `Como evoluiu o desemprego dos homens em ${C}?`,
+      `Compare o rendimento real de homens e mulheres em ${D}.`,
+      `Como evoluiu o rendimento real das mulheres em ${E}?`,
+      `Como evoluiu o rendimento real dos homens em ${A}?`,
+      'Compare o desemprego de homens e mulheres no Brasil.',
+      'Como evoluiu o rendimento real das mulheres no Brasil?',
+      'Como evoluiu o desemprego dos homens no Brasil?'
+    ];
+  }
+
+  function activeQuestions() {
+    const locale = window.creditLocale === 'en' ? 'en' : 'pt';
+    return [...nationalQuestions[locale], ...dimensionalQuestions(locale)];
+  }
+
+  function shuffle(list) {
+    const copy=[...list];
+    for(let i=copy.length-1;i>0;i--){
+      const j=Math.floor(Math.random()*(i+1));
+      [copy[i],copy[j]]=[copy[j],copy[i]];
+    }
+    return copy;
+  }
+
+  function renderInitialSuggestions() {
+    const locale=window.creditLocale === 'en' ? 'en' : 'pt';
+    const capability=locale==='en'?'What can you do?':'O que você pode fazer?';
+    const options=shuffle(activeQuestions()).slice(0,3);
+    initial.replaceChildren();
+
+    const capabilityButton=document.createElement('button');
+    capabilityButton.type='button';
+    capabilityButton.className='sci-capability-suggestion';
+    capabilityButton.textContent=capability;
+    initial.append(capabilityButton);
+
+    for(const question of options){
+      const button=document.createElement('button');
+      button.type='button';
+      button.textContent=question;
+      initial.append(button);
+    }
+  }
+
   let round = 0;
   let busy = false;
   let previous = [];
@@ -527,10 +613,10 @@
   const normalize = text => String(text).normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim();
   function suggestions(content, prompt) {
     const recent = new Set(previous.map(normalize));
-    const choices = activeQuestions().filter(q => normalize(q) !== normalize(prompt) && !recent.has(normalize(q)));
-    for (let i = choices.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [choices[i], choices[j]] = [choices[j], choices[i]];
+    let choices = shuffle(activeQuestions().filter(q => normalize(q) !== normalize(prompt) && !recent.has(normalize(q))));
+    if (choices.length < 2) {
+      previous = [];
+      choices = shuffle(activeQuestions().filter(q => normalize(q) !== normalize(prompt)));
     }
     previous = choices.slice(0, 2);
     const group = document.createElement('div');
@@ -727,6 +813,7 @@
     send(button.textContent);
   }, true);
   window.addEventListener('credit:locale-changed', () => {
+    renderInitialSuggestions();
     if (busy || !state.ready) return;
     previous = [];
     for (const response of conversation.querySelectorAll('.message.assistant.chat-response')) {
@@ -743,6 +830,8 @@
     }
   });
 
+  renderInitialSuggestions();
+
   reset.addEventListener('click', () => {
     round++;
     animations.forEach(animation => animation.cancel());
@@ -753,6 +842,7 @@
     submit.disabled = false;
     setSubmitLoading(false, true);
     page.classList.remove('chat-started');
+    renderInitialSuggestions();
     // The original handler clears the conversation and restores initial buttons.
   }, true);
 })();
