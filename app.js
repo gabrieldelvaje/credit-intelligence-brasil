@@ -92,12 +92,18 @@ function stateRows(key,uf){
 function genderRows(key,uf,gender){
   return state.dimensions.genderState.filter(r=>r.key===key&&(!uf||r.uf===uf)&&(!gender||r.gender===gender)).sort((a,b)=>a.date.localeCompare(b.date));
 }
+function geographicRows(key,uf){
+  if(dimSupports(key,'gender')){
+    return genderRows(key,uf,'total');
+  }
+  return stateRows(key,uf);
+}
 function dimMeta(key,unit){
   const m=meta(key)||{key,pt:key,en:key};
   return {...m,unit:unit||m.unit};
 }
 function stateTrendAnswer(key,uf,q){
-  const m=dimMeta(key,stateRows(key,uf)[0]?.unit),all=stateRows(key,uf);
+  const all=geographicRows(key,uf),m=dimMeta(key,all[0]?.unit);
   let rows=sliceRange(all,q);
   if(!yearsIn(q)[0]&&!/histor|serie completa|série completa|full series|toda a serie|toda a série/.test(norm(q)))rows=rows.slice(-24);
   if(!rows.length)return `<div class="error">${t('Não encontrei esse indicador para '+(UF_LABELS[uf]||uf)+'.','I could not find this indicator for '+(UF_LABELS[uf]||uf)+'.')}</div>`;
@@ -106,15 +112,17 @@ function stateTrendAnswer(key,uf,q){
   return `<h2 class="result-title">${esc(label(m))} — ${esc(UF_LABELS[uf]||uf)}</h2><p class="answer">${t('O valor mais recente é','The latest value is')} <strong>${esc(formatValue(last.value,m))}</strong> (${esc(monthFmt(last.date))}). ${t('No período exibido, a variação foi','Over the displayed period, the change was')} <strong>${esc(deltaText)}</strong>.</p>${cards([{label:t('Último valor','Latest value'),value:formatValue(last.value,m),small:monthFmt(last.date)},{label:t('Estado','State'),value:UF_LABELS[uf]||uf},{label:t('Fonte','Source'),value:'BCB SCR.data'}])}${chart([{label:UF_LABELS[uf]||uf,points:rows}],`${label(m)} — ${UF_LABELS[uf]||uf}`)}${table(rows,m)}`;
 }
 function compareStatesAnswer(key,ufs,q){
-  const m=dimMeta(key,stateRows(key,ufs[0])[0]?.unit);
-  const sets=ufs.slice(0,2).map(uf=>({label:UF_LABELS[uf]||uf,points:sliceRange(stateRows(key,uf),q)})).filter(x=>x.points.length);
+  const m=dimMeta(key,geographicRows(key,ufs[0])[0]?.unit);
+  const sets=ufs.slice(0,2).map(uf=>({label:UF_LABELS[uf]||uf,points:sliceRange(geographicRows(key,uf),q)})).filter(x=>x.points.length);
   if(sets.length<2)return stateTrendAnswer(key,ufs[0],q);
   const last=sets.map(s=>({label:s.label,row:s.points.at(-1)}));
   return `<h2 class="result-title">${t('Comparação entre estados','State comparison')} — ${esc(label(m))}</h2><p class="answer"><strong>${esc(last[0].label)}</strong>: ${esc(formatValue(last[0].row.value,m))} · <strong>${esc(last[1].label)}</strong>: ${esc(formatValue(last[1].row.value,m))}.</p>${cards(last.map(x=>({label:x.label,value:formatValue(x.row.value,m),small:monthFmt(x.row.date)})))}${chart(sets,t('Evolução por estado','Trend by state'))}`;
 }
 function stateRankingAnswer(key,ascending=false){
-  const m=dimMeta(key,state.dimensions.stateCredit.find(r=>r.key===key)?.unit);
-  const rows=state.dimensions.stateCredit.filter(r=>r.key===key);
+  const rows=dimSupports(key,'gender')
+    ? state.dimensions.genderState.filter(r=>r.key===key&&r.gender==='total'&&r.uf!=='BR')
+    : state.dimensions.stateCredit.filter(r=>r.key===key);
+  const m=dimMeta(key,rows[0]?.unit);
   const latestByUf=new Map();
   for(const r of rows){const prev=latestByUf.get(r.uf);if(!prev||r.date>prev.date)latestByUf.set(r.uf,r)}
   const ranked=[...latestByUf.entries()].map(([uf,r])=>({uf,...r})).sort((a,b)=>ascending?a.value-b.value:b.value-a.value);
