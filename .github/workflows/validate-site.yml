@@ -6,8 +6,9 @@ on:
     branches: [main]
     paths:
       - "index.html"
-      - "*.js"
-      - "*.css"
+      - "app.js"
+      - "dashboard-*.js"
+      - "styles.css"
       - "scripts/**"
       - "data/dimensions/**"
       - ".github/workflows/validate-site.yml"
@@ -21,14 +22,10 @@ jobs:
 
       - name: Validate JavaScript syntax
         run: |
+          node --check dashboard-core.js
+          node --check dashboard-map.js
+          node --check dashboard-charts.js
           node --check app.js
-          node --check chat-ui-v5.js
-          node --check chat-staged-sections.js
-          node --check follow-up-entrance.js
-          node --check submit-arrowhead-alignment.js
-          node --check question-builder-credit.js
-          node --check question-builder-slide.js
-          node --check state-map.js
 
       - name: Validate Python syntax
         run: |
@@ -39,6 +36,11 @@ jobs:
       - name: Check required site files
         run: |
           test -f index.html
+          test -f dashboard-core.js
+          test -f dashboard-map.js
+          test -f dashboard-charts.js
+          test -f app.js
+          test -f styles.css
           test -f data/catalog.json
           test -f data/credit_intelligence.json
           test -f data/forecasts.json
@@ -64,17 +66,11 @@ jobs:
           assert len(sex_rows) > 8000, len(sex_rows)
           assert any(x["key"]=="delinquency_pf" and "state" in x["dimensions"] for x in dim_catalog)
           assert any(x["key"]=="unemployment" and "gender" in x["dimensions"] for x in dim_catalog)
-          real_income=next(x for x in catalog if x["key"]=="real_income")
-          assert "rendimento real" in real_income.get("aliases_pt",[]), real_income.get("aliases_pt")
-          assert any(x["key"]=="real_income" and "gender" in x["dimensions"] for x in dim_catalog)
           assert any(r["uf"]=="BR" and r["gender"]=="women" for r in sex_rows)
           assert min(r["date"] for r in state_rows) <= "2012-07-31"
           latest_state=max(r["date"] for r in state_rows)
           latest_ufs={r["uf"] for r in state_rows if r["date"]==latest_state and r["key"]=="delinquency_pf"}
           assert len(latest_ufs)==27, (latest_state,len(latest_ufs))
-          latest_sex=max(r["date"] for r in sex_rows)
-          br_sexes={r["gender"] for r in sex_rows if r["date"]==latest_sex and r["uf"]=="BR" and r["key"]=="unemployment"}
-          assert br_sexes=={"total","men","women"}, (latest_sex,br_sexes)
           expected_state_keys={"delinquency_pf","delinquency_pj","delinquency_card","delinquency_revolving","delinquency_personal","delinquency_vehicle","credit_balance_pf","credit_balance_pj","problem_assets_pf","problem_assets_pj"}
           assert expected_state_keys.issubset({r["key"] for r in state_rows})
           assert geometry.get("type")=="FeatureCollection"

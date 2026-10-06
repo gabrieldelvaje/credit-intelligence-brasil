@@ -4,127 +4,197 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#F3F3F1">
-  <meta name="description" content="Credit Intelligence Brasil: crédito, inadimplência, juros e contexto macroeconômico em dados.">
+  <meta name="description" content="Credit Intelligence Brasil — dashboard interativo de crédito, inadimplência e contexto macroeconômico com dados oficiais.">
   <title>Credit Intelligence Brasil</title>
-  <link rel="icon" type="image/svg+xml" href="favicon.svg?v=3">
-  <link rel="stylesheet" href="styles.css?v=2">
-  <link rel="stylesheet" href="follow-up-suggestions.css?v=2">
-  <link rel="stylesheet" href="chat-animations.css?v=2">
-  <link rel="stylesheet" href="chat-minimal-suggestions.css?v=2">
-  <link rel="stylesheet" href="question-builder.css?v=3">
-  <link rel="stylesheet" href="answer-neutral-surfaces.css?v=2">
-  <link rel="stylesheet" href="question-builder-slide.css?v=2">
-  <link rel="stylesheet" href="dark-flat-overlays.css?v=2">
-  <link rel="stylesheet" href="question-builder-light.css?v=2">
-  <link rel="stylesheet" href="credit-blue.css?v=12">
-  <link rel="stylesheet" href="state-map.css?v=5">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg?v=4">
+  <link rel="stylesheet" href="styles.css?v=20">
 </head>
 <body>
-  <header class="topbar">
-    <span class="brand-icon" id="new-chat" role="button" tabindex="0" title="Novo chat" aria-label="Novo chat">💸</span>
-    <div class="brand-copy">
-      <strong>Credit Intelligence Brasil</strong>
-      <span id="brand-by">Desenvolvido por Gabriel Delvaje</span>
-    </div>
-    <button id="locale-toggle" type="button" aria-label="Alterar idioma">EN</button>
-    <button class="theme-button" id="theme-toggle" aria-label="Alternar tema">◐</button>
-  </header>
-
-  <main class="page-shell">
-    <section class="hero" id="home-hero">
-      <h1 id="hero-title">O que você quer saber sobre crédito e inadimplência?</h1>
-      <p id="hero-subtitle">Consulte crédito, inadimplência e contexto macroeconômico, com recortes por estado e sexo quando disponíveis.</p>
-      <div class="suggestions" id="suggestions">
-        <button class="sci-capability-suggestion" data-q-pt="O que você pode fazer?" data-q-en="What can you do?">O que você pode fazer?</button>
-        <button data-q-pt="A inadimplência das pessoas físicas está aumentando?" data-q-en="Is household delinquency increasing?">A inadimplência das pessoas físicas está aumentando?</button>
-        <button data-q-pt="Qual modalidade de crédito tem a maior inadimplência hoje?" data-q-en="Which credit category has the highest delinquency rate today?">Qual modalidade de crédito tem a maior inadimplência hoje?</button>
-        <button data-q-pt="Qual é a previsão da inadimplência PF para os próximos 6 meses?" data-q-en="What is the 6-month forecast for household delinquency?">Qual é a previsão da inadimplência PF para os próximos 6 meses?</button>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">CI</div>
+        <div>
+          <strong>Credit Intelligence Brasil</strong>
+          <span>Crédito, risco e contexto econômico em dados oficiais</span>
+        </div>
       </div>
-    </section>
+      <div class="topbar-actions">
+        <span class="update-status" id="update-status">Carregando dados…</span>
+        <a class="text-link" href="https://github.com/gabrieldelvaje/credit-intelligence-brasil" target="_blank" rel="noopener noreferrer">Dados e código ↗</a>
+        <button class="info-button" id="methodology-open" type="button" aria-haspopup="dialog" aria-controls="methodology-dialog">Metodologia</button>
+      </div>
+    </header>
 
-    <section class="status-card" id="loading-card" aria-live="polite">
-      <span class="loader"></span>
+    <main class="dashboard" id="dashboard" aria-live="polite">
+      <section class="dashboard-head">
+        <div>
+          <p class="eyebrow">PAINEL NACIONAL + 27 UFs</p>
+          <h1>Mercado de crédito brasileiro</h1>
+          <p class="dashboard-subtitle">Uma leitura integrada de inadimplência, carteira, endividamento, juros e ambiente macroeconômico.</p>
+        </div>
+        <div class="filters" aria-label="Filtros do dashboard">
+          <label class="filter-field">
+            <span>Indicador no mapa</span>
+            <select id="metric-select" aria-label="Indicador do mapa"></select>
+          </label>
+          <label class="filter-field compact">
+            <span>Histórico</span>
+            <select id="period-select" aria-label="Período histórico">
+              <option value="24">24 meses</option>
+              <option value="60" selected>5 anos</option>
+              <option value="120">10 anos</option>
+              <option value="all">Todo histórico</option>
+            </select>
+          </label>
+        </div>
+      </section>
+
+      <section class="kpi-grid" id="kpi-grid" aria-label="Principais indicadores"></section>
+
+      <section class="dashboard-grid top-grid">
+        <article class="panel map-panel">
+          <div class="panel-head">
+            <div>
+              <p class="panel-kicker">GEOGRAFIA DO RISCO</p>
+              <h2 id="map-title">Inadimplência PF por estado</h2>
+              <p id="map-subtitle">Clique no mapa para comparar até três UFs.</p>
+            </div>
+            <button class="clear-button" id="clear-states" type="button" disabled>Limpar seleção</button>
+          </div>
+          <div class="map-layout">
+            <div class="map-wrap">
+              <svg id="brazil-map" viewBox="0 0 620 620" role="img" aria-label="Mapa do Brasil por unidade da federação"></svg>
+              <div class="map-tooltip" id="map-tooltip" hidden></div>
+              <div class="map-legend" id="map-legend"></div>
+            </div>
+            <aside class="selected-states" aria-label="Estados selecionados">
+              <span class="mini-label">COMPARAR</span>
+              <div id="selected-states-list" class="selected-states-list"></div>
+              <p class="selection-help" id="selection-help">Selecione até 3 estados no mapa ou no ranking.</p>
+            </aside>
+          </div>
+        </article>
+
+        <article class="panel ranking-panel">
+          <div class="panel-head">
+            <div>
+              <p class="panel-kicker">RANKING ESTADUAL</p>
+              <h2 id="ranking-title">Maiores valores</h2>
+            </div>
+            <span class="reference-pill" id="ranking-reference">—</span>
+          </div>
+          <div class="ranking-list" id="ranking-list"></div>
+        </article>
+      </section>
+
+      <section class="dashboard-grid middle-grid">
+        <article class="panel trend-panel">
+          <div class="panel-head chart-head">
+            <div>
+              <p class="panel-kicker" id="trend-kicker">SÉRIE HISTÓRICA</p>
+              <h2 id="trend-title">Evolução da inadimplência PF</h2>
+              <p id="trend-subtitle">Brasil · série nacional oficial</p>
+            </div>
+            <div class="legend-inline" id="trend-legend"></div>
+          </div>
+          <div class="chart-wrap" id="trend-chart"></div>
+          <p class="chart-note" id="trend-note"></p>
+        </article>
+
+        <article class="panel composition-panel">
+          <div class="panel-head">
+            <div>
+              <p class="panel-kicker">ONDE A INADIMPLÊNCIA PESA</p>
+              <h2>Modalidades de crédito</h2>
+              <p>Última leitura disponível de cada série.</p>
+            </div>
+          </div>
+          <div class="composition-chart" id="composition-chart"></div>
+        </article>
+      </section>
+
+      <section class="dashboard-grid bottom-grid">
+        <article class="panel macro-panel">
+          <div class="panel-head">
+            <div>
+              <p class="panel-kicker">CONTEXTO MACRO</p>
+              <h2>O ambiente em volta do crédito</h2>
+              <p>Juros, inflação, mercado de trabalho e renda.</p>
+            </div>
+          </div>
+          <div class="macro-grid" id="macro-grid"></div>
+        </article>
+
+        <article class="panel outlook-panel">
+          <div class="panel-head">
+            <div>
+              <p class="panel-kicker">PERSPECTIVA</p>
+              <h2 id="outlook-title">Próximos 6 meses</h2>
+              <p id="outlook-subtitle">Projeção estatística nacional.</p>
+            </div>
+          </div>
+          <div id="outlook-content" class="outlook-content"></div>
+        </article>
+      </section>
+    </main>
+
+    <div class="loading-screen" id="loading-screen" role="status">
+      <div class="loading-line"></div>
+      <strong>Preparando o dashboard</strong>
+      <span>Banco Central + IBGE</span>
+    </div>
+
+    <div class="error-screen" id="error-screen" hidden>
+      <strong>Não foi possível carregar o dashboard.</strong>
+      <span id="error-message">Tente atualizar a página.</span>
+    </div>
+  </div>
+
+  <dialog class="methodology-dialog" id="methodology-dialog">
+    <div class="dialog-head">
       <div>
-        <strong id="loading-title">Carregando base de crédito</strong>
-        <small id="loading-small">Banco Central + indicadores do IBGE via SGS.</small>
+        <p class="panel-kicker">SOBRE A BASE</p>
+        <h2>Dados e metodologia</h2>
       </div>
-    </section>
-
-    <section id="conversation" class="conversation" aria-live="polite"></section>
-  </main>
-
-  <form class="question-bar" id="question-form">
-    <label class="sr-only" for="question">Sua pergunta</label>
-    <input id="question" autocomplete="off" placeholder="Pergunte sobre inadimplência, crédito, juros ou previsão...">
-    <button type="submit" aria-label="Enviar pergunta">
-      <svg class="submit-snake-loader submit-idle-arrow" viewBox="0 0 24 24" aria-hidden="true">
-        <path class="submit-snake-shaft" d="M12 19 L12 9"></path>
-        <path class="submit-snake-head" d="M12.64 5.64 Q12 5 11.36 5.64 L8.64 8.36 Q8 9 8.95 9 L15.05 9 Q16 9 15.36 8.36 Z"></path>
-      </svg>
-    </button>
-  </form>
-
-  <button class="data-link" id="data-info-open" type="button" aria-haspopup="dialog" aria-controls="data-info-modal">Dados</button>
-
-  <div class="data-info-backdrop" id="data-info-backdrop" hidden></div>
-  <section class="data-info-modal" id="data-info-modal" role="dialog" aria-modal="true" aria-labelledby="data-info-title" aria-hidden="true" hidden>
-    <div class="data-info-heading">
-      <div>
-        <span class="data-info-eyebrow" id="data-info-eyebrow">SOBRE A BASE</span>
-        <h2 id="data-info-title">Dados e metodologia</h2>
-      </div>
-      <button class="data-info-close" id="data-info-close" type="button" aria-label="Fechar">×</button>
+      <button id="methodology-close" class="dialog-close" type="button" aria-label="Fechar">×</button>
     </div>
-
-    <div class="data-info-content">
-      <p class="data-info-intro" id="data-info-intro">A plataforma combina fontes oficiais para responder perguntas sobre crédito, inadimplência e contexto macroeconômico sem misturar granularidades incompatíveis.</p>
-
-      <div class="data-info-grid">
-        <article class="data-info-card">
-          <span class="data-info-tag" id="data-info-national-tag">BRASIL</span>
-          <h3 id="data-info-national-title">Séries nacionais</h3>
-          <p id="data-info-national-text">Indicadores de crédito, inadimplência, endividamento, juros, Selic e inflação vêm de séries oficiais do Banco Central. Desemprego e renda também entram na camada nacional.</p>
-        </article>
-
-        <article class="data-info-card">
-          <span class="data-info-tag" id="data-info-state-tag">27 UFs</span>
-          <h3 id="data-info-state-title">Crédito por estado</h3>
-          <p id="data-info-state-text">O recorte mensal por estado usa o SCR.data do Banco Central. A inadimplência estadual é calculada com carteira em atraso acima de 90 dias sobre a carteira ativa.</p>
-        </article>
-
-        <article class="data-info-card">
-          <span class="data-info-tag" id="data-info-sex-tag">SEXO</span>
-          <h3 id="data-info-sex-title">Homens e mulheres</h3>
-          <p id="data-info-sex-text">Para desemprego e rendimento, a PNAD Contínua do IBGE permite comparar Total, Homens e Mulheres no Brasil e nas 27 UFs. O projeto não infere gênero onde a fonte não publica essa dimensão.</p>
-        </article>
-      </div>
-
-      <div class="data-info-note">
-        <strong id="data-info-update-title">Atualização automática</strong>
-        <p id="data-info-update-text">GitHub Actions consulta as fontes oficiais, valida os retornos e preserva a última versão válida se alguma API falhar. O histórico estadual disponível começa em julho de 2012.</p>
-      </div>
+    <div class="dialog-grid">
+      <section>
+        <span class="dialog-number">01</span>
+        <h3>Séries nacionais</h3>
+        <p>Banco Central do Brasil via SGS para crédito, inadimplência, juros, Selic e inflação. Indicadores de mercado de trabalho e renda entram na leitura nacional.</p>
+      </section>
+      <section>
+        <span class="dialog-number">02</span>
+        <h3>27 UFs</h3>
+        <p>O recorte estadual de crédito usa o SCR.data. A inadimplência estadual é calculada como saldo com atraso acima de 90 dias dividido pela carteira ativa.</p>
+      </section>
+      <section>
+        <span class="dialog-number">03</span>
+        <h3>PNAD Contínua</h3>
+        <p>Desemprego e rendimento real por UF usam dados oficiais do IBGE/SIDRA. O painel utiliza a categoria Total para o mapa.</p>
+      </section>
+      <section>
+        <span class="dialog-number">04</span>
+        <h3>Projeções</h3>
+        <p>As projeções de inadimplência combinam tendência e sazonalidade. São estimativas experimentais e não previsões oficiais.</p>
+      </section>
     </div>
-
-    <div class="data-info-actions">
-      <a class="data-info-github" id="data-info-github" href="https://github.com/gabrieldelvaje/credit-intelligence-brasil/tree/main/data" target="_blank" rel="noopener noreferrer">Ver dados no GitHub ↗</a>
-      <button class="data-info-dismiss" id="data-info-dismiss" type="button">Fechar</button>
+    <div class="dialog-note">
+      <strong>Atualização automática.</strong>
+      <span>GitHub Actions consulta as fontes, valida os retornos e preserva a última versão válida se alguma API falhar.</span>
     </div>
-  </section>
+  </dialog>
 
-  <template id="message-template">
-    <article class="message">
-      <div class="message-icon"></div>
-      <div class="message-content"></div>
-    </article>
-  </template>
+  <footer class="footer">
+    <span>Credit Intelligence Brasil</span>
+    <span>Desenvolvido por Gabriel Delvaje · Fontes: Banco Central do Brasil e IBGE</span>
+  </footer>
 
-  <script src="app.js?v=8"></script>
-  <script src="chat-ui-v5.js?v=5"></script>
-  <script src="chat-staged-sections.js?v=2"></script>
-  <script src="follow-up-entrance.js?v=2"></script>
-  <script src="submit-arrowhead-alignment.js?v=2"></script>
-  <script src="question-builder-credit.js?v=5"></script>
-  <script src="question-builder-slide.js?v=2"></script>
-  <script src="state-map.js?v=6"></script>
+  <script src="dashboard-core.js?v=20"></script>
+  <script src="dashboard-map.js?v=20"></script>
+  <script src="dashboard-charts.js?v=20"></script>
+  <script src="app.js?v=20"></script>
 </body>
 </html>
