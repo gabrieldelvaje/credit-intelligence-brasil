@@ -1,5 +1,5 @@
 const $=s=>document.querySelector(s);
-const state={rows:[],catalog:[],forecasts:{},series:new Map(),ready:false,theme:localStorage.getItem('ci-theme')||'light'};
+const state={rows:[],catalog:[],forecasts:{},series:new Map(),dimensions:{stateCredit:[],genderState:[],catalog:[]},ready:false,theme:localStorage.getItem('ci-theme')||'light'};
 window.creditLocale=localStorage.getItem('ci-locale')||'pt';
 
 const norm=v=>String(v??'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().trim();
@@ -19,7 +19,12 @@ function formatValue(v,meta){
   const unit=meta?.unit||'',d=unit.includes('R$')?0:2;
   return `${numFmt(v,d)} ${unit}`.trim();
 }
-function meta(key){return state.catalog.find(x=>x.key===key)}
+function meta(key){
+  return state.catalog.find(x=>x.key===key)
+    || state.dimensions.catalog.find(x=>x.key===key)
+    || ({problem_assets_pf:{key:'problem_assets_pf',pt:'Ativo problemático - PF',en:'Problem assets - households',unit:'%'},
+         problem_assets_pj:{key:'problem_assets_pj',pt:'Ativo problemático - PJ',en:'Problem assets - companies',unit:'%'}}[key]);
+}
 function seriesRows(key){
   const rows=state.series.get(key)||[],m=meta(key);
   if(!rows.length||m?.frequency!=='daily')return rows;
@@ -41,6 +46,89 @@ function identify(q){const n=norm(q),found=[];for(const m of state.catalog)if(al
 function pearson(a,b){if(a.length<4||a.length!==b.length)return null;const ma=a.reduce((s,x)=>s+x,0)/a.length,mb=b.reduce((s,x)=>s+x,0)/b.length;let top=0,da=0,db=0;for(let i=0;i<a.length;i++){const x=a[i]-ma,y=b[i]-mb;top+=x*y;da+=x*x;db+=y*y}return da&&db?top/Math.sqrt(da*db):null}
 function align(k1,k2,lag=0){const a=seriesRows(k1),b=seriesRows(k2),mb=new Map(b.map(r=>[r.date.slice(0,7),r.value])),out=[];for(let i=0;i<a.length;i++){const j=i-lag;if(j<0)continue;const bv=mb.get(a[j].date.slice(0,7));if(Number.isFinite(bv))out.push([a[i].value,bv])}return out}
 
+
+const UF_NAMES={
+  AC:['acre'],AL:['alagoas'],AP:['amapa','amapá'],AM:['amazonas'],BA:['bahia'],CE:['ceara','ceará'],
+  DF:['distrito federal','brasilia','brasília'],ES:['espirito santo','espírito santo'],GO:['goias','goiás'],
+  MA:['maranhao','maranhão'],MT:['mato grosso'],MS:['mato grosso do sul'],MG:['minas gerais'],
+  PA:['para','pará'],PB:['paraiba','paraíba'],PR:['parana','paraná'],PE:['pernambuco'],PI:['piaui','piauí'],
+  RJ:['rio de janeiro'],RN:['rio grande do norte'],RS:['rio grande do sul'],RO:['rondonia','rondônia'],
+  RR:['roraima'],SC:['santa catarina'],SP:['sao paulo','são paulo'],SE:['sergipe'],TO:['tocantins']
+};
+const UF_LABELS={AC:'Acre',AL:'Alagoas',AP:'Amapá',AM:'Amazonas',BA:'Bahia',CE:'Ceará',DF:'Distrito Federal',ES:'Espírito Santo',GO:'Goiás',MA:'Maranhão',MT:'Mato Grosso',MS:'Mato Grosso do Sul',MG:'Minas Gerais',PA:'Pará',PB:'Paraíba',PR:'Paraná',PE:'Pernambuco',PI:'Piauí',RJ:'Rio de Janeiro',RN:'Rio Grande do Norte',RS:'Rio Grande do Sul',RO:'Rondônia',RR:'Roraima',SC:'Santa Catarina',SP:'São Paulo',SE:'Sergipe',TO:'Tocantins'};
+
+function statesIn(question){
+  const nq=norm(question),found=[];
+  for(const [uf,names] of Object.entries(UF_NAMES)){
+    if(names.some(name=>nq.includes(norm(name))))found.push(uf);
+  }
+  for(const uf of Object.keys(UF_NAMES)){
+    const re=new RegExp('(?:^|[^A-Za-zÀ-ÿ])'+uf+'(?:$|[^A-Za-zÀ-ÿ])');
+    if(re.test(question)&&!found.includes(uf))found.push(uf);
+  }
+  return found;
+}
+function genderIn(question){
+  const n=norm(question),out=[];
+  if(/\b(homens|homem|masculino|men|male)\b/.test(n))out.push('men');
+  if(/\b(mulheres|mulher|feminino|women|female)\b/.test(n))out.push('women');
+  return out;
+}
+function dimSupports(key,dimension){
+  return state.dimensions.catalog.some(x=>x.key===key&&(x.dimensions||[]).includes(dimension));
+}
+function stateRows(key,uf){
+  return state.dimensions.stateCredit.filter(r=>r.key===key&&(!uf||r.uf===uf)).sort((a,b)=>a.date.localeCompare(b.date));
+}
+function genderRows(key,uf,gender){
+  return state.dimensions.genderState.filter(r=>r.key===key&&(!uf||r.uf===uf)&&(!gender||r.gender===gender)).sort((a,b)=>a.date.localeCompare(b.date));
+}
+function dimMeta(key,unit){
+  const m=meta(key)||{key,pt:key,en:key};
+  return {...m,unit:unit||m.unit};
+}
+function stateTrendAnswer(key,uf,q){
+  const m=dimMeta(key,stateRows(key,uf)[0]?.unit),all=stateRows(key,uf);
+  let rows=sliceRange(all,q);
+  if(!yearsIn(q)[0]&&!/histor|serie completa|série completa|full series|toda a serie|toda a série/.test(norm(q)))rows=rows.slice(-24);
+  if(!rows.length)return `<div class="error">${t('Não encontrei esse indicador para '+(UF_LABELS[uf]||uf)+'.','I could not find this indicator for '+(UF_LABELS[uf]||uf)+'.')}</div>`;
+  const first=rows[0],last=rows.at(-1),delta=last.value-first.value,isRate=(m.unit||'').includes('%');
+  const deltaText=isRate?`${delta>=0?'+':''}${numFmt(delta,2)} p.p.`:`${delta>=0?'+':''}${numFmt((last.value/first.value-1)*100,1)}%`;
+  return `<h2 class="result-title">${esc(label(m))} — ${esc(UF_LABELS[uf]||uf)}</h2><p class="answer">${t('O valor mais recente é','The latest value is')} <strong>${esc(formatValue(last.value,m))}</strong> (${esc(monthFmt(last.date))}). ${t('No período exibido, a variação foi','Over the displayed period, the change was')} <strong>${esc(deltaText)}</strong>.</p>${cards([{label:t('Último valor','Latest value'),value:formatValue(last.value,m),small:monthFmt(last.date)},{label:t('Estado','State'),value:UF_LABELS[uf]||uf},{label:t('Fonte','Source'),value:'BCB SCR.data'}])}${chart([{label:UF_LABELS[uf]||uf,points:rows}],`${label(m)} — ${UF_LABELS[uf]||uf}`)}${table(rows,m)}`;
+}
+function compareStatesAnswer(key,ufs,q){
+  const m=dimMeta(key,stateRows(key,ufs[0])[0]?.unit);
+  const sets=ufs.slice(0,2).map(uf=>({label:UF_LABELS[uf]||uf,points:sliceRange(stateRows(key,uf),q)})).filter(x=>x.points.length);
+  if(sets.length<2)return stateTrendAnswer(key,ufs[0],q);
+  const last=sets.map(s=>({label:s.label,row:s.points.at(-1)}));
+  return `<h2 class="result-title">${t('Comparação entre estados','State comparison')} — ${esc(label(m))}</h2><p class="answer"><strong>${esc(last[0].label)}</strong>: ${esc(formatValue(last[0].row.value,m))} · <strong>${esc(last[1].label)}</strong>: ${esc(formatValue(last[1].row.value,m))}.</p>${cards(last.map(x=>({label:x.label,value:formatValue(x.row.value,m),small:monthFmt(x.row.date)})))}${chart(sets,t('Evolução por estado','Trend by state'))}`;
+}
+function stateRankingAnswer(key,ascending=false){
+  const m=dimMeta(key,state.dimensions.stateCredit.find(r=>r.key===key)?.unit);
+  const rows=state.dimensions.stateCredit.filter(r=>r.key===key);
+  const latestByUf=new Map();
+  for(const r of rows){const prev=latestByUf.get(r.uf);if(!prev||r.date>prev.date)latestByUf.set(r.uf,r)}
+  const ranked=[...latestByUf.entries()].map(([uf,r])=>({uf,...r})).sort((a,b)=>ascending?a.value-b.value:b.value-a.value);
+  if(!ranked.length)return `<div class="error">${t('Ainda não há recorte estadual disponível para esse indicador.','State-level data is not available for this indicator yet.')}</div>`;
+  const top=ranked[0];
+  return `<h2 class="result-title">${ascending?t('Estados com menor valor','States with the lowest value'):t('Estados com maior valor','States with the highest value')} — ${esc(label(m))}</h2><p class="answer"><strong>${esc(UF_LABELS[top.uf]||top.uf)}</strong> ${t('aparece no topo do ranking com','ranks first at')} <strong>${esc(formatValue(top.value,m))}</strong> (${esc(monthFmt(top.date))}).</p><div class="table-wrap"><table class="data-table"><thead><tr><th>#</th><th>${t('Estado','State')}</th><th>${t('Valor','Value')}</th><th>${t('Referência','Reference')}</th></tr></thead><tbody>${ranked.map((r,i)=>`<tr><td>${i+1}</td><td>${esc(UF_LABELS[r.uf]||r.uf)}</td><td class="number">${esc(formatValue(r.value,m))}</td><td>${esc(monthFmt(r.date))}</td></tr>`).join('')}</tbody></table></div>`;
+}
+function genderStateAnswer(key,uf,genders,q){
+  const m=dimMeta(key,genderRows(key,uf,genders[0])[0]?.unit);
+  const chosen=genders.length?genders:['men','women'];
+  const labels={men:t('Homens','Men'),women:t('Mulheres','Women'),total:t('Total','Total')};
+  const sets=chosen.map(g=>({label:labels[g],points:sliceRange(genderRows(key,uf,g),q)})).filter(s=>s.points.length);
+  if(!sets.length)return `<div class="error">${t('Não encontrei esse recorte de sexo para o indicador e estado informados.','I could not find this sex breakdown for the selected indicator and state.')}</div>`;
+  const last=sets.map(s=>({label:s.label,row:s.points.at(-1)}));
+  const where=uf?(UF_LABELS[uf]||uf):t('Brasil','Brazil');
+  return `<h2 class="result-title">${esc(label(m))} — ${esc(where)}</h2><p class="answer">${last.map(x=>`<strong>${esc(x.label)}</strong>: ${esc(formatValue(x.row.value,m))}`).join(' · ')}.</p>${cards(last.map(x=>({label:x.label,value:formatValue(x.row.value,m),small:monthFmt(x.row.date)})))}${chart(sets,`${label(m)} — ${where}`)}<p class="answer"><small>${t('O IBGE publica esta dimensão como Sexo (Total, Homens e Mulheres). O projeto não infere identidade de gênero.','IBGE publishes this dimension as Sex (Total, Men and Women). The project does not infer gender identity.')}</small></p>`;
+}
+function dimensionUnavailable(key,dimension){
+  const m=meta(key);
+  if(dimension==='gender')return `<div class="error">${t('A fonte oficial deste indicador não publica recorte por sexo. O filtro de sexo está disponível para desemprego e rendimento real via PNAD Contínua/IBGE.','The official source for this indicator does not publish a sex breakdown. Sex filters are available for unemployment and real earnings through PNAD Continuous/IBGE.')}</div>`;
+  return `<div class="error">${t('A fonte oficial deste indicador não publica recorte estadual compatível com esta métrica.','The official source for this indicator does not publish a compatible state-level breakdown.')}</div>`;
+}
+
 function cards(items){return'<div class="kpis">'+items.map(x=>`<div class="kpi"><span>${esc(x.label)}</span><strong>${esc(x.value)}</strong>${x.small?`<small>${esc(x.small)}</small>`:''}</div>`).join('')+'</div>'}
 function table(points,m,limit=18){const rows=[...points].slice(-limit).reverse();return`<div class="table-wrap"><table class="data-table"><thead><tr><th>${t('Referência','Reference')}</th><th>${esc(label(m))}</th></tr></thead><tbody>${rows.map(r=>`<tr><td>${esc(monthFmt(r.date))}</td><td class="number">${esc(formatValue(r.value,m))}</td></tr>`).join('')}</tbody></table></div>`}
 function chart(sets,title){
@@ -53,7 +141,7 @@ function chart(sets,title){
   return`<div class="chart"><strong>${esc(title)}</strong><div class="ci-legend">${legends}</div><svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(title)}">${ticks}${paths}<text class="axis" x="${P.l}" y="${H-9}">${esc(monthFmt(dates[0]))}</text><text class="axis" x="${W-P.r}" y="${H-9}" text-anchor="end">${esc(monthFmt(dates.at(-1)))}</text></svg></div>`
 }
 function capability(){
-  return`<div class="sci-capability-overview"><h2 class="result-title">${t('O que eu consigo analisar','What I can analyze')}</h2><p class="answer">${t('A base combina séries oficiais de crédito e macroeconomia. Você pode consultar valores atuais, evolução histórica, comparar indicadores, ranquear modalidades de inadimplência, explorar correlações e ver projeções estatísticas de curto prazo.','The database combines official credit and macroeconomic series. You can query current values, historical trends, compare indicators, rank delinquency categories, explore correlations and view short-term statistical projections.')}</p><ul><li>${t('Inadimplência PF, PJ, cartão, rotativo, crédito pessoal e veículos.','Household, corporate, credit card, revolving, personal credit and vehicle-loan delinquency.')}</li><li>${t('Endividamento e comprometimento de renda das famílias.','Household debt and debt-service ratio.')}</li><li>${t('Saldo, concessões e juros médios do crédito.','Credit balances, new lending and average interest rates.')}</li><li>${t('Selic, IPCA, desemprego e renda real.','Selic, IPCA, unemployment and real income.')}</li></ul></div>`
+  return`<div class="sci-capability-overview"><h2 class="result-title">${t('O que eu consigo analisar','What I can analyze')}</h2><p class="answer">${t('A base combina séries oficiais de crédito e macroeconomia. Você pode consultar valores atuais, evolução histórica, comparar indicadores, ranquear modalidades de inadimplência, explorar correlações e ver projeções estatísticas de curto prazo.','The database combines official credit and macroeconomic series. You can query current values, historical trends, compare indicators, rank delinquency categories, explore correlations and view short-term statistical projections.')}</p><ul><li>${t('Inadimplência PF, PJ, cartão, rotativo, crédito pessoal e veículos.','Household, corporate, credit card, revolving, personal credit and vehicle-loan delinquency.')}</li><li>${t('Endividamento e comprometimento de renda das famílias.','Household debt and debt-service ratio.')}</li><li>${t('Saldo, concessões e juros médios do crédito.','Credit balances, new lending and average interest rates.')}</li><li>${t('Selic, IPCA, desemprego e renda real.','Selic, IPCA, unemployment and real income.')}</li><li>${t('Comparações e rankings por estado para crédito e inadimplência; desemprego e renda por estado e sexo.','State comparisons and rankings for credit and delinquency; unemployment and income by state and sex.')}</li></ul></div>`
 }
 function ranking(){
   const keys=['delinquency_card','delinquency_revolving','delinquency_personal','delinquency_vehicle'],rows=keys.map(k=>({m:meta(k),r:latest(k)})).filter(x=>x.r).sort((a,b)=>b.r.value-a.r.value),winner=rows[0];
@@ -90,15 +178,41 @@ function forecastAnswer(key){
   return`<h2 class="result-title">${t('Projeção de curto prazo','Short-term projection')} — ${esc(label(m))}</h2><p class="answer">${t('O último valor observado é','The latest observed value is')} <strong>${esc(formatValue(last.value,m))}</strong>. ${t('O modelo de tendência + sazonalidade projeta','The trend + seasonality model projects')} <strong>${esc(formatValue(end.value,m))}</strong> ${t('para','for')} <strong>${esc(monthFmt(end.date))}</strong>.</p>${cards([{label:t('Observado','Observed'),value:formatValue(last.value,m),small:monthFmt(last.date)},{label:t('Projeção 6 meses','6-month forecast'),value:formatValue(end.value,m),small:monthFmt(end.date)},{label:t('Faixa 80%','80% interval'),value:`${formatValue(end.low80,m)} – ${formatValue(end.high80,m)}`}])}${chart([{label:t('Observado + projeção','Observed + forecast'),points:combined}],t('Histórico recente e projeção','Recent history and forecast'))}<p class="answer"><small>${esc(window.creditLocale==='en'?f.note_en:f.note_pt)}</small></p>`
 }
 function answer(q){
-  const n=norm(q);if(/o que voce pode fazer|o que você pode fazer|what can you do|capabilities/.test(n))return capability();
+  const n=norm(q);
+  if(/o que voce pode fazer|o que você pode fazer|what can you do|capabilities/.test(n))return capability();
+
   const keys=identify(q);
+  const key=keys[0]||'delinquency_pf';
+  const ufs=statesIn(q);
+  const genders=genderIn(q);
+  const asksState=/\b(estado|estados|uf|ufs|state|states)\b/.test(n)||ufs.length>0;
+  const asksGender=genders.length>0||/\b(sexo|genero|gênero|gender|sex)\b/.test(n);
+  const asksRankingState=asksState&&/(maior|maiores|menor|menores|ranking|rank|which state|which states|top)/.test(n);
+
+  if(asksGender){
+    if(!dimSupports(key,'gender'))return dimensionUnavailable(key,'gender');
+    if(!ufs.length){
+      const hasBR=state.dimensions.genderState.some(r=>r.key===key&&r.uf==='BR');
+      if(!hasBR)return `<div class="error">${t('Para este recorte por sexo, informe também um estado. Ex.: “compare homens e mulheres em São Paulo”.','For this sex breakdown, please also specify a state. Example: “compare men and women in São Paulo”.')}</div>`;
+    }
+    return genderStateAnswer(key,ufs[0]||'BR',genders.length?genders:['men','women'],q);
+  }
+
+  if(asksState){
+    if(!dimSupports(key,'state'))return dimensionUnavailable(key,'state');
+    if(asksRankingState&&!ufs.length)return stateRankingAnswer(key,/menor|menores|lowest/.test(n));
+    if(ufs.length>=2)return compareStatesAnswer(key,ufs,q);
+    if(ufs.length===1)return stateTrendAnswer(key,ufs[0],q);
+    return stateRankingAnswer(key,false);
+  }
+
   if(/maior inadimplencia|maior inadimplência|highest delinquency|qual modalidade|which credit category/.test(n))return ranking();
-  if(/previs|projec|projeç|forecast|predict/.test(n))return forecastAnswer(keys[0]||'delinquency_pf');
+  if(/previs|projec|projeç|forecast|predict/.test(n))return forecastAnswer(key);
   if(/correl|relacao|relação|relationship|impact|selic.*inadimpl|inadimpl.*selic|desemprego.*inadimpl|inadimpl.*desemprego/.test(n)){
     let pair=keys;if(pair.length<2){if(n.includes('selic'))pair=['delinquency_pf','selic'];else if(n.includes('desemprego'))pair=['delinquency_pf','unemployment'];else if(n.includes('inflacao')||n.includes('inflação'))pair=['delinquency_pf','ipca']}return correlationAnswer(pair)
   }
   if(keys.length>=2||/compar|versus|\bvs\b/.test(n))return compareAnswer(keys.length>=2?keys:['delinquency_pf','delinquency_pj'],q);
-  return trendAnswer(keys[0]||'delinquency_pf',q);
+  return trendAnswer(key,q);
 }
 function updateLocaleUI(){
   const lang=window.creditLocale,c=copy[lang];
@@ -123,10 +237,25 @@ function updateLocaleUI(){
 async function load(){
   const box=$('#loading-card');box.classList.add('is-visible');
   try{
-    const stamp=Date.now(),[dr,cr,fr]=await Promise.all([fetch(`data/credit_intelligence.json?v=${stamp}`,{cache:'no-store'}),fetch(`data/catalog.json?v=${stamp}`,{cache:'no-store'}),fetch(`data/forecasts.json?v=${stamp}`,{cache:'no-store'})]);
+    const stamp=Date.now();
+    const [dr,cr,fr,sr,gr,dcr]=await Promise.all([
+      fetch(`data/credit_intelligence.json?v=${stamp}`,{cache:'no-store'}),
+      fetch(`data/catalog.json?v=${stamp}`,{cache:'no-store'}),
+      fetch(`data/forecasts.json?v=${stamp}`,{cache:'no-store'}),
+      fetch(`data/dimensions/state_credit.json?v=${stamp}`,{cache:'no-store'}).catch(()=>null),
+      fetch(`data/dimensions/gender_state.json?v=${stamp}`,{cache:'no-store'}).catch(()=>null),
+      fetch(`data/dimensions/catalog.json?v=${stamp}`,{cache:'no-store'}).catch(()=>null)
+    ]);
     if(!dr.ok||!cr.ok||!fr.ok)throw Error(t('Arquivos de dados ainda não publicados.','Data files have not been published yet.'));
-    state.rows=await dr.json();state.catalog=await cr.json();state.forecasts=await fr.json();state.series=new Map();
-    for(const r of state.rows){if(!state.series.has(r.key))state.series.set(r.key,[]);state.series.get(r.key).push(r)}for(const rows of state.series.values())rows.sort((a,b)=>a.date.localeCompare(b.date));
+    state.rows=await dr.json();
+    state.catalog=await cr.json();
+    state.forecasts=await fr.json();
+    state.dimensions.stateCredit=sr?.ok?await sr.json():[];
+    state.dimensions.genderState=gr?.ok?await gr.json():[];
+    state.dimensions.catalog=dcr?.ok?await dcr.json():[];
+    state.series=new Map();
+    for(const r of state.rows){if(!state.series.has(r.key))state.series.set(r.key,[]);state.series.get(r.key).push(r)}
+    for(const rows of state.series.values())rows.sort((a,b)=>a.date.localeCompare(b.date));
     state.ready=true;box.classList.remove('is-visible');
   }catch(e){box.innerHTML=`<div><strong>${esc(t('Não foi possível carregar a base.','Could not load the data.'))}</strong><small>${esc(e.message)}</small></div>`;box.classList.add('is-visible')}
 }
