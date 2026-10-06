@@ -720,6 +720,23 @@
     event.stopImmediatePropagation();
     send(button.textContent);
   }, true);
+  window.addEventListener('credit:locale-changed', () => {
+    if (busy || !state.ready) return;
+    previous = [];
+    for (const response of conversation.querySelectorAll('.message.assistant.chat-response')) {
+      const user = response.previousElementSibling;
+      const prompt = user?.classList.contains('user')
+        ? user.querySelector('.message-content p')?.textContent?.trim()
+        : '';
+      const content = response.querySelector('.message-content');
+      if (!prompt || !content) continue;
+      try {
+        content.innerHTML = answer(prompt);
+        suggestions(content, prompt);
+      } catch (_) { /* Keep the existing response if refresh fails. */ }
+    }
+  });
+
   reset.addEventListener('click', () => {
     round++;
     animations.forEach(animation => animation.cancel());
