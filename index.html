@@ -7,7 +7,7 @@
   <meta name="description" content="Credit Intelligence Brasil — dashboard interativo de crédito, inadimplência e contexto macroeconômico com dados oficiais.">
   <title>Credit Intelligence Brasil</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg?v=4">
-  <link rel="stylesheet" href="styles.css?v=24">
+  <link rel="stylesheet" href="styles.css?v=25">
 </head>
 <body data-report-page="overview">
   <div class="app-shell">
@@ -37,6 +37,10 @@
           <button class="sidebar-item" type="button" data-report-page-button="macro">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17l5-5 4 3 7-8"/><path d="M15 7h4v4"/></svg>
             <span>Contexto macro</span>
+          </button>
+          <button class="sidebar-item" type="button" data-report-page-button="case">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v16H4z"/><path d="M8 9h8M8 13h8M8 17h5"/></svg>
+            <span>Estudo de caso</span>
           </button>
         </nav>
 
@@ -178,6 +182,105 @@
             <div class="macro-grid" id="macro-grid"></div>
           </article>
         </section>
+
+        <section class="report-page case-page" data-page-view="case" aria-labelledby="case-title">
+          <div class="case-inner">
+            <div class="case-hero">
+              <div class="case-hero-copy">
+                <span class="section-label">ESTUDO DE CASO · INTELIGÊNCIA DE CRÉDITO</span>
+                <h2 id="case-title">De indicadores dispersos a uma leitura de risco orientada a decisões.</h2>
+                <p>Um projeto analítico independente para investigar a evolução do crédito brasileiro, identificar pontos de atenção e documentar as escolhas por trás de cada visualização.</p>
+                <div class="case-hero-actions">
+                  <button type="button" class="case-action case-action-primary" data-case-goto="risk">Explorar o risco <span aria-hidden="true">↗</span></button>
+                  <button type="button" class="case-action" data-case-goto="geography">Comparar estados <span aria-hidden="true">→</span></button>
+                </div>
+              </div>
+              <div class="case-hero-side">
+                <span>QUESTÃO CENTRAL</span>
+                <strong>Onde estão os sinais de pressão sobre o crédito — e quais recortes ajudam a investigá-los?</strong>
+                <small>Escopo: análise exploratória de indicadores agregados; não é um modelo de decisão de crédito individual.</small>
+              </div>
+            </div>
+
+            <div class="case-section-head">
+              <div><span class="section-label">01 / EVIDÊNCIA</span><h3>O que os dados mostram agora</h3></div>
+              <span class="case-head-note">Leitura calculada da base carregada · referências variam por indicador</span>
+            </div>
+            <div class="case-signal-grid" id="case-signals" aria-live="polite">
+              <p class="case-empty">Preparando a leitura dos indicadores…</p>
+            </div>
+            <div class="case-reading" id="case-reading">
+              <span class="case-reading-label">LEITURA ANALÍTICA</span>
+              <p>Os resultados são exploratórios e não implicam causalidade.</p>
+            </div>
+
+            <div class="case-main-grid">
+              <article class="case-block">
+                <span class="section-label">02 / CONTEXTO DE NEGÓCIO</span>
+                <h3>O problema antes do dashboard</h3>
+                <p>Uma taxa nacional isolada não informa quais modalidades estão pressionadas, se a dinâmica é persistente ou como o cenário difere entre UFs. O desafio é organizar evidências para uma investigação de risco mais bem direcionada.</p>
+                <div class="case-question">
+                  <span>PERGUNTAS DE ANÁLISE</span>
+                  <ul>
+                    <li>O movimento é pontual ou consistente em 12 meses?</li>
+                    <li>Quais modalidades merecem aprofundamento?</li>
+                    <li>Como o padrão varia entre as 27 UFs?</li>
+                    <li>Qual é o contexto de juros, renda e emprego?</li>
+                  </ul>
+                </div>
+                <p class="case-caveat"><strong>Aplicação possível:</strong> apoiar análises de monitoramento, priorização de investigação e comunicação executiva. O projeto não comprova ganho financeiro ou redução operacional em uma empresa.</p>
+              </article>
+
+              <article class="case-block">
+                <span class="section-label">03 / DECISÕES TÉCNICAS</span>
+                <h3>Escolhas, alternativas e limites</h3>
+                <div class="case-decision">
+                  <span class="case-decision-number">01</span>
+                  <div><h4>SGS nacional + SCR.data estadual</h4><p>Fontes complementares, não uma única tabela com drill-down. Mantê-las separadas evita sugerir que a taxa estadual é uma decomposição exata da série nacional.</p></div>
+                </div>
+                <div class="case-decision">
+                  <span class="case-decision-number">02</span>
+                  <div><h4>ETL agendado, JSON estático e GitHub Pages</h4><p>Em vez de consultar APIs a cada acesso, o pipeline coleta e valida os dados previamente. Reduz a dependência da disponibilidade das fontes durante a navegação, ao custo de não ser tempo real.</p></div>
+                </div>
+                <div class="case-decision">
+                  <span class="case-decision-number">03</span>
+                  <div><h4>Projeção simples e interpretável</h4><p>Tendência linear com sazonalidade anual e intervalo estatístico de 80% em séries selecionadas. Serve como cenário exploratório, sem alegação de precisão validada fora da amostra.</p></div>
+                </div>
+              </article>
+            </div>
+
+            <div class="case-section-head">
+              <div><span class="section-label">04 / EVOLUÇÃO ANALÍTICA</span><h3>Uma progressão real de complexidade</h3></div>
+            </div>
+            <div class="case-stages">
+              <article class="case-stage">
+                <span>ETAPA 01 <i>DESCRITIVA</i></span>
+                <h4>Entender o cenário</h4>
+                <p>KPIs nacionais, séries históricas e comparação em 12 meses.</p>
+                <button type="button" data-case-goto="overview">Abrir resumo <span aria-hidden="true">↗</span></button>
+              </article>
+              <article class="case-stage">
+                <span>ETAPA 02 <i>DIAGNÓSTICA</i></span>
+                <h4>Investigar diferenças</h4>
+                <p>Recortes por UF, modalidades, ranking e comparação de até três estados.</p>
+                <button type="button" data-case-goto="geography">Abrir geografia <span aria-hidden="true">↗</span></button>
+              </article>
+              <article class="case-stage">
+                <span>ETAPA 03 <i>EXPLORATÓRIA</i></span>
+                <h4>Testar perspectivas</h4>
+                <p>Cenários estatísticos de seis meses, apresentados com suas limitações.</p>
+                <button type="button" data-case-goto="risk">Abrir perspectiva <span aria-hidden="true">↗</span></button>
+              </article>
+            </div>
+            <div class="case-bottom">
+              <div>
+                <span class="section-label">TRANSPARÊNCIA</span>
+                <p>Indicadores agregados de BCB e IBGE. Taxas com conceitos, denominadores e datas de referência diferentes não devem ser somadas nem comparadas como se fossem equivalentes. Correlação não demonstra causalidade.</p>
+              </div>
+              <a href="https://github.com/gabrieldelvaje/credit-intelligence-brasil#arquitetura" target="_blank" rel="noopener noreferrer">Ver pipeline, fontes e documentação <span aria-hidden="true">↗</span></a>
+            </div>
+          </div>
+        </section>
       </div>
     </main>
 
@@ -213,6 +316,7 @@
   <script src="dashboard-core.js?v=24"></script>
   <script src="dashboard-map.js?v=24"></script>
   <script src="dashboard-charts.js?v=24"></script>
-  <script src="app.js?v=24"></script>
+  <script src="case-study.js?v=25"></script>
+  <script src="app.js?v=25"></script>
 </body>
 </html>

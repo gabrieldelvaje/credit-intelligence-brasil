@@ -16,6 +16,10 @@ const PAGE_COPY = {
   macro:{
     title:'Contexto macro',
     subtitle:'Juros, inflação, mercado de trabalho e renda fora da camada de risco de crédito.'
+  },
+  case:{
+    title:'Estudo de caso',
+    subtitle:'O problema de negócio, as decisões técnicas e os limites das conclusões.'
   }
 };
 
@@ -122,6 +126,10 @@ function bindEvents(){
   document.querySelectorAll('[data-report-page-button]').forEach(button=>{
     button.addEventListener('click',()=>setReportPage(button.dataset.reportPageButton));
   });
+  document.querySelector('[data-page-view="case"]').addEventListener('click',event=>{
+    const action=event.target.closest('[data-case-goto]');
+    if(action)setReportPage(action.dataset.caseGoto);
+  });
 
   const dialog=$('#methodology-dialog');
   $('#methodology-open').addEventListener('click',()=>dialog.showModal());
@@ -202,6 +210,7 @@ async function init(){
     initMapEvents();
 
     renderKpis();
+    renderCaseStudy();
     renderMap();
     renderRanking();
     renderTrend();

@@ -20,6 +20,36 @@ dashboard interativo no navegador
 
 O pipeline roda automaticamente. Se uma API falhar, uma série regredir ou vier vazia, a última versão válida é preservada. Cada atualização válida também fica registrada no histórico do Git.
 
+## Estudo de caso e decisões de negócio
+
+A aba **Estudo de caso** apresenta o problema analítico, os indicadores mais recentes calculados no navegador, o raciocínio por trás da arquitetura e a evolução da investigação:
+
+1. **Descrever:** acompanhar as séries nacionais e suas variações em 12 meses.
+2. **Diagnosticar:** comparar UFs e modalidades, respeitando o conceito e a referência de cada dado.
+3. **Explorar cenários:** exibir projeções simples para seis meses como hipóteses, não como decisões automatizadas.
+
+**Pergunta orientadora:** onde há sinais de pressão no crédito brasileiro e quais recortes devem ser investigados antes de uma recomendação?
+
+**Público potencial:** profissionais de risco, análise econômica e inteligência de negócio que precisam contextualizar indicadores agregados. Trata-se de um projeto de portfólio, sem implantação empresarial ou impacto financeiro alegado.
+
+### Registro das decisões e trade-offs
+
+| Decisão | Alternativa e motivação | Limitação assumida |
+| --- | --- | --- |
+| SGS para séries nacionais; SCR.data para geografia | Usar dados oficiais em vez de amostras simuladas | A taxa estadual derivada não é decomposição direta da taxa nacional |
+| GitHub Actions + JSON/CSV estático | Evitar chamadas remotas a cada visita ao site | Informação atualizada pelo pipeline, não em tempo real |
+| Preservar última atualização válida | Evitar que indisponibilidade de API quebre o dashboard | Requer exibir claramente a data da referência |
+| Comparar no máximo três UFs | Garantir legibilidade visual e foco analítico | Não substitui estudos econométricos |
+| Tendência + sazonalidade | Cenário transparente no lugar de um modelo complexo sem validação suficiente | Não há acurácia fora de amostra demonstrada; projeções não são oficiais |
+
+### Limites das conclusões
+
+- Não concluir causalidade apenas por co-movimento de Selic, IPCA, desemprego e inadimplência.
+- Não somar taxas de modalidades e não comparar percentuais de denominadores distintos como equivalentes.
+- Não equiparar a série SGS nacional à agregação das taxas SCR.data das UFs.
+- Não tratar cenários de curto prazo como decisões de concessão ou score individual.
+- As variações e datas exibidas na aba são computadas da base carregada; não foram fixadas manualmente.
+
 ## Dashboard
 
 A interface foi desenhada como um relatório de BI, sem camada de chat. A página reúne:

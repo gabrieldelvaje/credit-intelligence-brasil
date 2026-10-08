@@ -7,6 +7,7 @@ on:
     paths:
       - "index.html"
       - "app.js"
+      - "case-study.js"
       - "dashboard-*.js"
       - "styles.css"
       - "scripts/**"
@@ -26,6 +27,7 @@ jobs:
           node --check dashboard-map.js
           node --check dashboard-charts.js
           node --check app.js
+          node --check case-study.js
 
       - name: Validate Python syntax
         run: |
@@ -40,6 +42,7 @@ jobs:
           test -f dashboard-map.js
           test -f dashboard-charts.js
           test -f app.js
+          test -f case-study.js
           test -f styles.css
           test -f data/catalog.json
           test -f data/credit_intelligence.json
