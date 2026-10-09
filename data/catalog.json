@@ -345,9 +345,9 @@
       "policy rate"
     ],
     "first_reference": "2011-01-01",
-    "latest_reference": "2026-10-08",
+    "latest_reference": "2026-10-09",
     "latest_value": 13.75,
-    "rows": 5760
+    "rows": 5761
   },
   {
     "key": "ipca",
@@ -367,9 +367,9 @@
       "inflation"
     ],
     "first_reference": "1980-01-01",
-    "latest_reference": "2026-08-01",
-    "latest_value": -0.32,
-    "rows": 560
+    "latest_reference": "2026-09-01",
+    "latest_value": 0.82,
+    "rows": 561
   },
   {
     "key": "unemployment",

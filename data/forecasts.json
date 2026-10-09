@@ -2,7 +2,7 @@
   "delinquency_pf": {
     "model": "trend_seasonality_ols",
     "horizon_months": 6,
-    "generated_at_utc": "2026-10-08T16:34:55+00:00",
+    "generated_at_utc": "2026-10-09T16:18:13+00:00",
     "observed_through": "2026-08-01",
     "points": [
       {
@@ -48,7 +48,7 @@
   "delinquency_pj": {
     "model": "trend_seasonality_ols",
     "horizon_months": 6,
-    "generated_at_utc": "2026-10-08T16:34:56+00:00",
+    "generated_at_utc": "2026-10-09T16:18:15+00:00",
     "observed_through": "2026-08-01",
     "points": [
       {
@@ -94,7 +94,7 @@
   "delinquency_card": {
     "model": "trend_seasonality_ols",
     "horizon_months": 6,
-    "generated_at_utc": "2026-10-08T16:34:57+00:00",
+    "generated_at_utc": "2026-10-09T16:18:16+00:00",
     "observed_through": "2026-08-01",
     "points": [
       {
@@ -140,7 +140,7 @@
   "delinquency_revolving": {
     "model": "trend_seasonality_ols",
     "horizon_months": 6,
-    "generated_at_utc": "2026-10-08T16:34:57+00:00",
+    "generated_at_utc": "2026-10-09T16:18:17+00:00",
     "observed_through": "2026-08-01",
     "points": [
       {
@@ -186,7 +186,7 @@
   "delinquency_personal": {
     "model": "trend_seasonality_ols",
     "horizon_months": 6,
-    "generated_at_utc": "2026-10-08T16:34:57+00:00",
+    "generated_at_utc": "2026-10-09T16:18:36+00:00",
     "observed_through": "2026-08-01",
     "points": [
       {
@@ -232,7 +232,7 @@
   "delinquency_vehicle": {
     "model": "trend_seasonality_ols",
     "horizon_months": 6,
-    "generated_at_utc": "2026-10-08T16:34:58+00:00",
+    "generated_at_utc": "2026-10-09T16:18:37+00:00",
     "observed_through": "2026-08-01",
     "points": [
       {
