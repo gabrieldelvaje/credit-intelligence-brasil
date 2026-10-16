@@ -345,9 +345,9 @@
       "policy rate"
     ],
     "first_reference": "2011-01-01",
-    "latest_reference": "2026-10-15",
+    "latest_reference": "2026-10-16",
     "latest_value": 13.75,
-    "rows": 5767
+    "rows": 5768
   },
   {
     "key": "ipca",
