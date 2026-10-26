@@ -42659,276 +42659,276 @@ date,uf,key,value,unit,source
 2025-08-31,TO,delinquency_vehicle,5.109853,%,BCB SCR.data v2
 2025-08-31,TO,problem_assets_pf,12.843985,%,BCB SCR.data v2
 2025-08-31,TO,problem_assets_pj,7.140637,%,BCB SCR.data v2
-2025-09-30,AC,credit_balance_pf,13853.409493,R$ mi,BCB SCR.data v2
-2025-09-30,AC,credit_balance_pj,4647.364191,R$ mi,BCB SCR.data v2
-2025-09-30,AC,delinquency_card,10.314418,%,BCB SCR.data v2
-2025-09-30,AC,delinquency_personal,4.075161,%,BCB SCR.data v2
-2025-09-30,AC,delinquency_pf,4.933044,%,BCB SCR.data v2
-2025-09-30,AC,delinquency_pj,4.889341,%,BCB SCR.data v2
-2025-09-30,AC,delinquency_revolving,11.644334,%,BCB SCR.data v2
-2025-09-30,AC,delinquency_vehicle,4.26387,%,BCB SCR.data v2
-2025-09-30,AC,problem_assets_pf,8.261246,%,BCB SCR.data v2
-2025-09-30,AC,problem_assets_pj,6.80347,%,BCB SCR.data v2
-2025-09-30,AL,credit_balance_pf,39969.579224,R$ mi,BCB SCR.data v2
-2025-09-30,AL,credit_balance_pj,16307.840662,R$ mi,BCB SCR.data v2
-2025-09-30,AL,delinquency_card,11.098557,%,BCB SCR.data v2
-2025-09-30,AL,delinquency_personal,4.202059,%,BCB SCR.data v2
-2025-09-30,AL,delinquency_pf,5.897104,%,BCB SCR.data v2
-2025-09-30,AL,delinquency_pj,2.478496,%,BCB SCR.data v2
-2025-09-30,AL,delinquency_revolving,17.571453,%,BCB SCR.data v2
-2025-09-30,AL,delinquency_vehicle,8.93412,%,BCB SCR.data v2
-2025-09-30,AL,problem_assets_pf,9.043381,%,BCB SCR.data v2
-2025-09-30,AL,problem_assets_pj,4.82672,%,BCB SCR.data v2
-2025-09-30,AM,credit_balance_pf,42453.513038,R$ mi,BCB SCR.data v2
-2025-09-30,AM,credit_balance_pj,31257.424328,R$ mi,BCB SCR.data v2
-2025-09-30,AM,delinquency_card,10.761798,%,BCB SCR.data v2
-2025-09-30,AM,delinquency_personal,5.252561,%,BCB SCR.data v2
-2025-09-30,AM,delinquency_pf,6.201667,%,BCB SCR.data v2
-2025-09-30,AM,delinquency_pj,3.294584,%,BCB SCR.data v2
-2025-09-30,AM,delinquency_revolving,18.262787,%,BCB SCR.data v2
-2025-09-30,AM,delinquency_vehicle,6.666875,%,BCB SCR.data v2
-2025-09-30,AM,problem_assets_pf,9.534774,%,BCB SCR.data v2
-2025-09-30,AM,problem_assets_pj,5.010516,%,BCB SCR.data v2
-2025-09-30,AP,credit_balance_pf,12172.146665,R$ mi,BCB SCR.data v2
-2025-09-30,AP,credit_balance_pj,5478.859426,R$ mi,BCB SCR.data v2
-2025-09-30,AP,delinquency_card,10.43324,%,BCB SCR.data v2
-2025-09-30,AP,delinquency_personal,4.806887,%,BCB SCR.data v2
-2025-09-30,AP,delinquency_pf,5.575055,%,BCB SCR.data v2
-2025-09-30,AP,delinquency_pj,4.138966,%,BCB SCR.data v2
-2025-09-30,AP,delinquency_revolving,19.802875,%,BCB SCR.data v2
-2025-09-30,AP,delinquency_vehicle,4.131324,%,BCB SCR.data v2
-2025-09-30,AP,problem_assets_pf,9.494831,%,BCB SCR.data v2
-2025-09-30,AP,problem_assets_pj,6.654777,%,BCB SCR.data v2
-2025-09-30,BA,credit_balance_pf,178581.187558,R$ mi,BCB SCR.data v2
-2025-09-30,BA,credit_balance_pj,95898.690903,R$ mi,BCB SCR.data v2
-2025-09-30,BA,delinquency_card,10.185849,%,BCB SCR.data v2
-2025-09-30,BA,delinquency_personal,4.632356,%,BCB SCR.data v2
-2025-09-30,BA,delinquency_pf,5.664931,%,BCB SCR.data v2
-2025-09-30,BA,delinquency_pj,3.025166,%,BCB SCR.data v2
-2025-09-30,BA,delinquency_revolving,15.046099,%,BCB SCR.data v2
-2025-09-30,BA,delinquency_vehicle,6.345797,%,BCB SCR.data v2
-2025-09-30,BA,problem_assets_pf,8.86373,%,BCB SCR.data v2
-2025-09-30,BA,problem_assets_pj,5.886447,%,BCB SCR.data v2
-2025-09-30,CE,credit_balance_pf,106011.103774,R$ mi,BCB SCR.data v2
-2025-09-30,CE,credit_balance_pj,52310.356369,R$ mi,BCB SCR.data v2
-2025-09-30,CE,delinquency_card,9.885674,%,BCB SCR.data v2
-2025-09-30,CE,delinquency_personal,4.315923,%,BCB SCR.data v2
-2025-09-30,CE,delinquency_pf,5.288438,%,BCB SCR.data v2
-2025-09-30,CE,delinquency_pj,3.454095,%,BCB SCR.data v2
-2025-09-30,CE,delinquency_revolving,14.113467,%,BCB SCR.data v2
-2025-09-30,CE,delinquency_vehicle,5.408191,%,BCB SCR.data v2
-2025-09-30,CE,problem_assets_pf,8.302185,%,BCB SCR.data v2
-2025-09-30,CE,problem_assets_pj,6.954307,%,BCB SCR.data v2
-2025-09-30,DF,credit_balance_pf,100077.945655,R$ mi,BCB SCR.data v2
-2025-09-30,DF,credit_balance_pj,61096.338025,R$ mi,BCB SCR.data v2
-2025-09-30,DF,delinquency_card,8.020176,%,BCB SCR.data v2
-2025-09-30,DF,delinquency_personal,3.51692,%,BCB SCR.data v2
-2025-09-30,DF,delinquency_pf,3.936728,%,BCB SCR.data v2
-2025-09-30,DF,delinquency_pj,2.080206,%,BCB SCR.data v2
-2025-09-30,DF,delinquency_revolving,15.220749,%,BCB SCR.data v2
-2025-09-30,DF,delinquency_vehicle,5.112057,%,BCB SCR.data v2
-2025-09-30,DF,problem_assets_pf,6.996645,%,BCB SCR.data v2
-2025-09-30,DF,problem_assets_pj,4.077113,%,BCB SCR.data v2
-2025-09-30,ES,credit_balance_pf,70494.424927,R$ mi,BCB SCR.data v2
-2025-09-30,ES,credit_balance_pj,49493.42498,R$ mi,BCB SCR.data v2
-2025-09-30,ES,delinquency_card,7.85424,%,BCB SCR.data v2
-2025-09-30,ES,delinquency_personal,4.257514,%,BCB SCR.data v2
-2025-09-30,ES,delinquency_pf,3.868261,%,BCB SCR.data v2
-2025-09-30,ES,delinquency_pj,4.257892,%,BCB SCR.data v2
-2025-09-30,ES,delinquency_revolving,13.73628,%,BCB SCR.data v2
-2025-09-30,ES,delinquency_vehicle,4.272512,%,BCB SCR.data v2
-2025-09-30,ES,problem_assets_pf,6.813705,%,BCB SCR.data v2
-2025-09-30,ES,problem_assets_pj,9.249771,%,BCB SCR.data v2
-2025-09-30,GO,credit_balance_pf,239531.56705,R$ mi,BCB SCR.data v2
-2025-09-30,GO,credit_balance_pj,85519.962292,R$ mi,BCB SCR.data v2
-2025-09-30,GO,delinquency_card,9.964313,%,BCB SCR.data v2
-2025-09-30,GO,delinquency_personal,6.069992,%,BCB SCR.data v2
-2025-09-30,GO,delinquency_pf,6.040666,%,BCB SCR.data v2
-2025-09-30,GO,delinquency_pj,4.283249,%,BCB SCR.data v2
-2025-09-30,GO,delinquency_revolving,13.543194,%,BCB SCR.data v2
-2025-09-30,GO,delinquency_vehicle,5.778103,%,BCB SCR.data v2
-2025-09-30,GO,problem_assets_pf,10.601133,%,BCB SCR.data v2
-2025-09-30,GO,problem_assets_pj,8.290026,%,BCB SCR.data v2
-2025-09-30,MA,credit_balance_pf,84091.621332,R$ mi,BCB SCR.data v2
-2025-09-30,MA,credit_balance_pj,24107.763775,R$ mi,BCB SCR.data v2
-2025-09-30,MA,delinquency_card,10.02829,%,BCB SCR.data v2
-2025-09-30,MA,delinquency_personal,4.617268,%,BCB SCR.data v2
-2025-09-30,MA,delinquency_pf,6.829201,%,BCB SCR.data v2
-2025-09-30,MA,delinquency_pj,5.980838,%,BCB SCR.data v2
-2025-09-30,MA,delinquency_revolving,13.715222,%,BCB SCR.data v2
-2025-09-30,MA,delinquency_vehicle,5.123275,%,BCB SCR.data v2
-2025-09-30,MA,problem_assets_pf,11.039121,%,BCB SCR.data v2
-2025-09-30,MA,problem_assets_pj,9.319947,%,BCB SCR.data v2
-2025-09-30,MG,credit_balance_pf,410955.505051,R$ mi,BCB SCR.data v2
-2025-09-30,MG,credit_balance_pj,223476.495995,R$ mi,BCB SCR.data v2
-2025-09-30,MG,delinquency_card,7.860099,%,BCB SCR.data v2
-2025-09-30,MG,delinquency_personal,4.713719,%,BCB SCR.data v2
-2025-09-30,MG,delinquency_pf,4.422471,%,BCB SCR.data v2
-2025-09-30,MG,delinquency_pj,2.890612,%,BCB SCR.data v2
-2025-09-30,MG,delinquency_revolving,12.360562,%,BCB SCR.data v2
-2025-09-30,MG,delinquency_vehicle,5.061321,%,BCB SCR.data v2
-2025-09-30,MG,problem_assets_pf,7.803606,%,BCB SCR.data v2
-2025-09-30,MG,problem_assets_pj,5.791014,%,BCB SCR.data v2
-2025-09-30,MS,credit_balance_pf,99044.772005,R$ mi,BCB SCR.data v2
-2025-09-30,MS,credit_balance_pj,36480.225609,R$ mi,BCB SCR.data v2
-2025-09-30,MS,delinquency_card,9.444506,%,BCB SCR.data v2
-2025-09-30,MS,delinquency_personal,4.974392,%,BCB SCR.data v2
-2025-09-30,MS,delinquency_pf,6.21753,%,BCB SCR.data v2
-2025-09-30,MS,delinquency_pj,4.161327,%,BCB SCR.data v2
-2025-09-30,MS,delinquency_revolving,12.462993,%,BCB SCR.data v2
-2025-09-30,MS,delinquency_vehicle,5.282395,%,BCB SCR.data v2
-2025-09-30,MS,problem_assets_pf,11.423763,%,BCB SCR.data v2
-2025-09-30,MS,problem_assets_pj,9.661936,%,BCB SCR.data v2
-2025-09-30,MT,credit_balance_pf,171618.44721,R$ mi,BCB SCR.data v2
-2025-09-30,MT,credit_balance_pj,80105.672659,R$ mi,BCB SCR.data v2
-2025-09-30,MT,delinquency_card,9.160948,%,BCB SCR.data v2
-2025-09-30,MT,delinquency_personal,5.791085,%,BCB SCR.data v2
-2025-09-30,MT,delinquency_pf,5.676809,%,BCB SCR.data v2
-2025-09-30,MT,delinquency_pj,4.344821,%,BCB SCR.data v2
-2025-09-30,MT,delinquency_revolving,10.19295,%,BCB SCR.data v2
-2025-09-30,MT,delinquency_vehicle,4.830327,%,BCB SCR.data v2
-2025-09-30,MT,problem_assets_pf,10.355992,%,BCB SCR.data v2
-2025-09-30,MT,problem_assets_pj,8.148649,%,BCB SCR.data v2
-2025-09-30,PA,credit_balance_pf,104871.913148,R$ mi,BCB SCR.data v2
-2025-09-30,PA,credit_balance_pj,49526.261368,R$ mi,BCB SCR.data v2
-2025-09-30,PA,delinquency_card,10.412662,%,BCB SCR.data v2
-2025-09-30,PA,delinquency_personal,4.310333,%,BCB SCR.data v2
-2025-09-30,PA,delinquency_pf,5.728317,%,BCB SCR.data v2
-2025-09-30,PA,delinquency_pj,3.732178,%,BCB SCR.data v2
-2025-09-30,PA,delinquency_revolving,14.22105,%,BCB SCR.data v2
-2025-09-30,PA,delinquency_vehicle,5.819065,%,BCB SCR.data v2
-2025-09-30,PA,problem_assets_pf,8.868221,%,BCB SCR.data v2
-2025-09-30,PA,problem_assets_pj,6.505663,%,BCB SCR.data v2
-2025-09-30,PB,credit_balance_pf,57609.421814,R$ mi,BCB SCR.data v2
-2025-09-30,PB,credit_balance_pj,13562.680963,R$ mi,BCB SCR.data v2
-2025-09-30,PB,delinquency_card,9.460167,%,BCB SCR.data v2
-2025-09-30,PB,delinquency_personal,3.990296,%,BCB SCR.data v2
-2025-09-30,PB,delinquency_pf,4.717289,%,BCB SCR.data v2
-2025-09-30,PB,delinquency_pj,4.922993,%,BCB SCR.data v2
-2025-09-30,PB,delinquency_revolving,12.908484,%,BCB SCR.data v2
-2025-09-30,PB,delinquency_vehicle,5.35803,%,BCB SCR.data v2
-2025-09-30,PB,problem_assets_pf,8.464963,%,BCB SCR.data v2
-2025-09-30,PB,problem_assets_pj,10.889388,%,BCB SCR.data v2
-2025-09-30,PE,credit_balance_pf,111851.72388,R$ mi,BCB SCR.data v2
-2025-09-30,PE,credit_balance_pj,48528.345965,R$ mi,BCB SCR.data v2
-2025-09-30,PE,delinquency_card,10.472632,%,BCB SCR.data v2
-2025-09-30,PE,delinquency_personal,4.638078,%,BCB SCR.data v2
-2025-09-30,PE,delinquency_pf,5.827203,%,BCB SCR.data v2
-2025-09-30,PE,delinquency_pj,3.112577,%,BCB SCR.data v2
-2025-09-30,PE,delinquency_revolving,15.901738,%,BCB SCR.data v2
-2025-09-30,PE,delinquency_vehicle,6.654949,%,BCB SCR.data v2
-2025-09-30,PE,problem_assets_pf,8.972361,%,BCB SCR.data v2
-2025-09-30,PE,problem_assets_pj,5.773031,%,BCB SCR.data v2
-2025-09-30,PI,credit_balance_pf,37424.6727,R$ mi,BCB SCR.data v2
-2025-09-30,PI,credit_balance_pj,25534.526358,R$ mi,BCB SCR.data v2
-2025-09-30,PI,delinquency_card,10.090138,%,BCB SCR.data v2
-2025-09-30,PI,delinquency_personal,4.250487,%,BCB SCR.data v2
-2025-09-30,PI,delinquency_pf,5.375208,%,BCB SCR.data v2
-2025-09-30,PI,delinquency_pj,2.292423,%,BCB SCR.data v2
-2025-09-30,PI,delinquency_revolving,13.29698,%,BCB SCR.data v2
-2025-09-30,PI,delinquency_vehicle,5.889016,%,BCB SCR.data v2
-2025-09-30,PI,problem_assets_pf,8.915946,%,BCB SCR.data v2
-2025-09-30,PI,problem_assets_pj,3.29811,%,BCB SCR.data v2
-2025-09-30,PR,credit_balance_pf,327771.823736,R$ mi,BCB SCR.data v2
-2025-09-30,PR,credit_balance_pj,197132.876771,R$ mi,BCB SCR.data v2
-2025-09-30,PR,delinquency_card,8.123346,%,BCB SCR.data v2
-2025-09-30,PR,delinquency_personal,4.359178,%,BCB SCR.data v2
-2025-09-30,PR,delinquency_pf,4.18554,%,BCB SCR.data v2
-2025-09-30,PR,delinquency_pj,3.041841,%,BCB SCR.data v2
-2025-09-30,PR,delinquency_revolving,14.879388,%,BCB SCR.data v2
-2025-09-30,PR,delinquency_vehicle,5.339979,%,BCB SCR.data v2
-2025-09-30,PR,problem_assets_pf,7.48928,%,BCB SCR.data v2
-2025-09-30,PR,problem_assets_pj,5.909474,%,BCB SCR.data v2
-2025-09-30,RJ,credit_balance_pf,273777.921693,R$ mi,BCB SCR.data v2
-2025-09-30,RJ,credit_balance_pj,292467.439534,R$ mi,BCB SCR.data v2
-2025-09-30,RJ,delinquency_card,9.764535,%,BCB SCR.data v2
-2025-09-30,RJ,delinquency_personal,5.106012,%,BCB SCR.data v2
-2025-09-30,RJ,delinquency_pf,6.059047,%,BCB SCR.data v2
-2025-09-30,RJ,delinquency_pj,1.589676,%,BCB SCR.data v2
-2025-09-30,RJ,delinquency_revolving,17.65426,%,BCB SCR.data v2
-2025-09-30,RJ,delinquency_vehicle,9.211003,%,BCB SCR.data v2
-2025-09-30,RJ,problem_assets_pf,9.300575,%,BCB SCR.data v2
-2025-09-30,RJ,problem_assets_pj,6.211381,%,BCB SCR.data v2
-2025-09-30,RN,credit_balance_pf,49190.973207,R$ mi,BCB SCR.data v2
-2025-09-30,RN,credit_balance_pj,17638.735406,R$ mi,BCB SCR.data v2
-2025-09-30,RN,delinquency_card,10.647867,%,BCB SCR.data v2
-2025-09-30,RN,delinquency_personal,4.09694,%,BCB SCR.data v2
-2025-09-30,RN,delinquency_pf,5.440675,%,BCB SCR.data v2
-2025-09-30,RN,delinquency_pj,4.122071,%,BCB SCR.data v2
-2025-09-30,RN,delinquency_revolving,18.614441,%,BCB SCR.data v2
-2025-09-30,RN,delinquency_vehicle,5.396179,%,BCB SCR.data v2
-2025-09-30,RN,problem_assets_pf,9.377343,%,BCB SCR.data v2
-2025-09-30,RN,problem_assets_pj,5.671886,%,BCB SCR.data v2
-2025-09-30,RO,credit_balance_pf,49659.417996,R$ mi,BCB SCR.data v2
-2025-09-30,RO,credit_balance_pj,11976.255726,R$ mi,BCB SCR.data v2
-2025-09-30,RO,delinquency_card,8.329817,%,BCB SCR.data v2
-2025-09-30,RO,delinquency_personal,5.69697,%,BCB SCR.data v2
-2025-09-30,RO,delinquency_pf,5.180007,%,BCB SCR.data v2
-2025-09-30,RO,delinquency_pj,5.349848,%,BCB SCR.data v2
-2025-09-30,RO,delinquency_revolving,8.773307,%,BCB SCR.data v2
-2025-09-30,RO,delinquency_vehicle,4.877791,%,BCB SCR.data v2
-2025-09-30,RO,problem_assets_pf,8.772231,%,BCB SCR.data v2
-2025-09-30,RO,problem_assets_pj,10.194261,%,BCB SCR.data v2
-2025-09-30,RR,credit_balance_pf,11542.626115,R$ mi,BCB SCR.data v2
-2025-09-30,RR,credit_balance_pj,3079.296569,R$ mi,BCB SCR.data v2
-2025-09-30,RR,delinquency_card,11.034997,%,BCB SCR.data v2
-2025-09-30,RR,delinquency_personal,5.036186,%,BCB SCR.data v2
-2025-09-30,RR,delinquency_pf,5.508069,%,BCB SCR.data v2
-2025-09-30,RR,delinquency_pj,4.97683,%,BCB SCR.data v2
-2025-09-30,RR,delinquency_revolving,15.01793,%,BCB SCR.data v2
-2025-09-30,RR,delinquency_vehicle,5.566375,%,BCB SCR.data v2
-2025-09-30,RR,problem_assets_pf,8.745273,%,BCB SCR.data v2
-2025-09-30,RR,problem_assets_pj,7.806664,%,BCB SCR.data v2
-2025-09-30,RS,credit_balance_pf,326361.651855,R$ mi,BCB SCR.data v2
-2025-09-30,RS,credit_balance_pj,178320.144825,R$ mi,BCB SCR.data v2
-2025-09-30,RS,delinquency_card,8.540174,%,BCB SCR.data v2
-2025-09-30,RS,delinquency_personal,5.041833,%,BCB SCR.data v2
-2025-09-30,RS,delinquency_pf,4.275458,%,BCB SCR.data v2
-2025-09-30,RS,delinquency_pj,2.576128,%,BCB SCR.data v2
-2025-09-30,RS,delinquency_revolving,14.203893,%,BCB SCR.data v2
-2025-09-30,RS,delinquency_vehicle,5.60303,%,BCB SCR.data v2
-2025-09-30,RS,problem_assets_pf,8.135662,%,BCB SCR.data v2
-2025-09-30,RS,problem_assets_pj,5.48933,%,BCB SCR.data v2
-2025-09-30,SC,credit_balance_pf,212389.051383,R$ mi,BCB SCR.data v2
-2025-09-30,SC,credit_balance_pj,173781.966097,R$ mi,BCB SCR.data v2
-2025-09-30,SC,delinquency_card,7.051498,%,BCB SCR.data v2
-2025-09-30,SC,delinquency_personal,4.734489,%,BCB SCR.data v2
-2025-09-30,SC,delinquency_pf,3.704486,%,BCB SCR.data v2
-2025-09-30,SC,delinquency_pj,2.495451,%,BCB SCR.data v2
-2025-09-30,SC,delinquency_revolving,9.555711,%,BCB SCR.data v2
-2025-09-30,SC,delinquency_vehicle,5.211908,%,BCB SCR.data v2
-2025-09-30,SC,problem_assets_pf,6.414884,%,BCB SCR.data v2
-2025-09-30,SC,problem_assets_pj,4.951412,%,BCB SCR.data v2
-2025-09-30,SE,credit_balance_pf,34589.610196,R$ mi,BCB SCR.data v2
-2025-09-30,SE,credit_balance_pj,8663.813524,R$ mi,BCB SCR.data v2
-2025-09-30,SE,delinquency_card,10.170182,%,BCB SCR.data v2
-2025-09-30,SE,delinquency_personal,4.932992,%,BCB SCR.data v2
-2025-09-30,SE,delinquency_pf,5.219287,%,BCB SCR.data v2
-2025-09-30,SE,delinquency_pj,4.871698,%,BCB SCR.data v2
-2025-09-30,SE,delinquency_revolving,17.222355,%,BCB SCR.data v2
-2025-09-30,SE,delinquency_vehicle,6.711542,%,BCB SCR.data v2
-2025-09-30,SE,problem_assets_pf,8.307861,%,BCB SCR.data v2
-2025-09-30,SE,problem_assets_pj,8.520096,%,BCB SCR.data v2
-2025-09-30,SP,credit_balance_pf,1145883.635231,R$ mi,BCB SCR.data v2
-2025-09-30,SP,credit_balance_pj,1008781.925817,R$ mi,BCB SCR.data v2
-2025-09-30,SP,delinquency_card,8.844899,%,BCB SCR.data v2
-2025-09-30,SP,delinquency_personal,4.832236,%,BCB SCR.data v2
-2025-09-30,SP,delinquency_pf,4.430074,%,BCB SCR.data v2
-2025-09-30,SP,delinquency_pj,1.856743,%,BCB SCR.data v2
-2025-09-30,SP,delinquency_revolving,15.40355,%,BCB SCR.data v2
-2025-09-30,SP,delinquency_vehicle,5.27403,%,BCB SCR.data v2
-2025-09-30,SP,problem_assets_pf,7.704706,%,BCB SCR.data v2
-2025-09-30,SP,problem_assets_pj,5.644374,%,BCB SCR.data v2
-2025-09-30,TO,credit_balance_pf,40124.263689,R$ mi,BCB SCR.data v2
-2025-09-30,TO,credit_balance_pj,14571.870717,R$ mi,BCB SCR.data v2
-2025-09-30,TO,delinquency_card,9.063559,%,BCB SCR.data v2
-2025-09-30,TO,delinquency_personal,5.716418,%,BCB SCR.data v2
-2025-09-30,TO,delinquency_pf,7.866435,%,BCB SCR.data v2
-2025-09-30,TO,delinquency_pj,4.246344,%,BCB SCR.data v2
-2025-09-30,TO,delinquency_revolving,8.078932,%,BCB SCR.data v2
-2025-09-30,TO,delinquency_vehicle,5.044451,%,BCB SCR.data v2
-2025-09-30,TO,problem_assets_pf,12.453088,%,BCB SCR.data v2
-2025-09-30,TO,problem_assets_pj,7.05768,%,BCB SCR.data v2
+2025-09-30,AC,credit_balance_pf,13886.059093,R$ mi,BCB SCR.data v2
+2025-09-30,AC,credit_balance_pj,4647.165712,R$ mi,BCB SCR.data v2
+2025-09-30,AC,delinquency_card,10.295215,%,BCB SCR.data v2
+2025-09-30,AC,delinquency_personal,4.061715,%,BCB SCR.data v2
+2025-09-30,AC,delinquency_pf,4.90894,%,BCB SCR.data v2
+2025-09-30,AC,delinquency_pj,4.889473,%,BCB SCR.data v2
+2025-09-30,AC,delinquency_revolving,11.651606,%,BCB SCR.data v2
+2025-09-30,AC,delinquency_vehicle,4.266256,%,BCB SCR.data v2
+2025-09-30,AC,problem_assets_pf,8.203005,%,BCB SCR.data v2
+2025-09-30,AC,problem_assets_pj,6.802546,%,BCB SCR.data v2
+2025-09-30,AL,credit_balance_pf,40019.011544,R$ mi,BCB SCR.data v2
+2025-09-30,AL,credit_balance_pj,16308.581976,R$ mi,BCB SCR.data v2
+2025-09-30,AL,delinquency_card,11.103106,%,BCB SCR.data v2
+2025-09-30,AL,delinquency_personal,4.203463,%,BCB SCR.data v2
+2025-09-30,AL,delinquency_pf,5.894911,%,BCB SCR.data v2
+2025-09-30,AL,delinquency_pj,2.485542,%,BCB SCR.data v2
+2025-09-30,AL,delinquency_revolving,17.570991,%,BCB SCR.data v2
+2025-09-30,AL,delinquency_vehicle,8.951734,%,BCB SCR.data v2
+2025-09-30,AL,problem_assets_pf,8.984921,%,BCB SCR.data v2
+2025-09-30,AL,problem_assets_pj,4.859003,%,BCB SCR.data v2
+2025-09-30,AM,credit_balance_pf,42304.358145,R$ mi,BCB SCR.data v2
+2025-09-30,AM,credit_balance_pj,31953.454126,R$ mi,BCB SCR.data v2
+2025-09-30,AM,delinquency_card,10.759344,%,BCB SCR.data v2
+2025-09-30,AM,delinquency_personal,5.254563,%,BCB SCR.data v2
+2025-09-30,AM,delinquency_pf,6.202288,%,BCB SCR.data v2
+2025-09-30,AM,delinquency_pj,3.222055,%,BCB SCR.data v2
+2025-09-30,AM,delinquency_revolving,18.291279,%,BCB SCR.data v2
+2025-09-30,AM,delinquency_vehicle,6.673669,%,BCB SCR.data v2
+2025-09-30,AM,problem_assets_pf,9.470365,%,BCB SCR.data v2
+2025-09-30,AM,problem_assets_pj,4.892092,%,BCB SCR.data v2
+2025-09-30,AP,credit_balance_pf,12169.418029,R$ mi,BCB SCR.data v2
+2025-09-30,AP,credit_balance_pj,5478.418525,R$ mi,BCB SCR.data v2
+2025-09-30,AP,delinquency_card,10.420358,%,BCB SCR.data v2
+2025-09-30,AP,delinquency_personal,4.808344,%,BCB SCR.data v2
+2025-09-30,AP,delinquency_pf,5.576062,%,BCB SCR.data v2
+2025-09-30,AP,delinquency_pj,4.139124,%,BCB SCR.data v2
+2025-09-30,AP,delinquency_revolving,19.805152,%,BCB SCR.data v2
+2025-09-30,AP,delinquency_vehicle,4.128436,%,BCB SCR.data v2
+2025-09-30,AP,problem_assets_pf,9.469493,%,BCB SCR.data v2
+2025-09-30,AP,problem_assets_pj,6.650038,%,BCB SCR.data v2
+2025-09-30,BA,credit_balance_pf,178570.831812,R$ mi,BCB SCR.data v2
+2025-09-30,BA,credit_balance_pj,95893.366026,R$ mi,BCB SCR.data v2
+2025-09-30,BA,delinquency_card,10.189789,%,BCB SCR.data v2
+2025-09-30,BA,delinquency_personal,4.630062,%,BCB SCR.data v2
+2025-09-30,BA,delinquency_pf,5.671242,%,BCB SCR.data v2
+2025-09-30,BA,delinquency_pj,3.024919,%,BCB SCR.data v2
+2025-09-30,BA,delinquency_revolving,15.064787,%,BCB SCR.data v2
+2025-09-30,BA,delinquency_vehicle,6.351661,%,BCB SCR.data v2
+2025-09-30,BA,problem_assets_pf,8.822771,%,BCB SCR.data v2
+2025-09-30,BA,problem_assets_pj,5.895035,%,BCB SCR.data v2
+2025-09-30,CE,credit_balance_pf,106112.610553,R$ mi,BCB SCR.data v2
+2025-09-30,CE,credit_balance_pj,52319.601571,R$ mi,BCB SCR.data v2
+2025-09-30,CE,delinquency_card,9.892246,%,BCB SCR.data v2
+2025-09-30,CE,delinquency_personal,4.314618,%,BCB SCR.data v2
+2025-09-30,CE,delinquency_pf,5.290697,%,BCB SCR.data v2
+2025-09-30,CE,delinquency_pj,3.452252,%,BCB SCR.data v2
+2025-09-30,CE,delinquency_revolving,14.129039,%,BCB SCR.data v2
+2025-09-30,CE,delinquency_vehicle,5.417023,%,BCB SCR.data v2
+2025-09-30,CE,problem_assets_pf,8.264489,%,BCB SCR.data v2
+2025-09-30,CE,problem_assets_pj,6.975185,%,BCB SCR.data v2
+2025-09-30,DF,credit_balance_pf,100090.805516,R$ mi,BCB SCR.data v2
+2025-09-30,DF,credit_balance_pj,61098.568492,R$ mi,BCB SCR.data v2
+2025-09-30,DF,delinquency_card,8.023205,%,BCB SCR.data v2
+2025-09-30,DF,delinquency_personal,3.518707,%,BCB SCR.data v2
+2025-09-30,DF,delinquency_pf,3.953934,%,BCB SCR.data v2
+2025-09-30,DF,delinquency_pj,2.084683,%,BCB SCR.data v2
+2025-09-30,DF,delinquency_revolving,15.23647,%,BCB SCR.data v2
+2025-09-30,DF,delinquency_vehicle,5.123933,%,BCB SCR.data v2
+2025-09-30,DF,problem_assets_pf,6.991762,%,BCB SCR.data v2
+2025-09-30,DF,problem_assets_pj,4.090391,%,BCB SCR.data v2
+2025-09-30,ES,credit_balance_pf,70509.492165,R$ mi,BCB SCR.data v2
+2025-09-30,ES,credit_balance_pj,49475.625766,R$ mi,BCB SCR.data v2
+2025-09-30,ES,delinquency_card,7.859136,%,BCB SCR.data v2
+2025-09-30,ES,delinquency_personal,4.258842,%,BCB SCR.data v2
+2025-09-30,ES,delinquency_pf,3.869264,%,BCB SCR.data v2
+2025-09-30,ES,delinquency_pj,4.272428,%,BCB SCR.data v2
+2025-09-30,ES,delinquency_revolving,13.749725,%,BCB SCR.data v2
+2025-09-30,ES,delinquency_vehicle,4.274899,%,BCB SCR.data v2
+2025-09-30,ES,problem_assets_pf,6.779068,%,BCB SCR.data v2
+2025-09-30,ES,problem_assets_pj,9.271925,%,BCB SCR.data v2
+2025-09-30,GO,credit_balance_pf,239401.369514,R$ mi,BCB SCR.data v2
+2025-09-30,GO,credit_balance_pj,85496.527623,R$ mi,BCB SCR.data v2
+2025-09-30,GO,delinquency_card,9.972742,%,BCB SCR.data v2
+2025-09-30,GO,delinquency_personal,6.075479,%,BCB SCR.data v2
+2025-09-30,GO,delinquency_pf,6.055375,%,BCB SCR.data v2
+2025-09-30,GO,delinquency_pj,4.280449,%,BCB SCR.data v2
+2025-09-30,GO,delinquency_revolving,13.571608,%,BCB SCR.data v2
+2025-09-30,GO,delinquency_vehicle,5.775882,%,BCB SCR.data v2
+2025-09-30,GO,problem_assets_pf,10.641763,%,BCB SCR.data v2
+2025-09-30,GO,problem_assets_pj,8.262346,%,BCB SCR.data v2
+2025-09-30,MA,credit_balance_pf,84114.469938,R$ mi,BCB SCR.data v2
+2025-09-30,MA,credit_balance_pj,24107.477619,R$ mi,BCB SCR.data v2
+2025-09-30,MA,delinquency_card,10.023121,%,BCB SCR.data v2
+2025-09-30,MA,delinquency_personal,4.609849,%,BCB SCR.data v2
+2025-09-30,MA,delinquency_pf,6.828611,%,BCB SCR.data v2
+2025-09-30,MA,delinquency_pj,5.98326,%,BCB SCR.data v2
+2025-09-30,MA,delinquency_revolving,13.727195,%,BCB SCR.data v2
+2025-09-30,MA,delinquency_vehicle,5.100651,%,BCB SCR.data v2
+2025-09-30,MA,problem_assets_pf,10.99709,%,BCB SCR.data v2
+2025-09-30,MA,problem_assets_pj,9.319015,%,BCB SCR.data v2
+2025-09-30,MG,credit_balance_pf,410970.944354,R$ mi,BCB SCR.data v2
+2025-09-30,MG,credit_balance_pj,222974.876187,R$ mi,BCB SCR.data v2
+2025-09-30,MG,delinquency_card,7.861307,%,BCB SCR.data v2
+2025-09-30,MG,delinquency_personal,4.711888,%,BCB SCR.data v2
+2025-09-30,MG,delinquency_pf,4.412941,%,BCB SCR.data v2
+2025-09-30,MG,delinquency_pj,2.893819,%,BCB SCR.data v2
+2025-09-30,MG,delinquency_revolving,12.367549,%,BCB SCR.data v2
+2025-09-30,MG,delinquency_vehicle,5.057424,%,BCB SCR.data v2
+2025-09-30,MG,problem_assets_pf,7.775961,%,BCB SCR.data v2
+2025-09-30,MG,problem_assets_pj,5.7978,%,BCB SCR.data v2
+2025-09-30,MS,credit_balance_pf,99153.596229,R$ mi,BCB SCR.data v2
+2025-09-30,MS,credit_balance_pj,36455.576053,R$ mi,BCB SCR.data v2
+2025-09-30,MS,delinquency_card,9.434902,%,BCB SCR.data v2
+2025-09-30,MS,delinquency_personal,4.969955,%,BCB SCR.data v2
+2025-09-30,MS,delinquency_pf,6.205775,%,BCB SCR.data v2
+2025-09-30,MS,delinquency_pj,4.16361,%,BCB SCR.data v2
+2025-09-30,MS,delinquency_revolving,12.462273,%,BCB SCR.data v2
+2025-09-30,MS,delinquency_vehicle,5.285362,%,BCB SCR.data v2
+2025-09-30,MS,problem_assets_pf,11.529029,%,BCB SCR.data v2
+2025-09-30,MS,problem_assets_pj,9.650965,%,BCB SCR.data v2
+2025-09-30,MT,credit_balance_pf,171382.151084,R$ mi,BCB SCR.data v2
+2025-09-30,MT,credit_balance_pj,78992.803806,R$ mi,BCB SCR.data v2
+2025-09-30,MT,delinquency_card,9.164033,%,BCB SCR.data v2
+2025-09-30,MT,delinquency_personal,5.790994,%,BCB SCR.data v2
+2025-09-30,MT,delinquency_pf,5.66285,%,BCB SCR.data v2
+2025-09-30,MT,delinquency_pj,4.402582,%,BCB SCR.data v2
+2025-09-30,MT,delinquency_revolving,10.213938,%,BCB SCR.data v2
+2025-09-30,MT,delinquency_vehicle,4.825649,%,BCB SCR.data v2
+2025-09-30,MT,problem_assets_pf,10.355465,%,BCB SCR.data v2
+2025-09-30,MT,problem_assets_pj,8.20612,%,BCB SCR.data v2
+2025-09-30,PA,credit_balance_pf,104730.982992,R$ mi,BCB SCR.data v2
+2025-09-30,PA,credit_balance_pj,49514.025039,R$ mi,BCB SCR.data v2
+2025-09-30,PA,delinquency_card,10.403785,%,BCB SCR.data v2
+2025-09-30,PA,delinquency_personal,4.309314,%,BCB SCR.data v2
+2025-09-30,PA,delinquency_pf,5.726979,%,BCB SCR.data v2
+2025-09-30,PA,delinquency_pj,3.732129,%,BCB SCR.data v2
+2025-09-30,PA,delinquency_revolving,14.207722,%,BCB SCR.data v2
+2025-09-30,PA,delinquency_vehicle,5.83281,%,BCB SCR.data v2
+2025-09-30,PA,problem_assets_pf,8.843596,%,BCB SCR.data v2
+2025-09-30,PA,problem_assets_pj,6.481387,%,BCB SCR.data v2
+2025-09-30,PB,credit_balance_pf,57695.546335,R$ mi,BCB SCR.data v2
+2025-09-30,PB,credit_balance_pj,13561.291901,R$ mi,BCB SCR.data v2
+2025-09-30,PB,delinquency_card,9.463674,%,BCB SCR.data v2
+2025-09-30,PB,delinquency_personal,3.988841,%,BCB SCR.data v2
+2025-09-30,PB,delinquency_pf,4.726023,%,BCB SCR.data v2
+2025-09-30,PB,delinquency_pj,4.92401,%,BCB SCR.data v2
+2025-09-30,PB,delinquency_revolving,12.920112,%,BCB SCR.data v2
+2025-09-30,PB,delinquency_vehicle,5.380165,%,BCB SCR.data v2
+2025-09-30,PB,problem_assets_pf,8.44009,%,BCB SCR.data v2
+2025-09-30,PB,problem_assets_pj,10.891424,%,BCB SCR.data v2
+2025-09-30,PE,credit_balance_pf,111862.321814,R$ mi,BCB SCR.data v2
+2025-09-30,PE,credit_balance_pj,48533.049301,R$ mi,BCB SCR.data v2
+2025-09-30,PE,delinquency_card,10.471168,%,BCB SCR.data v2
+2025-09-30,PE,delinquency_personal,4.636324,%,BCB SCR.data v2
+2025-09-30,PE,delinquency_pf,5.822933,%,BCB SCR.data v2
+2025-09-30,PE,delinquency_pj,3.111406,%,BCB SCR.data v2
+2025-09-30,PE,delinquency_revolving,15.907909,%,BCB SCR.data v2
+2025-09-30,PE,delinquency_vehicle,6.652693,%,BCB SCR.data v2
+2025-09-30,PE,problem_assets_pf,8.944368,%,BCB SCR.data v2
+2025-09-30,PE,problem_assets_pj,5.771658,%,BCB SCR.data v2
+2025-09-30,PI,credit_balance_pf,37480.855996,R$ mi,BCB SCR.data v2
+2025-09-30,PI,credit_balance_pj,25543.07447,R$ mi,BCB SCR.data v2
+2025-09-30,PI,delinquency_card,10.086371,%,BCB SCR.data v2
+2025-09-30,PI,delinquency_personal,4.245979,%,BCB SCR.data v2
+2025-09-30,PI,delinquency_pf,5.377516,%,BCB SCR.data v2
+2025-09-30,PI,delinquency_pj,2.297059,%,BCB SCR.data v2
+2025-09-30,PI,delinquency_revolving,13.313207,%,BCB SCR.data v2
+2025-09-30,PI,delinquency_vehicle,5.904805,%,BCB SCR.data v2
+2025-09-30,PI,problem_assets_pf,8.859139,%,BCB SCR.data v2
+2025-09-30,PI,problem_assets_pj,3.409004,%,BCB SCR.data v2
+2025-09-30,PR,credit_balance_pf,327983.681363,R$ mi,BCB SCR.data v2
+2025-09-30,PR,credit_balance_pj,196820.965767,R$ mi,BCB SCR.data v2
+2025-09-30,PR,delinquency_card,8.125553,%,BCB SCR.data v2
+2025-09-30,PR,delinquency_personal,4.364144,%,BCB SCR.data v2
+2025-09-30,PR,delinquency_pf,4.189865,%,BCB SCR.data v2
+2025-09-30,PR,delinquency_pj,3.046924,%,BCB SCR.data v2
+2025-09-30,PR,delinquency_revolving,14.894167,%,BCB SCR.data v2
+2025-09-30,PR,delinquency_vehicle,5.345436,%,BCB SCR.data v2
+2025-09-30,PR,problem_assets_pf,7.576571,%,BCB SCR.data v2
+2025-09-30,PR,problem_assets_pj,5.905776,%,BCB SCR.data v2
+2025-09-30,RJ,credit_balance_pf,273770.232886,R$ mi,BCB SCR.data v2
+2025-09-30,RJ,credit_balance_pj,289653.900837,R$ mi,BCB SCR.data v2
+2025-09-30,RJ,delinquency_card,9.767355,%,BCB SCR.data v2
+2025-09-30,RJ,delinquency_personal,5.106862,%,BCB SCR.data v2
+2025-09-30,RJ,delinquency_pf,6.060426,%,BCB SCR.data v2
+2025-09-30,RJ,delinquency_pj,1.60552,%,BCB SCR.data v2
+2025-09-30,RJ,delinquency_revolving,17.670821,%,BCB SCR.data v2
+2025-09-30,RJ,delinquency_vehicle,9.215097,%,BCB SCR.data v2
+2025-09-30,RJ,problem_assets_pf,9.267938,%,BCB SCR.data v2
+2025-09-30,RJ,problem_assets_pj,6.269253,%,BCB SCR.data v2
+2025-09-30,RN,credit_balance_pf,49210.540426,R$ mi,BCB SCR.data v2
+2025-09-30,RN,credit_balance_pj,17633.944945,R$ mi,BCB SCR.data v2
+2025-09-30,RN,delinquency_card,10.658623,%,BCB SCR.data v2
+2025-09-30,RN,delinquency_personal,4.097737,%,BCB SCR.data v2
+2025-09-30,RN,delinquency_pf,5.444317,%,BCB SCR.data v2
+2025-09-30,RN,delinquency_pj,4.123202,%,BCB SCR.data v2
+2025-09-30,RN,delinquency_revolving,18.619626,%,BCB SCR.data v2
+2025-09-30,RN,delinquency_vehicle,5.400934,%,BCB SCR.data v2
+2025-09-30,RN,problem_assets_pf,9.356839,%,BCB SCR.data v2
+2025-09-30,RN,problem_assets_pj,5.715135,%,BCB SCR.data v2
+2025-09-30,RO,credit_balance_pf,49602.386497,R$ mi,BCB SCR.data v2
+2025-09-30,RO,credit_balance_pj,11971.499942,R$ mi,BCB SCR.data v2
+2025-09-30,RO,delinquency_card,8.328633,%,BCB SCR.data v2
+2025-09-30,RO,delinquency_personal,5.674383,%,BCB SCR.data v2
+2025-09-30,RO,delinquency_pf,5.165113,%,BCB SCR.data v2
+2025-09-30,RO,delinquency_pj,5.351568,%,BCB SCR.data v2
+2025-09-30,RO,delinquency_revolving,8.740704,%,BCB SCR.data v2
+2025-09-30,RO,delinquency_vehicle,4.852881,%,BCB SCR.data v2
+2025-09-30,RO,problem_assets_pf,8.762323,%,BCB SCR.data v2
+2025-09-30,RO,problem_assets_pj,10.185568,%,BCB SCR.data v2
+2025-09-30,RR,credit_balance_pf,11538.704773,R$ mi,BCB SCR.data v2
+2025-09-30,RR,credit_balance_pj,3079.292671,R$ mi,BCB SCR.data v2
+2025-09-30,RR,delinquency_card,11.030183,%,BCB SCR.data v2
+2025-09-30,RR,delinquency_personal,5.052967,%,BCB SCR.data v2
+2025-09-30,RR,delinquency_pf,5.511988,%,BCB SCR.data v2
+2025-09-30,RR,delinquency_pj,4.976533,%,BCB SCR.data v2
+2025-09-30,RR,delinquency_revolving,14.996108,%,BCB SCR.data v2
+2025-09-30,RR,delinquency_vehicle,5.565808,%,BCB SCR.data v2
+2025-09-30,RR,problem_assets_pf,8.726304,%,BCB SCR.data v2
+2025-09-30,RR,problem_assets_pj,7.869467,%,BCB SCR.data v2
+2025-09-30,RS,credit_balance_pf,326282.681119,R$ mi,BCB SCR.data v2
+2025-09-30,RS,credit_balance_pj,178414.955155,R$ mi,BCB SCR.data v2
+2025-09-30,RS,delinquency_card,8.537307,%,BCB SCR.data v2
+2025-09-30,RS,delinquency_personal,5.041497,%,BCB SCR.data v2
+2025-09-30,RS,delinquency_pf,4.273579,%,BCB SCR.data v2
+2025-09-30,RS,delinquency_pj,2.573599,%,BCB SCR.data v2
+2025-09-30,RS,delinquency_revolving,14.206543,%,BCB SCR.data v2
+2025-09-30,RS,delinquency_vehicle,5.600656,%,BCB SCR.data v2
+2025-09-30,RS,problem_assets_pf,8.069153,%,BCB SCR.data v2
+2025-09-30,RS,problem_assets_pj,5.515353,%,BCB SCR.data v2
+2025-09-30,SC,credit_balance_pf,212577.808983,R$ mi,BCB SCR.data v2
+2025-09-30,SC,credit_balance_pj,173834.394693,R$ mi,BCB SCR.data v2
+2025-09-30,SC,delinquency_card,7.060687,%,BCB SCR.data v2
+2025-09-30,SC,delinquency_personal,4.740806,%,BCB SCR.data v2
+2025-09-30,SC,delinquency_pf,3.709977,%,BCB SCR.data v2
+2025-09-30,SC,delinquency_pj,2.496364,%,BCB SCR.data v2
+2025-09-30,SC,delinquency_revolving,9.588255,%,BCB SCR.data v2
+2025-09-30,SC,delinquency_vehicle,5.216143,%,BCB SCR.data v2
+2025-09-30,SC,problem_assets_pf,6.424055,%,BCB SCR.data v2
+2025-09-30,SC,problem_assets_pj,4.954186,%,BCB SCR.data v2
+2025-09-30,SE,credit_balance_pf,34587.249613,R$ mi,BCB SCR.data v2
+2025-09-30,SE,credit_balance_pj,8664.739977,R$ mi,BCB SCR.data v2
+2025-09-30,SE,delinquency_card,10.16819,%,BCB SCR.data v2
+2025-09-30,SE,delinquency_personal,4.930038,%,BCB SCR.data v2
+2025-09-30,SE,delinquency_pf,5.217383,%,BCB SCR.data v2
+2025-09-30,SE,delinquency_pj,4.867543,%,BCB SCR.data v2
+2025-09-30,SE,delinquency_revolving,17.217036,%,BCB SCR.data v2
+2025-09-30,SE,delinquency_vehicle,6.707104,%,BCB SCR.data v2
+2025-09-30,SE,problem_assets_pf,8.249922,%,BCB SCR.data v2
+2025-09-30,SE,problem_assets_pj,8.431754,%,BCB SCR.data v2
+2025-09-30,SP,credit_balance_pf,1145729.717566,R$ mi,BCB SCR.data v2
+2025-09-30,SP,credit_balance_pj,1003904.35092,R$ mi,BCB SCR.data v2
+2025-09-30,SP,delinquency_card,8.839863,%,BCB SCR.data v2
+2025-09-30,SP,delinquency_personal,4.832826,%,BCB SCR.data v2
+2025-09-30,SP,delinquency_pf,4.430449,%,BCB SCR.data v2
+2025-09-30,SP,delinquency_pj,1.865848,%,BCB SCR.data v2
+2025-09-30,SP,delinquency_revolving,15.375209,%,BCB SCR.data v2
+2025-09-30,SP,delinquency_vehicle,5.267865,%,BCB SCR.data v2
+2025-09-30,SP,problem_assets_pf,7.666592,%,BCB SCR.data v2
+2025-09-30,SP,problem_assets_pj,5.671124,%,BCB SCR.data v2
+2025-09-30,TO,credit_balance_pf,40164.811557,R$ mi,BCB SCR.data v2
+2025-09-30,TO,credit_balance_pj,14573.493203,R$ mi,BCB SCR.data v2
+2025-09-30,TO,delinquency_card,9.079437,%,BCB SCR.data v2
+2025-09-30,TO,delinquency_personal,5.711697,%,BCB SCR.data v2
+2025-09-30,TO,delinquency_pf,7.851495,%,BCB SCR.data v2
+2025-09-30,TO,delinquency_pj,4.24761,%,BCB SCR.data v2
+2025-09-30,TO,delinquency_revolving,8.096849,%,BCB SCR.data v2
+2025-09-30,TO,delinquency_vehicle,5.07947,%,BCB SCR.data v2
+2025-09-30,TO,problem_assets_pf,12.443624,%,BCB SCR.data v2
+2025-09-30,TO,problem_assets_pj,7.054392,%,BCB SCR.data v2
 2025-10-31,AC,credit_balance_pf,14013.082804,R$ mi,BCB SCR.data v2
 2025-10-31,AC,credit_balance_pj,4698.974429,R$ mi,BCB SCR.data v2
 2025-10-31,AC,delinquency_card,10.564011,%,BCB SCR.data v2
@@ -45089,276 +45089,276 @@ date,uf,key,value,unit,source
 2026-05-31,TO,delinquency_vehicle,6.176949,%,BCB SCR.data v2
 2026-05-31,TO,problem_assets_pf,14.039485,%,BCB SCR.data v2
 2026-05-31,TO,problem_assets_pj,6.662612,%,BCB SCR.data v2
-2026-06-30,AC,credit_balance_pf,15056.333622,R$ mi,BCB SCR.data v2
-2026-06-30,AC,credit_balance_pj,4767.757716,R$ mi,BCB SCR.data v2
-2026-06-30,AC,delinquency_card,11.401348,%,BCB SCR.data v2
-2026-06-30,AC,delinquency_personal,4.985706,%,BCB SCR.data v2
-2026-06-30,AC,delinquency_pf,6.705263,%,BCB SCR.data v2
-2026-06-30,AC,delinquency_pj,4.947356,%,BCB SCR.data v2
-2026-06-30,AC,delinquency_revolving,18.090373,%,BCB SCR.data v2
-2026-06-30,AC,delinquency_vehicle,5.265784,%,BCB SCR.data v2
-2026-06-30,AC,problem_assets_pf,10.101606,%,BCB SCR.data v2
-2026-06-30,AC,problem_assets_pj,6.95706,%,BCB SCR.data v2
-2026-06-30,AL,credit_balance_pf,43594.583602,R$ mi,BCB SCR.data v2
-2026-06-30,AL,credit_balance_pj,16572.777879,R$ mi,BCB SCR.data v2
-2026-06-30,AL,delinquency_card,12.531046,%,BCB SCR.data v2
-2026-06-30,AL,delinquency_personal,5.07717,%,BCB SCR.data v2
-2026-06-30,AL,delinquency_pf,6.606578,%,BCB SCR.data v2
-2026-06-30,AL,delinquency_pj,3.372703,%,BCB SCR.data v2
-2026-06-30,AL,delinquency_revolving,32.569998,%,BCB SCR.data v2
-2026-06-30,AL,delinquency_vehicle,9.975874,%,BCB SCR.data v2
-2026-06-30,AL,problem_assets_pf,9.790654,%,BCB SCR.data v2
-2026-06-30,AL,problem_assets_pj,6.431115,%,BCB SCR.data v2
-2026-06-30,AM,credit_balance_pf,45980.947088,R$ mi,BCB SCR.data v2
-2026-06-30,AM,credit_balance_pj,34207.070838,R$ mi,BCB SCR.data v2
-2026-06-30,AM,delinquency_card,12.68329,%,BCB SCR.data v2
-2026-06-30,AM,delinquency_personal,6.281271,%,BCB SCR.data v2
-2026-06-30,AM,delinquency_pf,7.083769,%,BCB SCR.data v2
-2026-06-30,AM,delinquency_pj,4.130969,%,BCB SCR.data v2
-2026-06-30,AM,delinquency_revolving,21.160287,%,BCB SCR.data v2
-2026-06-30,AM,delinquency_vehicle,8.072675,%,BCB SCR.data v2
-2026-06-30,AM,problem_assets_pf,10.568178,%,BCB SCR.data v2
-2026-06-30,AM,problem_assets_pj,5.845564,%,BCB SCR.data v2
-2026-06-30,AP,credit_balance_pf,13362.293124,R$ mi,BCB SCR.data v2
-2026-06-30,AP,credit_balance_pj,6284.365953,R$ mi,BCB SCR.data v2
-2026-06-30,AP,delinquency_card,16.172401,%,BCB SCR.data v2
-2026-06-30,AP,delinquency_personal,5.146052,%,BCB SCR.data v2
-2026-06-30,AP,delinquency_pf,6.84839,%,BCB SCR.data v2
-2026-06-30,AP,delinquency_pj,4.219127,%,BCB SCR.data v2
-2026-06-30,AP,delinquency_revolving,21.624404,%,BCB SCR.data v2
-2026-06-30,AP,delinquency_vehicle,6.247587,%,BCB SCR.data v2
-2026-06-30,AP,problem_assets_pf,10.697854,%,BCB SCR.data v2
-2026-06-30,AP,problem_assets_pj,7.247045,%,BCB SCR.data v2
-2026-06-30,BA,credit_balance_pf,193913.145556,R$ mi,BCB SCR.data v2
-2026-06-30,BA,credit_balance_pj,105064.833688,R$ mi,BCB SCR.data v2
-2026-06-30,BA,delinquency_card,12.371409,%,BCB SCR.data v2
-2026-06-30,BA,delinquency_personal,6.043359,%,BCB SCR.data v2
-2026-06-30,BA,delinquency_pf,7.057755,%,BCB SCR.data v2
-2026-06-30,BA,delinquency_pj,3.156213,%,BCB SCR.data v2
-2026-06-30,BA,delinquency_revolving,24.919839,%,BCB SCR.data v2
-2026-06-30,BA,delinquency_vehicle,7.331947,%,BCB SCR.data v2
-2026-06-30,BA,problem_assets_pf,10.625201,%,BCB SCR.data v2
-2026-06-30,BA,problem_assets_pj,5.800657,%,BCB SCR.data v2
-2026-06-30,CE,credit_balance_pf,116507.20115,R$ mi,BCB SCR.data v2
-2026-06-30,CE,credit_balance_pj,58643.613189,R$ mi,BCB SCR.data v2
-2026-06-30,CE,delinquency_card,10.746529,%,BCB SCR.data v2
-2026-06-30,CE,delinquency_personal,5.060624,%,BCB SCR.data v2
-2026-06-30,CE,delinquency_pf,5.857389,%,BCB SCR.data v2
-2026-06-30,CE,delinquency_pj,3.711499,%,BCB SCR.data v2
-2026-06-30,CE,delinquency_revolving,27.715559,%,BCB SCR.data v2
-2026-06-30,CE,delinquency_vehicle,6.547039,%,BCB SCR.data v2
-2026-06-30,CE,problem_assets_pf,8.906132,%,BCB SCR.data v2
-2026-06-30,CE,problem_assets_pj,7.39501,%,BCB SCR.data v2
-2026-06-30,DF,credit_balance_pf,107404.190032,R$ mi,BCB SCR.data v2
-2026-06-30,DF,credit_balance_pj,72359.703704,R$ mi,BCB SCR.data v2
-2026-06-30,DF,delinquency_card,8.732627,%,BCB SCR.data v2
-2026-06-30,DF,delinquency_personal,4.037478,%,BCB SCR.data v2
-2026-06-30,DF,delinquency_pf,4.263165,%,BCB SCR.data v2
-2026-06-30,DF,delinquency_pj,1.932616,%,BCB SCR.data v2
-2026-06-30,DF,delinquency_revolving,21.795428,%,BCB SCR.data v2
-2026-06-30,DF,delinquency_vehicle,5.23948,%,BCB SCR.data v2
-2026-06-30,DF,problem_assets_pf,7.341664,%,BCB SCR.data v2
-2026-06-30,DF,problem_assets_pj,3.484423,%,BCB SCR.data v2
-2026-06-30,ES,credit_balance_pf,78527.592698,R$ mi,BCB SCR.data v2
-2026-06-30,ES,credit_balance_pj,53527.215904,R$ mi,BCB SCR.data v2
-2026-06-30,ES,delinquency_card,8.304148,%,BCB SCR.data v2
-2026-06-30,ES,delinquency_personal,5.204802,%,BCB SCR.data v2
-2026-06-30,ES,delinquency_pf,4.492684,%,BCB SCR.data v2
-2026-06-30,ES,delinquency_pj,3.228575,%,BCB SCR.data v2
-2026-06-30,ES,delinquency_revolving,20.392323,%,BCB SCR.data v2
-2026-06-30,ES,delinquency_vehicle,4.996623,%,BCB SCR.data v2
-2026-06-30,ES,problem_assets_pf,7.388477,%,BCB SCR.data v2
-2026-06-30,ES,problem_assets_pj,8.918162,%,BCB SCR.data v2
-2026-06-30,GO,credit_balance_pf,256412.554678,R$ mi,BCB SCR.data v2
-2026-06-30,GO,credit_balance_pj,89992.339994,R$ mi,BCB SCR.data v2
-2026-06-30,GO,delinquency_card,11.264282,%,BCB SCR.data v2
-2026-06-30,GO,delinquency_personal,7.007213,%,BCB SCR.data v2
-2026-06-30,GO,delinquency_pf,7.138414,%,BCB SCR.data v2
-2026-06-30,GO,delinquency_pj,4.410847,%,BCB SCR.data v2
-2026-06-30,GO,delinquency_revolving,17.909091,%,BCB SCR.data v2
-2026-06-30,GO,delinquency_vehicle,6.783871,%,BCB SCR.data v2
-2026-06-30,GO,problem_assets_pf,11.953378,%,BCB SCR.data v2
-2026-06-30,GO,problem_assets_pj,9.01646,%,BCB SCR.data v2
-2026-06-30,MA,credit_balance_pf,89458.568921,R$ mi,BCB SCR.data v2
-2026-06-30,MA,credit_balance_pj,24969.62826,R$ mi,BCB SCR.data v2
-2026-06-30,MA,delinquency_card,11.487332,%,BCB SCR.data v2
-2026-06-30,MA,delinquency_personal,5.318336,%,BCB SCR.data v2
-2026-06-30,MA,delinquency_pf,9.30481,%,BCB SCR.data v2
-2026-06-30,MA,delinquency_pj,6.575726,%,BCB SCR.data v2
-2026-06-30,MA,delinquency_revolving,18.280716,%,BCB SCR.data v2
-2026-06-30,MA,delinquency_vehicle,6.936739,%,BCB SCR.data v2
-2026-06-30,MA,problem_assets_pf,13.602117,%,BCB SCR.data v2
-2026-06-30,MA,problem_assets_pj,10.101952,%,BCB SCR.data v2
-2026-06-30,MG,credit_balance_pf,445050.358957,R$ mi,BCB SCR.data v2
-2026-06-30,MG,credit_balance_pj,230496.349352,R$ mi,BCB SCR.data v2
-2026-06-30,MG,delinquency_card,8.780409,%,BCB SCR.data v2
-2026-06-30,MG,delinquency_personal,5.646682,%,BCB SCR.data v2
-2026-06-30,MG,delinquency_pf,5.218916,%,BCB SCR.data v2
-2026-06-30,MG,delinquency_pj,3.253569,%,BCB SCR.data v2
-2026-06-30,MG,delinquency_revolving,17.786754,%,BCB SCR.data v2
-2026-06-30,MG,delinquency_vehicle,5.9776,%,BCB SCR.data v2
-2026-06-30,MG,problem_assets_pf,8.812483,%,BCB SCR.data v2
-2026-06-30,MG,problem_assets_pj,5.889771,%,BCB SCR.data v2
-2026-06-30,MS,credit_balance_pf,103489.162084,R$ mi,BCB SCR.data v2
-2026-06-30,MS,credit_balance_pj,38531.342079,R$ mi,BCB SCR.data v2
-2026-06-30,MS,delinquency_card,11.373442,%,BCB SCR.data v2
-2026-06-30,MS,delinquency_personal,5.692165,%,BCB SCR.data v2
-2026-06-30,MS,delinquency_pf,6.978062,%,BCB SCR.data v2
-2026-06-30,MS,delinquency_pj,4.784198,%,BCB SCR.data v2
-2026-06-30,MS,delinquency_revolving,15.023988,%,BCB SCR.data v2
-2026-06-30,MS,delinquency_vehicle,6.598055,%,BCB SCR.data v2
-2026-06-30,MS,problem_assets_pf,11.858059,%,BCB SCR.data v2
-2026-06-30,MS,problem_assets_pj,9.711373,%,BCB SCR.data v2
-2026-06-30,MT,credit_balance_pf,179742.729753,R$ mi,BCB SCR.data v2
-2026-06-30,MT,credit_balance_pj,83175.618618,R$ mi,BCB SCR.data v2
-2026-06-30,MT,delinquency_card,10.504897,%,BCB SCR.data v2
-2026-06-30,MT,delinquency_personal,6.447333,%,BCB SCR.data v2
-2026-06-30,MT,delinquency_pf,6.186083,%,BCB SCR.data v2
-2026-06-30,MT,delinquency_pj,4.125965,%,BCB SCR.data v2
-2026-06-30,MT,delinquency_revolving,13.595792,%,BCB SCR.data v2
-2026-06-30,MT,delinquency_vehicle,5.764928,%,BCB SCR.data v2
-2026-06-30,MT,problem_assets_pf,10.948194,%,BCB SCR.data v2
-2026-06-30,MT,problem_assets_pj,7.389244,%,BCB SCR.data v2
-2026-06-30,PA,credit_balance_pf,113170.484833,R$ mi,BCB SCR.data v2
-2026-06-30,PA,credit_balance_pj,54720.426317,R$ mi,BCB SCR.data v2
-2026-06-30,PA,delinquency_card,11.704442,%,BCB SCR.data v2
-2026-06-30,PA,delinquency_personal,5.317886,%,BCB SCR.data v2
-2026-06-30,PA,delinquency_pf,7.126847,%,BCB SCR.data v2
-2026-06-30,PA,delinquency_pj,4.169609,%,BCB SCR.data v2
-2026-06-30,PA,delinquency_revolving,21.046985,%,BCB SCR.data v2
-2026-06-30,PA,delinquency_vehicle,8.187543,%,BCB SCR.data v2
-2026-06-30,PA,problem_assets_pf,10.564522,%,BCB SCR.data v2
-2026-06-30,PA,problem_assets_pj,7.116348,%,BCB SCR.data v2
-2026-06-30,PB,credit_balance_pf,63175.834004,R$ mi,BCB SCR.data v2
-2026-06-30,PB,credit_balance_pj,14994.981027,R$ mi,BCB SCR.data v2
-2026-06-30,PB,delinquency_card,11.025636,%,BCB SCR.data v2
-2026-06-30,PB,delinquency_personal,4.69431,%,BCB SCR.data v2
-2026-06-30,PB,delinquency_pf,5.190308,%,BCB SCR.data v2
-2026-06-30,PB,delinquency_pj,8.876328,%,BCB SCR.data v2
-2026-06-30,PB,delinquency_revolving,26.889832,%,BCB SCR.data v2
-2026-06-30,PB,delinquency_vehicle,6.14593,%,BCB SCR.data v2
-2026-06-30,PB,problem_assets_pf,9.086103,%,BCB SCR.data v2
-2026-06-30,PB,problem_assets_pj,10.995278,%,BCB SCR.data v2
-2026-06-30,PE,credit_balance_pf,122255.066576,R$ mi,BCB SCR.data v2
-2026-06-30,PE,credit_balance_pj,51389.247924,R$ mi,BCB SCR.data v2
-2026-06-30,PE,delinquency_card,11.919587,%,BCB SCR.data v2
-2026-06-30,PE,delinquency_personal,5.411699,%,BCB SCR.data v2
-2026-06-30,PE,delinquency_pf,6.318529,%,BCB SCR.data v2
-2026-06-30,PE,delinquency_pj,3.411068,%,BCB SCR.data v2
-2026-06-30,PE,delinquency_revolving,26.469158,%,BCB SCR.data v2
-2026-06-30,PE,delinquency_vehicle,7.384545,%,BCB SCR.data v2
-2026-06-30,PE,problem_assets_pf,9.607462,%,BCB SCR.data v2
-2026-06-30,PE,problem_assets_pj,6.397141,%,BCB SCR.data v2
-2026-06-30,PI,credit_balance_pf,40847.87391,R$ mi,BCB SCR.data v2
-2026-06-30,PI,credit_balance_pj,27915.057182,R$ mi,BCB SCR.data v2
-2026-06-30,PI,delinquency_card,11.687841,%,BCB SCR.data v2
-2026-06-30,PI,delinquency_personal,5.059164,%,BCB SCR.data v2
-2026-06-30,PI,delinquency_pf,6.473625,%,BCB SCR.data v2
-2026-06-30,PI,delinquency_pj,2.695547,%,BCB SCR.data v2
-2026-06-30,PI,delinquency_revolving,23.298852,%,BCB SCR.data v2
-2026-06-30,PI,delinquency_vehicle,7.262985,%,BCB SCR.data v2
-2026-06-30,PI,problem_assets_pf,10.373372,%,BCB SCR.data v2
-2026-06-30,PI,problem_assets_pj,3.824584,%,BCB SCR.data v2
-2026-06-30,PR,credit_balance_pf,352267.106831,R$ mi,BCB SCR.data v2
-2026-06-30,PR,credit_balance_pj,212741.788228,R$ mi,BCB SCR.data v2
-2026-06-30,PR,delinquency_card,9.207943,%,BCB SCR.data v2
-2026-06-30,PR,delinquency_personal,5.307221,%,BCB SCR.data v2
-2026-06-30,PR,delinquency_pf,4.810123,%,BCB SCR.data v2
-2026-06-30,PR,delinquency_pj,3.504717,%,BCB SCR.data v2
-2026-06-30,PR,delinquency_revolving,19.156934,%,BCB SCR.data v2
-2026-06-30,PR,delinquency_vehicle,6.045891,%,BCB SCR.data v2
-2026-06-30,PR,problem_assets_pf,8.160225,%,BCB SCR.data v2
-2026-06-30,PR,problem_assets_pj,6.548615,%,BCB SCR.data v2
-2026-06-30,RJ,credit_balance_pf,292553.464297,R$ mi,BCB SCR.data v2
-2026-06-30,RJ,credit_balance_pj,282915.522659,R$ mi,BCB SCR.data v2
-2026-06-30,RJ,delinquency_card,10.886913,%,BCB SCR.data v2
-2026-06-30,RJ,delinquency_personal,6.053845,%,BCB SCR.data v2
-2026-06-30,RJ,delinquency_pf,6.630075,%,BCB SCR.data v2
-2026-06-30,RJ,delinquency_pj,1.999194,%,BCB SCR.data v2
-2026-06-30,RJ,delinquency_revolving,21.830153,%,BCB SCR.data v2
-2026-06-30,RJ,delinquency_vehicle,10.522044,%,BCB SCR.data v2
-2026-06-30,RJ,problem_assets_pf,9.837835,%,BCB SCR.data v2
-2026-06-30,RJ,problem_assets_pj,6.999236,%,BCB SCR.data v2
-2026-06-30,RN,credit_balance_pf,53488.755156,R$ mi,BCB SCR.data v2
-2026-06-30,RN,credit_balance_pj,18849.188656,R$ mi,BCB SCR.data v2
-2026-06-30,RN,delinquency_card,11.88146,%,BCB SCR.data v2
-2026-06-30,RN,delinquency_personal,4.915049,%,BCB SCR.data v2
-2026-06-30,RN,delinquency_pf,5.737725,%,BCB SCR.data v2
-2026-06-30,RN,delinquency_pj,4.048602,%,BCB SCR.data v2
-2026-06-30,RN,delinquency_revolving,30.696518,%,BCB SCR.data v2
-2026-06-30,RN,delinquency_vehicle,6.136047,%,BCB SCR.data v2
-2026-06-30,RN,problem_assets_pf,9.882188,%,BCB SCR.data v2
-2026-06-30,RN,problem_assets_pj,5.79874,%,BCB SCR.data v2
-2026-06-30,RO,credit_balance_pf,52359.929095,R$ mi,BCB SCR.data v2
-2026-06-30,RO,credit_balance_pj,12288.054345,R$ mi,BCB SCR.data v2
-2026-06-30,RO,delinquency_card,9.918585,%,BCB SCR.data v2
-2026-06-30,RO,delinquency_personal,6.359755,%,BCB SCR.data v2
-2026-06-30,RO,delinquency_pf,6.672596,%,BCB SCR.data v2
-2026-06-30,RO,delinquency_pj,5.925298,%,BCB SCR.data v2
-2026-06-30,RO,delinquency_revolving,11.8338,%,BCB SCR.data v2
-2026-06-30,RO,delinquency_vehicle,5.899939,%,BCB SCR.data v2
-2026-06-30,RO,problem_assets_pf,10.514508,%,BCB SCR.data v2
-2026-06-30,RO,problem_assets_pj,9.366051,%,BCB SCR.data v2
-2026-06-30,RR,credit_balance_pf,13043.530945,R$ mi,BCB SCR.data v2
-2026-06-30,RR,credit_balance_pj,3734.073989,R$ mi,BCB SCR.data v2
-2026-06-30,RR,delinquency_card,13.025395,%,BCB SCR.data v2
-2026-06-30,RR,delinquency_personal,6.780365,%,BCB SCR.data v2
-2026-06-30,RR,delinquency_pf,6.851321,%,BCB SCR.data v2
-2026-06-30,RR,delinquency_pj,4.32232,%,BCB SCR.data v2
-2026-06-30,RR,delinquency_revolving,16.001132,%,BCB SCR.data v2
-2026-06-30,RR,delinquency_vehicle,7.12473,%,BCB SCR.data v2
-2026-06-30,RR,problem_assets_pf,9.99602,%,BCB SCR.data v2
-2026-06-30,RR,problem_assets_pj,6.538606,%,BCB SCR.data v2
-2026-06-30,RS,credit_balance_pf,344713.043003,R$ mi,BCB SCR.data v2
-2026-06-30,RS,credit_balance_pj,188739.59294,R$ mi,BCB SCR.data v2
-2026-06-30,RS,delinquency_card,9.4664,%,BCB SCR.data v2
-2026-06-30,RS,delinquency_personal,6.019911,%,BCB SCR.data v2
-2026-06-30,RS,delinquency_pf,5.366478,%,BCB SCR.data v2
-2026-06-30,RS,delinquency_pj,3.530055,%,BCB SCR.data v2
-2026-06-30,RS,delinquency_revolving,16.130933,%,BCB SCR.data v2
-2026-06-30,RS,delinquency_vehicle,6.892933,%,BCB SCR.data v2
-2026-06-30,RS,problem_assets_pf,9.030681,%,BCB SCR.data v2
-2026-06-30,RS,problem_assets_pj,6.255782,%,BCB SCR.data v2
-2026-06-30,SC,credit_balance_pf,230047.044936,R$ mi,BCB SCR.data v2
-2026-06-30,SC,credit_balance_pj,184888.37425,R$ mi,BCB SCR.data v2
-2026-06-30,SC,delinquency_card,7.924971,%,BCB SCR.data v2
-2026-06-30,SC,delinquency_personal,5.514905,%,BCB SCR.data v2
-2026-06-30,SC,delinquency_pf,4.280973,%,BCB SCR.data v2
-2026-06-30,SC,delinquency_pj,2.79386,%,BCB SCR.data v2
-2026-06-30,SC,delinquency_revolving,12.222181,%,BCB SCR.data v2
-2026-06-30,SC,delinquency_vehicle,5.984159,%,BCB SCR.data v2
-2026-06-30,SC,problem_assets_pf,7.000895,%,BCB SCR.data v2
-2026-06-30,SC,problem_assets_pj,5.190184,%,BCB SCR.data v2
-2026-06-30,SE,credit_balance_pf,37481.67853,R$ mi,BCB SCR.data v2
-2026-06-30,SE,credit_balance_pj,10365.477506,R$ mi,BCB SCR.data v2
-2026-06-30,SE,delinquency_card,11.31254,%,BCB SCR.data v2
-2026-06-30,SE,delinquency_personal,5.698105,%,BCB SCR.data v2
-2026-06-30,SE,delinquency_pf,5.915344,%,BCB SCR.data v2
-2026-06-30,SE,delinquency_pj,4.399137,%,BCB SCR.data v2
-2026-06-30,SE,delinquency_revolving,27.379012,%,BCB SCR.data v2
-2026-06-30,SE,delinquency_vehicle,7.598355,%,BCB SCR.data v2
-2026-06-30,SE,problem_assets_pf,9.05758,%,BCB SCR.data v2
-2026-06-30,SE,problem_assets_pj,7.766185,%,BCB SCR.data v2
-2026-06-30,SP,credit_balance_pf,1243114.72335,R$ mi,BCB SCR.data v2
-2026-06-30,SP,credit_balance_pj,1052961.841475,R$ mi,BCB SCR.data v2
-2026-06-30,SP,delinquency_card,9.850591,%,BCB SCR.data v2
-2026-06-30,SP,delinquency_personal,5.937922,%,BCB SCR.data v2
-2026-06-30,SP,delinquency_pf,4.991836,%,BCB SCR.data v2
-2026-06-30,SP,delinquency_pj,2.213401,%,BCB SCR.data v2
-2026-06-30,SP,delinquency_revolving,18.123671,%,BCB SCR.data v2
-2026-06-30,SP,delinquency_vehicle,6.058446,%,BCB SCR.data v2
-2026-06-30,SP,problem_assets_pf,8.174014,%,BCB SCR.data v2
-2026-06-30,SP,problem_assets_pj,6.641135,%,BCB SCR.data v2
-2026-06-30,TO,credit_balance_pf,43358.839236,R$ mi,BCB SCR.data v2
-2026-06-30,TO,credit_balance_pj,16773.327612,R$ mi,BCB SCR.data v2
-2026-06-30,TO,delinquency_card,10.952645,%,BCB SCR.data v2
-2026-06-30,TO,delinquency_personal,7.053532,%,BCB SCR.data v2
-2026-06-30,TO,delinquency_pf,9.23739,%,BCB SCR.data v2
-2026-06-30,TO,delinquency_pj,4.410097,%,BCB SCR.data v2
-2026-06-30,TO,delinquency_revolving,14.591229,%,BCB SCR.data v2
-2026-06-30,TO,delinquency_vehicle,6.137775,%,BCB SCR.data v2
-2026-06-30,TO,problem_assets_pf,14.216213,%,BCB SCR.data v2
-2026-06-30,TO,problem_assets_pj,6.762624,%,BCB SCR.data v2
+2026-06-30,AC,credit_balance_pf,15054.589731,R$ mi,BCB SCR.data v2
+2026-06-30,AC,credit_balance_pj,4767.769869,R$ mi,BCB SCR.data v2
+2026-06-30,AC,delinquency_card,11.395024,%,BCB SCR.data v2
+2026-06-30,AC,delinquency_personal,4.985246,%,BCB SCR.data v2
+2026-06-30,AC,delinquency_pf,6.703843,%,BCB SCR.data v2
+2026-06-30,AC,delinquency_pj,4.947343,%,BCB SCR.data v2
+2026-06-30,AC,delinquency_revolving,18.085116,%,BCB SCR.data v2
+2026-06-30,AC,delinquency_vehicle,5.266447,%,BCB SCR.data v2
+2026-06-30,AC,problem_assets_pf,10.101114,%,BCB SCR.data v2
+2026-06-30,AC,problem_assets_pj,6.957043,%,BCB SCR.data v2
+2026-06-30,AL,credit_balance_pf,43595.058496,R$ mi,BCB SCR.data v2
+2026-06-30,AL,credit_balance_pj,16572.940082,R$ mi,BCB SCR.data v2
+2026-06-30,AL,delinquency_card,12.532525,%,BCB SCR.data v2
+2026-06-30,AL,delinquency_personal,5.076857,%,BCB SCR.data v2
+2026-06-30,AL,delinquency_pf,6.606639,%,BCB SCR.data v2
+2026-06-30,AL,delinquency_pj,3.372624,%,BCB SCR.data v2
+2026-06-30,AL,delinquency_revolving,32.56725,%,BCB SCR.data v2
+2026-06-30,AL,delinquency_vehicle,9.979703,%,BCB SCR.data v2
+2026-06-30,AL,problem_assets_pf,9.7917,%,BCB SCR.data v2
+2026-06-30,AL,problem_assets_pj,6.431925,%,BCB SCR.data v2
+2026-06-30,AM,credit_balance_pf,45977.047699,R$ mi,BCB SCR.data v2
+2026-06-30,AM,credit_balance_pj,34206.090688,R$ mi,BCB SCR.data v2
+2026-06-30,AM,delinquency_card,12.682948,%,BCB SCR.data v2
+2026-06-30,AM,delinquency_personal,6.280403,%,BCB SCR.data v2
+2026-06-30,AM,delinquency_pf,7.083017,%,BCB SCR.data v2
+2026-06-30,AM,delinquency_pj,4.130807,%,BCB SCR.data v2
+2026-06-30,AM,delinquency_revolving,21.158538,%,BCB SCR.data v2
+2026-06-30,AM,delinquency_vehicle,8.070163,%,BCB SCR.data v2
+2026-06-30,AM,problem_assets_pf,10.568761,%,BCB SCR.data v2
+2026-06-30,AM,problem_assets_pj,5.844889,%,BCB SCR.data v2
+2026-06-30,AP,credit_balance_pf,13362.744,R$ mi,BCB SCR.data v2
+2026-06-30,AP,credit_balance_pj,6284.15209,R$ mi,BCB SCR.data v2
+2026-06-30,AP,delinquency_card,16.173928,%,BCB SCR.data v2
+2026-06-30,AP,delinquency_personal,5.14658,%,BCB SCR.data v2
+2026-06-30,AP,delinquency_pf,6.84907,%,BCB SCR.data v2
+2026-06-30,AP,delinquency_pj,4.219271,%,BCB SCR.data v2
+2026-06-30,AP,delinquency_revolving,21.643737,%,BCB SCR.data v2
+2026-06-30,AP,delinquency_vehicle,6.246712,%,BCB SCR.data v2
+2026-06-30,AP,problem_assets_pf,10.701442,%,BCB SCR.data v2
+2026-06-30,AP,problem_assets_pj,7.247292,%,BCB SCR.data v2
+2026-06-30,BA,credit_balance_pf,193913.277229,R$ mi,BCB SCR.data v2
+2026-06-30,BA,credit_balance_pj,105063.587735,R$ mi,BCB SCR.data v2
+2026-06-30,BA,delinquency_card,12.371855,%,BCB SCR.data v2
+2026-06-30,BA,delinquency_personal,6.042938,%,BCB SCR.data v2
+2026-06-30,BA,delinquency_pf,7.057728,%,BCB SCR.data v2
+2026-06-30,BA,delinquency_pj,3.15624,%,BCB SCR.data v2
+2026-06-30,BA,delinquency_revolving,24.918204,%,BCB SCR.data v2
+2026-06-30,BA,delinquency_vehicle,7.331903,%,BCB SCR.data v2
+2026-06-30,BA,problem_assets_pf,10.625508,%,BCB SCR.data v2
+2026-06-30,BA,problem_assets_pj,5.800707,%,BCB SCR.data v2
+2026-06-30,CE,credit_balance_pf,116515.44403,R$ mi,BCB SCR.data v2
+2026-06-30,CE,credit_balance_pj,58645.351457,R$ mi,BCB SCR.data v2
+2026-06-30,CE,delinquency_card,10.747121,%,BCB SCR.data v2
+2026-06-30,CE,delinquency_personal,5.060233,%,BCB SCR.data v2
+2026-06-30,CE,delinquency_pf,5.857448,%,BCB SCR.data v2
+2026-06-30,CE,delinquency_pj,3.711987,%,BCB SCR.data v2
+2026-06-30,CE,delinquency_revolving,27.720157,%,BCB SCR.data v2
+2026-06-30,CE,delinquency_vehicle,6.547385,%,BCB SCR.data v2
+2026-06-30,CE,problem_assets_pf,8.906068,%,BCB SCR.data v2
+2026-06-30,CE,problem_assets_pj,7.395387,%,BCB SCR.data v2
+2026-06-30,DF,credit_balance_pf,107420.332293,R$ mi,BCB SCR.data v2
+2026-06-30,DF,credit_balance_pj,72356.915913,R$ mi,BCB SCR.data v2
+2026-06-30,DF,delinquency_card,8.729891,%,BCB SCR.data v2
+2026-06-30,DF,delinquency_personal,4.037511,%,BCB SCR.data v2
+2026-06-30,DF,delinquency_pf,4.261976,%,BCB SCR.data v2
+2026-06-30,DF,delinquency_pj,1.932694,%,BCB SCR.data v2
+2026-06-30,DF,delinquency_revolving,21.777429,%,BCB SCR.data v2
+2026-06-30,DF,delinquency_vehicle,5.239772,%,BCB SCR.data v2
+2026-06-30,DF,problem_assets_pf,7.341607,%,BCB SCR.data v2
+2026-06-30,DF,problem_assets_pj,3.484559,%,BCB SCR.data v2
+2026-06-30,ES,credit_balance_pf,78525.211983,R$ mi,BCB SCR.data v2
+2026-06-30,ES,credit_balance_pj,53526.482716,R$ mi,BCB SCR.data v2
+2026-06-30,ES,delinquency_card,8.304734,%,BCB SCR.data v2
+2026-06-30,ES,delinquency_personal,5.205045,%,BCB SCR.data v2
+2026-06-30,ES,delinquency_pf,4.492905,%,BCB SCR.data v2
+2026-06-30,ES,delinquency_pj,3.228429,%,BCB SCR.data v2
+2026-06-30,ES,delinquency_revolving,20.394942,%,BCB SCR.data v2
+2026-06-30,ES,delinquency_vehicle,4.996191,%,BCB SCR.data v2
+2026-06-30,ES,problem_assets_pf,7.389056,%,BCB SCR.data v2
+2026-06-30,ES,problem_assets_pj,8.918053,%,BCB SCR.data v2
+2026-06-30,GO,credit_balance_pf,256421.573026,R$ mi,BCB SCR.data v2
+2026-06-30,GO,credit_balance_pj,90029.580599,R$ mi,BCB SCR.data v2
+2026-06-30,GO,delinquency_card,11.266037,%,BCB SCR.data v2
+2026-06-30,GO,delinquency_personal,7.007623,%,BCB SCR.data v2
+2026-06-30,GO,delinquency_pf,7.139057,%,BCB SCR.data v2
+2026-06-30,GO,delinquency_pj,4.421876,%,BCB SCR.data v2
+2026-06-30,GO,delinquency_revolving,17.913695,%,BCB SCR.data v2
+2026-06-30,GO,delinquency_vehicle,6.78499,%,BCB SCR.data v2
+2026-06-30,GO,problem_assets_pf,11.954202,%,BCB SCR.data v2
+2026-06-30,GO,problem_assets_pj,9.04937,%,BCB SCR.data v2
+2026-06-30,MA,credit_balance_pf,89453.463088,R$ mi,BCB SCR.data v2
+2026-06-30,MA,credit_balance_pj,24967.398567,R$ mi,BCB SCR.data v2
+2026-06-30,MA,delinquency_card,11.486664,%,BCB SCR.data v2
+2026-06-30,MA,delinquency_personal,5.317778,%,BCB SCR.data v2
+2026-06-30,MA,delinquency_pf,9.304841,%,BCB SCR.data v2
+2026-06-30,MA,delinquency_pj,6.576276,%,BCB SCR.data v2
+2026-06-30,MA,delinquency_revolving,18.281227,%,BCB SCR.data v2
+2026-06-30,MA,delinquency_vehicle,6.936861,%,BCB SCR.data v2
+2026-06-30,MA,problem_assets_pf,13.601988,%,BCB SCR.data v2
+2026-06-30,MA,problem_assets_pj,10.102836,%,BCB SCR.data v2
+2026-06-30,MG,credit_balance_pf,445085.85545,R$ mi,BCB SCR.data v2
+2026-06-30,MG,credit_balance_pj,230490.422398,R$ mi,BCB SCR.data v2
+2026-06-30,MG,delinquency_card,8.780435,%,BCB SCR.data v2
+2026-06-30,MG,delinquency_personal,5.647758,%,BCB SCR.data v2
+2026-06-30,MG,delinquency_pf,5.220301,%,BCB SCR.data v2
+2026-06-30,MG,delinquency_pj,3.253596,%,BCB SCR.data v2
+2026-06-30,MG,delinquency_revolving,17.786283,%,BCB SCR.data v2
+2026-06-30,MG,delinquency_vehicle,5.978185,%,BCB SCR.data v2
+2026-06-30,MG,problem_assets_pf,8.816704,%,BCB SCR.data v2
+2026-06-30,MG,problem_assets_pj,5.889693,%,BCB SCR.data v2
+2026-06-30,MS,credit_balance_pf,103433.153235,R$ mi,BCB SCR.data v2
+2026-06-30,MS,credit_balance_pj,38530.335425,R$ mi,BCB SCR.data v2
+2026-06-30,MS,delinquency_card,11.373113,%,BCB SCR.data v2
+2026-06-30,MS,delinquency_personal,5.691849,%,BCB SCR.data v2
+2026-06-30,MS,delinquency_pf,6.981544,%,BCB SCR.data v2
+2026-06-30,MS,delinquency_pj,4.784311,%,BCB SCR.data v2
+2026-06-30,MS,delinquency_revolving,15.022744,%,BCB SCR.data v2
+2026-06-30,MS,delinquency_vehicle,6.597236,%,BCB SCR.data v2
+2026-06-30,MS,problem_assets_pf,11.864123,%,BCB SCR.data v2
+2026-06-30,MS,problem_assets_pj,9.711611,%,BCB SCR.data v2
+2026-06-30,MT,credit_balance_pf,179806.191327,R$ mi,BCB SCR.data v2
+2026-06-30,MT,credit_balance_pj,83172.698603,R$ mi,BCB SCR.data v2
+2026-06-30,MT,delinquency_card,10.504648,%,BCB SCR.data v2
+2026-06-30,MT,delinquency_personal,6.447801,%,BCB SCR.data v2
+2026-06-30,MT,delinquency_pf,6.184122,%,BCB SCR.data v2
+2026-06-30,MT,delinquency_pj,4.126141,%,BCB SCR.data v2
+2026-06-30,MT,delinquency_revolving,13.598438,%,BCB SCR.data v2
+2026-06-30,MT,delinquency_vehicle,5.764459,%,BCB SCR.data v2
+2026-06-30,MT,problem_assets_pf,10.944489,%,BCB SCR.data v2
+2026-06-30,MT,problem_assets_pj,7.389652,%,BCB SCR.data v2
+2026-06-30,PA,credit_balance_pf,113215.175371,R$ mi,BCB SCR.data v2
+2026-06-30,PA,credit_balance_pj,54722.532003,R$ mi,BCB SCR.data v2
+2026-06-30,PA,delinquency_card,11.703059,%,BCB SCR.data v2
+2026-06-30,PA,delinquency_personal,5.316026,%,BCB SCR.data v2
+2026-06-30,PA,delinquency_pf,7.132205,%,BCB SCR.data v2
+2026-06-30,PA,delinquency_pj,4.16943,%,BCB SCR.data v2
+2026-06-30,PA,delinquency_revolving,21.044478,%,BCB SCR.data v2
+2026-06-30,PA,delinquency_vehicle,8.186248,%,BCB SCR.data v2
+2026-06-30,PA,problem_assets_pf,10.604575,%,BCB SCR.data v2
+2026-06-30,PA,problem_assets_pj,7.116052,%,BCB SCR.data v2
+2026-06-30,PB,credit_balance_pf,63183.797359,R$ mi,BCB SCR.data v2
+2026-06-30,PB,credit_balance_pj,14995.909582,R$ mi,BCB SCR.data v2
+2026-06-30,PB,delinquency_card,11.025734,%,BCB SCR.data v2
+2026-06-30,PB,delinquency_personal,4.695159,%,BCB SCR.data v2
+2026-06-30,PB,delinquency_pf,5.190989,%,BCB SCR.data v2
+2026-06-30,PB,delinquency_pj,8.87751,%,BCB SCR.data v2
+2026-06-30,PB,delinquency_revolving,26.87834,%,BCB SCR.data v2
+2026-06-30,PB,delinquency_vehicle,6.149899,%,BCB SCR.data v2
+2026-06-30,PB,problem_assets_pf,9.087176,%,BCB SCR.data v2
+2026-06-30,PB,problem_assets_pj,10.99871,%,BCB SCR.data v2
+2026-06-30,PE,credit_balance_pf,122256.412986,R$ mi,BCB SCR.data v2
+2026-06-30,PE,credit_balance_pj,51389.533371,R$ mi,BCB SCR.data v2
+2026-06-30,PE,delinquency_card,11.919483,%,BCB SCR.data v2
+2026-06-30,PE,delinquency_personal,5.410999,%,BCB SCR.data v2
+2026-06-30,PE,delinquency_pf,6.318298,%,BCB SCR.data v2
+2026-06-30,PE,delinquency_pj,3.411058,%,BCB SCR.data v2
+2026-06-30,PE,delinquency_revolving,26.476515,%,BCB SCR.data v2
+2026-06-30,PE,delinquency_vehicle,7.383853,%,BCB SCR.data v2
+2026-06-30,PE,problem_assets_pf,9.60719,%,BCB SCR.data v2
+2026-06-30,PE,problem_assets_pj,6.397115,%,BCB SCR.data v2
+2026-06-30,PI,credit_balance_pf,40869.687267,R$ mi,BCB SCR.data v2
+2026-06-30,PI,credit_balance_pj,27913.388865,R$ mi,BCB SCR.data v2
+2026-06-30,PI,delinquency_card,11.687194,%,BCB SCR.data v2
+2026-06-30,PI,delinquency_personal,5.057656,%,BCB SCR.data v2
+2026-06-30,PI,delinquency_pf,6.469215,%,BCB SCR.data v2
+2026-06-30,PI,delinquency_pj,2.69445,%,BCB SCR.data v2
+2026-06-30,PI,delinquency_revolving,23.296283,%,BCB SCR.data v2
+2026-06-30,PI,delinquency_vehicle,7.261567,%,BCB SCR.data v2
+2026-06-30,PI,problem_assets_pf,10.367488,%,BCB SCR.data v2
+2026-06-30,PI,problem_assets_pj,3.823568,%,BCB SCR.data v2
+2026-06-30,PR,credit_balance_pf,352280.049431,R$ mi,BCB SCR.data v2
+2026-06-30,PR,credit_balance_pj,212750.670724,R$ mi,BCB SCR.data v2
+2026-06-30,PR,delinquency_card,9.208261,%,BCB SCR.data v2
+2026-06-30,PR,delinquency_personal,5.306944,%,BCB SCR.data v2
+2026-06-30,PR,delinquency_pf,4.809953,%,BCB SCR.data v2
+2026-06-30,PR,delinquency_pj,3.505604,%,BCB SCR.data v2
+2026-06-30,PR,delinquency_revolving,19.156937,%,BCB SCR.data v2
+2026-06-30,PR,delinquency_vehicle,6.046815,%,BCB SCR.data v2
+2026-06-30,PR,problem_assets_pf,8.159977,%,BCB SCR.data v2
+2026-06-30,PR,problem_assets_pj,6.54944,%,BCB SCR.data v2
+2026-06-30,RJ,credit_balance_pf,292529.938906,R$ mi,BCB SCR.data v2
+2026-06-30,RJ,credit_balance_pj,282787.710491,R$ mi,BCB SCR.data v2
+2026-06-30,RJ,delinquency_card,10.886932,%,BCB SCR.data v2
+2026-06-30,RJ,delinquency_personal,6.053607,%,BCB SCR.data v2
+2026-06-30,RJ,delinquency_pf,6.630557,%,BCB SCR.data v2
+2026-06-30,RJ,delinquency_pj,2.000156,%,BCB SCR.data v2
+2026-06-30,RJ,delinquency_revolving,21.831018,%,BCB SCR.data v2
+2026-06-30,RJ,delinquency_vehicle,10.522294,%,BCB SCR.data v2
+2026-06-30,RJ,problem_assets_pf,9.838435,%,BCB SCR.data v2
+2026-06-30,RJ,problem_assets_pj,7.002526,%,BCB SCR.data v2
+2026-06-30,RN,credit_balance_pf,53488.086346,R$ mi,BCB SCR.data v2
+2026-06-30,RN,credit_balance_pj,18849.119175,R$ mi,BCB SCR.data v2
+2026-06-30,RN,delinquency_card,11.882056,%,BCB SCR.data v2
+2026-06-30,RN,delinquency_personal,4.914625,%,BCB SCR.data v2
+2026-06-30,RN,delinquency_pf,5.738245,%,BCB SCR.data v2
+2026-06-30,RN,delinquency_pj,4.04836,%,BCB SCR.data v2
+2026-06-30,RN,delinquency_revolving,30.699987,%,BCB SCR.data v2
+2026-06-30,RN,delinquency_vehicle,6.137148,%,BCB SCR.data v2
+2026-06-30,RN,problem_assets_pf,9.883582,%,BCB SCR.data v2
+2026-06-30,RN,problem_assets_pj,5.798443,%,BCB SCR.data v2
+2026-06-30,RO,credit_balance_pf,52356.620662,R$ mi,BCB SCR.data v2
+2026-06-30,RO,credit_balance_pj,12288.137774,R$ mi,BCB SCR.data v2
+2026-06-30,RO,delinquency_card,9.919408,%,BCB SCR.data v2
+2026-06-30,RO,delinquency_personal,6.359401,%,BCB SCR.data v2
+2026-06-30,RO,delinquency_pf,6.672876,%,BCB SCR.data v2
+2026-06-30,RO,delinquency_pj,5.925211,%,BCB SCR.data v2
+2026-06-30,RO,delinquency_revolving,11.832712,%,BCB SCR.data v2
+2026-06-30,RO,delinquency_vehicle,5.899838,%,BCB SCR.data v2
+2026-06-30,RO,problem_assets_pf,10.515691,%,BCB SCR.data v2
+2026-06-30,RO,problem_assets_pj,9.365941,%,BCB SCR.data v2
+2026-06-30,RR,credit_balance_pf,13041.971032,R$ mi,BCB SCR.data v2
+2026-06-30,RR,credit_balance_pj,3733.838111,R$ mi,BCB SCR.data v2
+2026-06-30,RR,delinquency_card,13.027621,%,BCB SCR.data v2
+2026-06-30,RR,delinquency_personal,6.779675,%,BCB SCR.data v2
+2026-06-30,RR,delinquency_pf,6.851258,%,BCB SCR.data v2
+2026-06-30,RR,delinquency_pj,4.320112,%,BCB SCR.data v2
+2026-06-30,RR,delinquency_revolving,15.99007,%,BCB SCR.data v2
+2026-06-30,RR,delinquency_vehicle,7.123338,%,BCB SCR.data v2
+2026-06-30,RR,problem_assets_pf,9.998197,%,BCB SCR.data v2
+2026-06-30,RR,problem_assets_pj,6.532392,%,BCB SCR.data v2
+2026-06-30,RS,credit_balance_pf,344701.45262,R$ mi,BCB SCR.data v2
+2026-06-30,RS,credit_balance_pj,188745.114523,R$ mi,BCB SCR.data v2
+2026-06-30,RS,delinquency_card,9.466194,%,BCB SCR.data v2
+2026-06-30,RS,delinquency_personal,6.019667,%,BCB SCR.data v2
+2026-06-30,RS,delinquency_pf,5.366268,%,BCB SCR.data v2
+2026-06-30,RS,delinquency_pj,3.529954,%,BCB SCR.data v2
+2026-06-30,RS,delinquency_revolving,16.133186,%,BCB SCR.data v2
+2026-06-30,RS,delinquency_vehicle,6.892205,%,BCB SCR.data v2
+2026-06-30,RS,problem_assets_pf,9.030938,%,BCB SCR.data v2
+2026-06-30,RS,problem_assets_pj,6.25558,%,BCB SCR.data v2
+2026-06-30,SC,credit_balance_pf,230079.043266,R$ mi,BCB SCR.data v2
+2026-06-30,SC,credit_balance_pj,184885.737326,R$ mi,BCB SCR.data v2
+2026-06-30,SC,delinquency_card,7.924069,%,BCB SCR.data v2
+2026-06-30,SC,delinquency_personal,5.51567,%,BCB SCR.data v2
+2026-06-30,SC,delinquency_pf,4.281371,%,BCB SCR.data v2
+2026-06-30,SC,delinquency_pj,2.793217,%,BCB SCR.data v2
+2026-06-30,SC,delinquency_revolving,12.225043,%,BCB SCR.data v2
+2026-06-30,SC,delinquency_vehicle,5.98472,%,BCB SCR.data v2
+2026-06-30,SC,problem_assets_pf,7.001798,%,BCB SCR.data v2
+2026-06-30,SC,problem_assets_pj,5.189502,%,BCB SCR.data v2
+2026-06-30,SE,credit_balance_pf,37480.643989,R$ mi,BCB SCR.data v2
+2026-06-30,SE,credit_balance_pj,10365.395394,R$ mi,BCB SCR.data v2
+2026-06-30,SE,delinquency_card,11.309976,%,BCB SCR.data v2
+2026-06-30,SE,delinquency_personal,5.698256,%,BCB SCR.data v2
+2026-06-30,SE,delinquency_pf,5.914636,%,BCB SCR.data v2
+2026-06-30,SE,delinquency_pj,4.399334,%,BCB SCR.data v2
+2026-06-30,SE,delinquency_revolving,27.380025,%,BCB SCR.data v2
+2026-06-30,SE,delinquency_vehicle,7.597202,%,BCB SCR.data v2
+2026-06-30,SE,problem_assets_pf,9.056528,%,BCB SCR.data v2
+2026-06-30,SE,problem_assets_pj,7.765847,%,BCB SCR.data v2
+2026-06-30,SP,credit_balance_pf,1242977.220307,R$ mi,BCB SCR.data v2
+2026-06-30,SP,credit_balance_pj,1053072.12985,R$ mi,BCB SCR.data v2
+2026-06-30,SP,delinquency_card,9.85071,%,BCB SCR.data v2
+2026-06-30,SP,delinquency_personal,5.938412,%,BCB SCR.data v2
+2026-06-30,SP,delinquency_pf,4.990901,%,BCB SCR.data v2
+2026-06-30,SP,delinquency_pj,2.212834,%,BCB SCR.data v2
+2026-06-30,SP,delinquency_revolving,18.123184,%,BCB SCR.data v2
+2026-06-30,SP,delinquency_vehicle,6.058142,%,BCB SCR.data v2
+2026-06-30,SP,problem_assets_pf,8.169144,%,BCB SCR.data v2
+2026-06-30,SP,problem_assets_pj,6.63809,%,BCB SCR.data v2
+2026-06-30,TO,credit_balance_pf,43358.147842,R$ mi,BCB SCR.data v2
+2026-06-30,TO,credit_balance_pj,16775.007467,R$ mi,BCB SCR.data v2
+2026-06-30,TO,delinquency_card,10.952251,%,BCB SCR.data v2
+2026-06-30,TO,delinquency_personal,7.052243,%,BCB SCR.data v2
+2026-06-30,TO,delinquency_pf,9.236874,%,BCB SCR.data v2
+2026-06-30,TO,delinquency_pj,4.409813,%,BCB SCR.data v2
+2026-06-30,TO,delinquency_revolving,14.579314,%,BCB SCR.data v2
+2026-06-30,TO,delinquency_vehicle,6.132216,%,BCB SCR.data v2
+2026-06-30,TO,problem_assets_pf,14.216216,%,BCB SCR.data v2
+2026-06-30,TO,problem_assets_pj,6.762134,%,BCB SCR.data v2
 2026-07-31,AC,credit_balance_pf,15139.803859,R$ mi,BCB SCR.data v2
 2026-07-31,AC,credit_balance_pj,4818.412524,R$ mi,BCB SCR.data v2
 2026-07-31,AC,delinquency_card,10.386411,%,BCB SCR.data v2
