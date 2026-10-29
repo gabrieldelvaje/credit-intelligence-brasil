@@ -20,9 +20,9 @@
       "individual delinquency"
     ],
     "first_reference": "2011-03-01",
-    "latest_reference": "2026-08-01",
-    "latest_value": 6.03,
-    "rows": 186
+    "latest_reference": "2026-09-01",
+    "latest_value": 5.99,
+    "rows": 187
   },
   {
     "key": "delinquency_pj",
@@ -44,9 +44,9 @@
       "business delinquency"
     ],
     "first_reference": "2011-03-01",
-    "latest_reference": "2026-08-01",
-    "latest_value": 3.35,
-    "rows": 186
+    "latest_reference": "2026-09-01",
+    "latest_value": 3.28,
+    "rows": 187
   },
   {
     "key": "delinquency_card",
@@ -66,9 +66,9 @@
       "total credit card"
     ],
     "first_reference": "2011-03-01",
-    "latest_reference": "2026-08-01",
-    "latest_value": 9.96,
-    "rows": 186
+    "latest_reference": "2026-09-01",
+    "latest_value": 10.04,
+    "rows": 187
   },
   {
     "key": "delinquency_revolving",
@@ -88,9 +88,9 @@
       "revolving delinquency"
     ],
     "first_reference": "2011-03-01",
-    "latest_reference": "2026-08-01",
-    "latest_value": 66.15,
-    "rows": 186
+    "latest_reference": "2026-09-01",
+    "latest_value": 65.61,
+    "rows": 187
   },
   {
     "key": "delinquency_personal",
@@ -109,9 +109,9 @@
       "personal loan delinquency"
     ],
     "first_reference": "2011-03-01",
-    "latest_reference": "2026-08-01",
-    "latest_value": 6.17,
-    "rows": 186
+    "latest_reference": "2026-09-01",
+    "latest_value": 6.24,
+    "rows": 187
   },
   {
     "key": "delinquency_vehicle",

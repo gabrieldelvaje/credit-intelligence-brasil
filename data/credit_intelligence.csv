@@ -9595,9 +9595,9 @@ date,key,value,series_code,category,frequency,unit
 2026-06-01,credit_grants_pj,362683.0,20632,credito,monthly,R$ mi
 2026-06-01,credit_interest_pf,2.74,25435,juros,monthly,% a.m.
 2026-06-01,credit_interest_pj,1.58,25434,juros,monthly,% a.m.
-2026-06-01,delinquency_card,9.09,21129,inadimplencia,monthly,%
-2026-06-01,delinquency_personal,5.45,21120,inadimplencia,monthly,%
-2026-06-01,delinquency_pf,5.42,21084,inadimplencia,monthly,%
+2026-06-01,delinquency_card,9.11,21129,inadimplencia,monthly,%
+2026-06-01,delinquency_personal,5.46,21120,inadimplencia,monthly,%
+2026-06-01,delinquency_pf,5.43,21084,inadimplencia,monthly,%
 2026-06-01,delinquency_pj,3.18,21083,inadimplencia,monthly,%
 2026-06-01,delinquency_revolving,62.65,21127,inadimplencia,monthly,%
 2026-06-01,delinquency_vehicle,6.57,21121,inadimplencia,monthly,%
@@ -9643,7 +9643,7 @@ date,key,value,series_code,category,frequency,unit
 2026-07-01,credit_grants_pj,329483.0,20632,credito,monthly,R$ mi
 2026-07-01,credit_interest_pf,2.69,25435,juros,monthly,% a.m.
 2026-07-01,credit_interest_pj,1.59,25434,juros,monthly,% a.m.
-2026-07-01,delinquency_card,9.51,21129,inadimplencia,monthly,%
+2026-07-01,delinquency_card,9.5,21129,inadimplencia,monthly,%
 2026-07-01,delinquency_personal,5.96,21120,inadimplencia,monthly,%
 2026-07-01,delinquency_pf,5.8,21084,inadimplencia,monthly,%
 2026-07-01,delinquency_pj,3.32,21083,inadimplencia,monthly,%
@@ -9692,11 +9692,11 @@ date,key,value,series_code,category,frequency,unit
 2026-08-01,credit_grants_pj,334993.0,20632,credito,monthly,R$ mi
 2026-08-01,credit_interest_pf,2.73,25435,juros,monthly,% a.m.
 2026-08-01,credit_interest_pj,1.51,25434,juros,monthly,% a.m.
-2026-08-01,delinquency_card,9.96,21129,inadimplencia,monthly,%
-2026-08-01,delinquency_personal,6.17,21120,inadimplencia,monthly,%
-2026-08-01,delinquency_pf,6.03,21084,inadimplencia,monthly,%
-2026-08-01,delinquency_pj,3.35,21083,inadimplencia,monthly,%
-2026-08-01,delinquency_revolving,66.15,21127,inadimplencia,monthly,%
+2026-08-01,delinquency_card,9.93,21129,inadimplencia,monthly,%
+2026-08-01,delinquency_personal,6.21,21120,inadimplencia,monthly,%
+2026-08-01,delinquency_pf,6.04,21084,inadimplencia,monthly,%
+2026-08-01,delinquency_pj,3.36,21083,inadimplencia,monthly,%
+2026-08-01,delinquency_revolving,66.12,21127,inadimplencia,monthly,%
 2026-08-01,delinquency_vehicle,6.57,21121,inadimplencia,monthly,%
 2026-08-01,ipca,-0.32,433,macro,monthly,%
 2026-08-01,real_income,5784.0,24380,macro,monthly,R$
@@ -9732,6 +9732,11 @@ date,key,value,series_code,category,frequency,unit
 2026-08-29,selic,14.0,432,macro,daily,% a.a.
 2026-08-30,selic,14.0,432,macro,daily,% a.a.
 2026-08-31,selic,14.0,432,macro,daily,% a.a.
+2026-09-01,delinquency_card,10.04,21129,inadimplencia,monthly,%
+2026-09-01,delinquency_personal,6.24,21120,inadimplencia,monthly,%
+2026-09-01,delinquency_pf,5.99,21084,inadimplencia,monthly,%
+2026-09-01,delinquency_pj,3.28,21083,inadimplencia,monthly,%
+2026-09-01,delinquency_revolving,65.61,21127,inadimplencia,monthly,%
 2026-09-01,ipca,0.82,433,macro,monthly,%
 2026-09-01,selic,14.0,432,macro,daily,% a.a.
 2026-09-02,selic,14.0,432,macro,daily,% a.a.
