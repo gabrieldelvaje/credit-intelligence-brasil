@@ -9589,10 +9589,10 @@ date,key,value,series_code,category,frequency,unit
 2026-05-29,selic,14.5,432,macro,daily,% a.a.
 2026-05-30,selic,14.5,432,macro,daily,% a.a.
 2026-05-31,selic,14.5,432,macro,daily,% a.a.
-2026-06-01,credit_balance_pf,4602668.0,20541,credito,monthly,R$ mi
-2026-06-01,credit_balance_pj,2750634.0,20540,credito,monthly,R$ mi
-2026-06-01,credit_grants_pf,385590.0,20633,credito,monthly,R$ mi
-2026-06-01,credit_grants_pj,362683.0,20632,credito,monthly,R$ mi
+2026-06-01,credit_balance_pf,4602967.0,20541,credito,monthly,R$ mi
+2026-06-01,credit_balance_pj,2750759.0,20540,credito,monthly,R$ mi
+2026-06-01,credit_grants_pf,385589.0,20633,credito,monthly,R$ mi
+2026-06-01,credit_grants_pj,362748.0,20632,credito,monthly,R$ mi
 2026-06-01,credit_interest_pf,2.74,25435,juros,monthly,% a.m.
 2026-06-01,credit_interest_pj,1.58,25434,juros,monthly,% a.m.
 2026-06-01,delinquency_card,9.11,21129,inadimplencia,monthly,%
@@ -9601,9 +9601,9 @@ date,key,value,series_code,category,frequency,unit
 2026-06-01,delinquency_pj,3.18,21083,inadimplencia,monthly,%
 2026-06-01,delinquency_revolving,62.65,21127,inadimplencia,monthly,%
 2026-06-01,delinquency_vehicle,6.57,21121,inadimplencia,monthly,%
-2026-06-01,household_debt,49.65,29037,familias,monthly,%
-2026-06-01,household_debt_ex_housing,30.77,29038,familias,monthly,%
-2026-06-01,income_commitment,28.66,29034,familias,monthly,%
+2026-06-01,household_debt,49.66,29037,familias,monthly,%
+2026-06-01,household_debt_ex_housing,30.78,29038,familias,monthly,%
+2026-06-01,income_commitment,28.68,29034,familias,monthly,%
 2026-06-01,ipca,0.16,433,macro,monthly,%
 2026-06-01,real_income,5861.0,24380,macro,monthly,R$
 2026-06-01,selic,14.5,432,macro,daily,% a.a.
@@ -9637,10 +9637,10 @@ date,key,value,series_code,category,frequency,unit
 2026-06-28,selic,14.25,432,macro,daily,% a.a.
 2026-06-29,selic,14.25,432,macro,daily,% a.a.
 2026-06-30,selic,14.25,432,macro,daily,% a.a.
-2026-07-01,credit_balance_pf,4633143.0,20541,credito,monthly,R$ mi
-2026-07-01,credit_balance_pj,2729162.0,20540,credito,monthly,R$ mi
-2026-07-01,credit_grants_pf,400840.0,20633,credito,monthly,R$ mi
-2026-07-01,credit_grants_pj,329483.0,20632,credito,monthly,R$ mi
+2026-07-01,credit_balance_pf,4633191.0,20541,credito,monthly,R$ mi
+2026-07-01,credit_balance_pj,2729062.0,20540,credito,monthly,R$ mi
+2026-07-01,credit_grants_pf,401258.0,20633,credito,monthly,R$ mi
+2026-07-01,credit_grants_pj,329475.0,20632,credito,monthly,R$ mi
 2026-07-01,credit_interest_pf,2.69,25435,juros,monthly,% a.m.
 2026-07-01,credit_interest_pj,1.59,25434,juros,monthly,% a.m.
 2026-07-01,delinquency_card,9.5,21129,inadimplencia,monthly,%
@@ -9649,9 +9649,9 @@ date,key,value,series_code,category,frequency,unit
 2026-07-01,delinquency_pj,3.32,21083,inadimplencia,monthly,%
 2026-07-01,delinquency_revolving,65.55,21127,inadimplencia,monthly,%
 2026-07-01,delinquency_vehicle,6.63,21121,inadimplencia,monthly,%
-2026-07-01,household_debt,49.86,29037,familias,monthly,%
-2026-07-01,household_debt_ex_housing,30.81,29038,familias,monthly,%
-2026-07-01,income_commitment,28.72,29034,familias,monthly,%
+2026-07-01,household_debt,49.93,29037,familias,monthly,%
+2026-07-01,household_debt_ex_housing,30.86,29038,familias,monthly,%
+2026-07-01,income_commitment,28.83,29034,familias,monthly,%
 2026-07-01,ipca,0.07,433,macro,monthly,%
 2026-07-01,real_income,5819.0,24380,macro,monthly,R$
 2026-07-01,selic,14.25,432,macro,daily,% a.a.
@@ -9686,10 +9686,10 @@ date,key,value,series_code,category,frequency,unit
 2026-07-29,selic,14.25,432,macro,daily,% a.a.
 2026-07-30,selic,14.25,432,macro,daily,% a.a.
 2026-07-31,selic,14.25,432,macro,daily,% a.a.
-2026-08-01,credit_balance_pf,4670170.0,20541,credito,monthly,R$ mi
-2026-08-01,credit_balance_pj,2727499.0,20540,credito,monthly,R$ mi
-2026-08-01,credit_grants_pf,394254.0,20633,credito,monthly,R$ mi
-2026-08-01,credit_grants_pj,334993.0,20632,credito,monthly,R$ mi
+2026-08-01,credit_balance_pf,4680478.0,20541,credito,monthly,R$ mi
+2026-08-01,credit_balance_pj,2731883.0,20540,credito,monthly,R$ mi
+2026-08-01,credit_grants_pf,398408.0,20633,credito,monthly,R$ mi
+2026-08-01,credit_grants_pj,337783.0,20632,credito,monthly,R$ mi
 2026-08-01,credit_interest_pf,2.73,25435,juros,monthly,% a.m.
 2026-08-01,credit_interest_pj,1.51,25434,juros,monthly,% a.m.
 2026-08-01,delinquency_card,9.93,21129,inadimplencia,monthly,%
@@ -9698,6 +9698,9 @@ date,key,value,series_code,category,frequency,unit
 2026-08-01,delinquency_pj,3.36,21083,inadimplencia,monthly,%
 2026-08-01,delinquency_revolving,66.12,21127,inadimplencia,monthly,%
 2026-08-01,delinquency_vehicle,6.57,21121,inadimplencia,monthly,%
+2026-08-01,household_debt,50.11,29037,familias,monthly,%
+2026-08-01,household_debt_ex_housing,30.96,29038,familias,monthly,%
+2026-08-01,income_commitment,28.99,29034,familias,monthly,%
 2026-08-01,ipca,-0.32,433,macro,monthly,%
 2026-08-01,real_income,5784.0,24380,macro,monthly,R$
 2026-08-01,selic,14.25,432,macro,daily,% a.a.
@@ -9732,13 +9735,22 @@ date,key,value,series_code,category,frequency,unit
 2026-08-29,selic,14.0,432,macro,daily,% a.a.
 2026-08-30,selic,14.0,432,macro,daily,% a.a.
 2026-08-31,selic,14.0,432,macro,daily,% a.a.
+2026-09-01,credit_balance_pf,4684766.0,20541,credito,monthly,R$ mi
+2026-09-01,credit_balance_pj,2759442.0,20540,credito,monthly,R$ mi
+2026-09-01,credit_grants_pf,393432.0,20633,credito,monthly,R$ mi
+2026-09-01,credit_grants_pj,353698.0,20632,credito,monthly,R$ mi
+2026-09-01,credit_interest_pf,2.75,25435,juros,monthly,% a.m.
+2026-09-01,credit_interest_pj,1.49,25434,juros,monthly,% a.m.
 2026-09-01,delinquency_card,10.04,21129,inadimplencia,monthly,%
 2026-09-01,delinquency_personal,6.24,21120,inadimplencia,monthly,%
 2026-09-01,delinquency_pf,5.99,21084,inadimplencia,monthly,%
 2026-09-01,delinquency_pj,3.28,21083,inadimplencia,monthly,%
 2026-09-01,delinquency_revolving,65.61,21127,inadimplencia,monthly,%
+2026-09-01,delinquency_vehicle,6.76,21121,inadimplencia,monthly,%
 2026-09-01,ipca,0.82,433,macro,monthly,%
+2026-09-01,real_income,5628.0,24380,macro,monthly,R$
 2026-09-01,selic,14.0,432,macro,daily,% a.a.
+2026-09-01,unemployment,5.2,24369,macro,monthly,%
 2026-09-02,selic,14.0,432,macro,daily,% a.a.
 2026-09-03,selic,14.0,432,macro,daily,% a.a.
 2026-09-04,selic,14.0,432,macro,daily,% a.a.
@@ -9796,3 +9808,5 @@ date,key,value,series_code,category,frequency,unit
 2026-10-26,selic,13.75,432,macro,daily,% a.a.
 2026-10-27,selic,13.75,432,macro,daily,% a.a.
 2026-10-28,selic,13.75,432,macro,daily,% a.a.
+2026-10-29,selic,13.75,432,macro,daily,% a.a.
+2026-10-30,selic,13.75,432,macro,daily,% a.a.
