@@ -9780,6 +9780,7 @@ date,key,value,series_code,category,frequency,unit
 2026-09-28,selic,13.75,432,macro,daily,% a.a.
 2026-09-29,selic,13.75,432,macro,daily,% a.a.
 2026-09-30,selic,13.75,432,macro,daily,% a.a.
+2026-10-01,ipca,0.14,433,macro,monthly,%
 2026-10-01,selic,13.75,432,macro,daily,% a.a.
 2026-10-02,selic,13.75,432,macro,daily,% a.a.
 2026-10-03,selic,13.75,432,macro,daily,% a.a.
@@ -9822,3 +9823,4 @@ date,key,value,series_code,category,frequency,unit
 2026-11-09,selic,13.75,432,macro,daily,% a.a.
 2026-11-10,selic,13.75,432,macro,daily,% a.a.
 2026-11-11,selic,13.75,432,macro,daily,% a.a.
+2026-11-12,selic,13.75,432,macro,daily,% a.a.
