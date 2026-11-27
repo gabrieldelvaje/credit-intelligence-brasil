@@ -20,9 +20,9 @@
       "individual delinquency"
     ],
     "first_reference": "2011-03-01",
-    "latest_reference": "2026-09-01",
-    "latest_value": 5.99,
-    "rows": 187
+    "latest_reference": "2026-10-01",
+    "latest_value": 6.13,
+    "rows": 188
   },
   {
     "key": "delinquency_pj",
@@ -44,9 +44,9 @@
       "business delinquency"
     ],
     "first_reference": "2011-03-01",
-    "latest_reference": "2026-09-01",
-    "latest_value": 3.28,
-    "rows": 187
+    "latest_reference": "2026-10-01",
+    "latest_value": 3.32,
+    "rows": 188
   },
   {
     "key": "delinquency_card",
@@ -66,9 +66,9 @@
       "total credit card"
     ],
     "first_reference": "2011-03-01",
-    "latest_reference": "2026-09-01",
-    "latest_value": 10.04,
-    "rows": 187
+    "latest_reference": "2026-10-01",
+    "latest_value": 10.08,
+    "rows": 188
   },
   {
     "key": "delinquency_revolving",
@@ -88,9 +88,9 @@
       "revolving delinquency"
     ],
     "first_reference": "2011-03-01",
-    "latest_reference": "2026-09-01",
-    "latest_value": 65.61,
-    "rows": 187
+    "latest_reference": "2026-10-01",
+    "latest_value": 65.85,
+    "rows": 188
   },
   {
     "key": "delinquency_personal",
@@ -109,9 +109,9 @@
       "personal loan delinquency"
     ],
     "first_reference": "2011-03-01",
-    "latest_reference": "2026-09-01",
-    "latest_value": 6.24,
-    "rows": 187
+    "latest_reference": "2026-10-01",
+    "latest_value": 6.41,
+    "rows": 188
   },
   {
     "key": "delinquency_vehicle",
@@ -132,9 +132,9 @@
       "auto loans"
     ],
     "first_reference": "2011-03-01",
-    "latest_reference": "2026-09-01",
-    "latest_value": 6.76,
-    "rows": 187
+    "latest_reference": "2026-10-01",
+    "latest_value": 6.63,
+    "rows": 188
   },
   {
     "key": "household_debt",
@@ -153,9 +153,9 @@
       "debt to income"
     ],
     "first_reference": "2005-01-01",
-    "latest_reference": "2026-08-01",
-    "latest_value": 50.11,
-    "rows": 260
+    "latest_reference": "2026-09-01",
+    "latest_value": 50.02,
+    "rows": 261
   },
   {
     "key": "household_debt_ex_housing",
@@ -173,9 +173,9 @@
       "household debt excluding housing"
     ],
     "first_reference": "2005-01-01",
-    "latest_reference": "2026-08-01",
-    "latest_value": 30.96,
-    "rows": 260
+    "latest_reference": "2026-09-01",
+    "latest_value": 30.84,
+    "rows": 261
   },
   {
     "key": "income_commitment",
@@ -195,9 +195,9 @@
       "income commitment"
     ],
     "first_reference": "2005-03-01",
-    "latest_reference": "2026-08-01",
-    "latest_value": 28.99,
-    "rows": 258
+    "latest_reference": "2026-09-01",
+    "latest_value": 29.02,
+    "rows": 259
   },
   {
     "key": "credit_balance_pf",
@@ -216,9 +216,9 @@
       "household credit balance"
     ],
     "first_reference": "2007-03-01",
-    "latest_reference": "2026-09-01",
-    "latest_value": 4684766.0,
-    "rows": 235
+    "latest_reference": "2026-10-01",
+    "latest_value": 4718773.0,
+    "rows": 236
   },
   {
     "key": "credit_balance_pj",
@@ -237,9 +237,9 @@
       "corporate credit balance"
     ],
     "first_reference": "2007-03-01",
-    "latest_reference": "2026-09-01",
-    "latest_value": 2759442.0,
-    "rows": 235
+    "latest_reference": "2026-10-01",
+    "latest_value": 2747382.0,
+    "rows": 236
   },
   {
     "key": "credit_grants_pf",
@@ -259,9 +259,9 @@
       "new household credit"
     ],
     "first_reference": "2011-03-01",
-    "latest_reference": "2026-09-01",
-    "latest_value": 393432.0,
-    "rows": 187
+    "latest_reference": "2026-10-01",
+    "latest_value": 393962.0,
+    "rows": 188
   },
   {
     "key": "credit_grants_pj",
@@ -281,9 +281,9 @@
       "new corporate credit"
     ],
     "first_reference": "2011-03-01",
-    "latest_reference": "2026-09-01",
-    "latest_value": 353698.0,
-    "rows": 187
+    "latest_reference": "2026-10-01",
+    "latest_value": 309969.0,
+    "rows": 188
   },
   {
     "key": "credit_interest_pf",
@@ -304,9 +304,9 @@
       "consumer credit interest"
     ],
     "first_reference": "2011-03-01",
-    "latest_reference": "2026-09-01",
+    "latest_reference": "2026-10-01",
     "latest_value": 2.75,
-    "rows": 187
+    "rows": 188
   },
   {
     "key": "credit_interest_pj",
@@ -324,9 +324,9 @@
       "corporate credit interest"
     ],
     "first_reference": "2011-03-01",
-    "latest_reference": "2026-09-01",
-    "latest_value": 1.49,
-    "rows": 187
+    "latest_reference": "2026-10-01",
+    "latest_value": 1.62,
+    "rows": 188
   },
   {
     "key": "selic",
@@ -345,9 +345,9 @@
       "policy rate"
     ],
     "first_reference": "2011-01-01",
-    "latest_reference": "2026-11-26",
+    "latest_reference": "2026-11-27",
     "latest_value": 13.75,
-    "rows": 5809
+    "rows": 5810
   },
   {
     "key": "ipca",
@@ -389,9 +389,9 @@
       "jobless rate"
     ],
     "first_reference": "2012-03-01",
-    "latest_reference": "2026-09-01",
-    "latest_value": 5.2,
-    "rows": 175
+    "latest_reference": "2026-10-01",
+    "latest_value": 5.1,
+    "rows": 176
   },
   {
     "key": "real_income",
@@ -415,8 +415,8 @@
       "average earnings"
     ],
     "first_reference": "2012-03-01",
-    "latest_reference": "2026-09-01",
-    "latest_value": 5628.0,
-    "rows": 175
+    "latest_reference": "2026-10-01",
+    "latest_value": 5567.0,
+    "rows": 176
   }
 ]
